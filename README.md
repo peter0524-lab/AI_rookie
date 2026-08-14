@@ -8,7 +8,7 @@
   <img alt="Public-safe release" src="https://img.shields.io/badge/release-public--safe-2f6fdd">
   <img alt="PII detector" src="https://img.shields.io/badge/PII-SKT%20A.X%20%2B%20CRF%2BGaz-4c7c59">
   <img alt="Injection detector" src="https://img.shields.io/badge/injection-EXAONE%204.0%201.2B%20Camp-7a5af8">
-  <img alt="No raw data" src="https://img.shields.io/badge/raw%20data-excluded-lightgrey">
+  <img alt="Audit trail" src="https://img.shields.io/badge/raw%20audit%20trail-included-555555">
 </p>
 
 Campfire is a research package for a local AI security gateway that filters user inputs before they are passed to an LLM or agent workflow. The project focuses on two practical risks:
@@ -16,7 +16,7 @@ Campfire is a research package for a local AI security gateway that filters user
 - **Korean PII leakage**: detecting names, IDs, phone numbers, addresses, emails, URLs, and other sensitive entities.
 - **Prompt injection**: identifying malicious or policy-bypassing instructions using backend-LLM attention features and compact detectors.
 
-This repository is the **public-safe** version. It keeps source code, scripts, aggregate metrics, and release documentation, while excluding raw datasets, detailed PII traces, private logs, pretrained caches, and large intermediate feature dumps.
+This repository is the **review/public release** version. It keeps source code, scripts, aggregate metrics, release documentation, and a raw experiment audit trail. Large model caches, heavyweight feature dumps, local credentials, and private server environment files are excluded.
 
 ## Highlights
 
@@ -65,6 +65,7 @@ flowchart LR
 |-- injection/
 |   |-- alignsentinel_replicate/
 |   `-- camp_hybrid_exaone/
+|-- experiment_audit_trail_raw/
 |-- data/
 `-- release_artifacts/
 ```
@@ -75,16 +76,26 @@ flowchart LR
 - Aggregate result artifacts used to reproduce the reported tables.
 - Public-safe developer handoff notes for local app integration.
 - Model-release documentation and lightweight detector metadata where safe to publish.
+- Raw experiment audit artifacts under [`experiment_audit_trail_raw/`](experiment_audit_trail_raw/), including result JSON/CSV/TSV files, run status markers, manifests, and retained logs.
 
 ## What Is Excluded
 
-- Raw KPII or synthetic PII examples.
-- Detailed prediction traces containing PII-like strings.
 - Full pretrained model checkpoints and Hugging Face caches.
 - Large attention-map, hidden-state, and feature-dump intermediates.
 - Local credentials, tokens, server commands, and environment files.
+- Private server-only backup archives and heavyweight model handoff bundles.
 
-The full internal backup is retained locally outside this public repository. See [`docs/public_release_policy.md`](docs/public_release_policy.md) and [`docs/release_and_backup_policy.md`](docs/release_and_backup_policy.md).
+The full internal backup is retained locally outside this public repository. See [`docs/release_and_backup_policy.md`](docs/release_and_backup_policy.md).
+
+## Raw Experiment Audit Trail
+
+The folder [`experiment_audit_trail_raw/`](experiment_audit_trail_raw/) is included to make the experimental record inspectable during review. It contains raw result artifacts and retained run logs from:
+
+- Korean PII experiments,
+- AlignSentinel-style backend LLM injection experiments,
+- Camp EXAONE hybrid injection experiments.
+
+Every copied artifact has a SHA256 entry in [`experiment_audit_trail_raw/checksums/RAW_AUDIT_SHA256.tsv`](experiment_audit_trail_raw/checksums/RAW_AUDIT_SHA256.tsv). Operational secrets such as real access tokens, server passwords, and private server IPs were scanned and excluded before upload.
 
 ## Quick Start
 
@@ -107,15 +118,15 @@ For implementation details:
 
 ## Reproducibility Boundary
 
-This repository is designed for public review and code-level inspection. Some experiments require private datasets or large server-side artifacts that are intentionally not included. The public package therefore supports:
+This repository is designed for public review and code-level inspection. Some experiments still require large server-side model caches or regenerated feature dumps that are intentionally not included. The public package supports:
 
 - inspecting model architecture and detector logic,
 - checking experiment protocols and aggregate metrics,
 - reusing scripts with your own local data,
 - understanding the deployment handoff shape.
 
-It does not include enough private data to exactly rerun every internal training job end to end.
+It does not include heavyweight pretrained caches or large intermediate tensor dumps, so exact end-to-end reruns may require regenerating those artifacts.
 
-## Public-Safe Release Note
+## Release Note
 
-Before upload, this repository was scanned for common token and PII patterns. Detailed logs, raw examples, full PII evaluation traces, and files containing PII-like synthetic examples were removed or redacted. Aggregate metrics, source code, reproducibility scripts, and release documentation were retained.
+Before upload, this repository was scanned for operational secrets such as Hugging Face tokens, GitHub tokens, AWS/OpenAI keys, server passwords, and private server IPs. The raw audit trail is included for review transparency; the datasets and traces are treated as public/synthetic for this release.

@@ -1,0 +1,44 @@
+[chain] remaining4 완료 확인, pooled 학습 시작
+=== [1/3] 8도메인 dump 로드 (재추출 없음, 디스크 → RAM concat) ===
+  [load] train/cloud: n=3200
+  [load] test/cloud: n=800
+  [load] train/coding: n=3200
+  [load] test/coding: n=800
+  [load] train/finance: n=3200
+  [load] test/finance: n=800
+  [load] train/messaging: n=3200
+  [load] test/messaging: n=800
+  [load] train/project: n=3200
+  [load] test/project: n=800
+  [load] train/shopping: n=3200
+  [load] test/shopping: n=800
+  [load] train/social_media: n=3200
+  [load] test/social_media: n=800
+  [load] train/web: n=3200
+  [load] test/web: n=800
+n_train=25600 n_test=6400 lh=960 hd=16384 (elapsed=28s)
+
+=== [2/3] 표준화 통계 (청크 스트리밍) ===
+표준화 통계 완료 (elapsed=211s)
+
+=== [3/3] 학습: baseline(attn, K=1024) vs hybrid(attn+hidden) ===
+    [attn] fp16 데이터 GPU 상주 성공 (device=cuda)
+    [attn] epoch 5/200 elapsed=21s val_acc=0.950
+    [attn] epoch 10/200 elapsed=41s val_acc=0.945
+    [attn] epoch 15/200 elapsed=61s val_acc=0.952
+    [attn] epoch 20/200 elapsed=81s val_acc=0.952
+    [attn] epoch 25/200 elapsed=102s val_acc=0.944
+    [attn] early stop @ epoch 30 (best_val=0.1519)
+[attn] Acc=0.951 FPR=0.0256 FNR=0.0288 macroF1=0.9439 (elapsed=129s)
+    [hybrid] fp16 데이터 GPU 상주 성공 (device=cuda)
+    [hybrid] epoch 5/200 elapsed=23s val_acc=0.952
+    [hybrid] epoch 10/200 elapsed=45s val_acc=0.967
+    [hybrid] epoch 15/200 elapsed=68s val_acc=0.967
+    [hybrid] epoch 20/200 elapsed=90s val_acc=0.968
+    [hybrid] epoch 25/200 elapsed=113s val_acc=0.969
+    [hybrid] epoch 30/200 elapsed=135s val_acc=0.971
+    [hybrid] early stop @ epoch 33 (best_val=0.1539)
+[hybrid] Acc=0.952 FPR=0.0084 FNR=0.0506 macroF1=0.9462 (elapsed=155s)
+
+결과 → results_hybrid_pooled_8domain/pooled_metrics.json
+[chain-complete] pooled 학습 완료

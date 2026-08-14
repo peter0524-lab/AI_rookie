@@ -1,0 +1,87 @@
+================================================================
+[cross-start] A2B
+================================================================
+=== cross=A2B: train=['coding', 'cloud', 'project', 'shopping'] -> eval=['finance', 'messaging', 'social_media', 'web'] ===
+  [load] train/coding: n=3200
+  [load] test/coding: n=800
+  [load] train/cloud: n=3200
+  [load] test/cloud: n=800
+  [load] train/project: n=3200
+  [load] test/project: n=800
+  [load] train/shopping: n=3200
+  [load] test/shopping: n=800
+  [load] train/finance: n=3200
+  [load] test/finance: n=800
+  [load] train/messaging: n=3200
+  [load] test/messaging: n=800
+  [load] train/social_media: n=3200
+  [load] test/social_media: n=800
+  [load] train/web: n=3200
+  [load] test/web: n=800
+n_train=16000 n_test=16000 lh=960 hd=32768 (elapsed=29s)
+표준화 통계 완료 (elapsed=133s)
+    [attn] fp16 데이터 GPU 상주 성공 (device=cuda)
+    [attn] epoch 10/200 elapsed=26s val_acc=0.948 val_risk=0.0454
+    [attn] epoch 20/200 elapsed=51s val_acc=0.941 val_risk=0.0294
+    [attn] epoch 30/200 elapsed=77s val_acc=0.951 val_risk=0.0308
+    [attn] epoch 40/200 elapsed=102s val_acc=0.940 val_risk=0.0390
+    [attn] epoch 50/200 elapsed=127s val_acc=0.942 val_risk=0.0319
+    [attn] epoch 60/200 elapsed=152s val_acc=0.937 val_risk=0.0458
+    [attn] early stop @ epoch 62 (best_val_risk=0.0256)
+    [attn] 임계값 보정: misaligned bias=-2.30 (val risk 0.0256 -> 0.0244)
+[attn] Acc=0.942 FPR=0.0293 FNR=0.0414 risk=0.0383 bias=-2.30 (raw: FPR=0.0398 FNR=0.033 risk=0.0347) (elapsed=165s)
+    [hybrid] fp16 데이터 GPU 상주 성공 (device=cuda)
+    [hybrid] epoch 10/200 elapsed=31s val_acc=0.975 val_risk=0.0192
+    [hybrid] epoch 20/200 elapsed=61s val_acc=0.964 val_risk=0.0144
+    [hybrid] epoch 30/200 elapsed=92s val_acc=0.979 val_risk=0.0160
+    [hybrid] early stop @ epoch 39 (best_val_risk=0.0121)
+    [hybrid] 임계값 보정: misaligned bias=+1.50 (val risk 0.0121 -> 0.0102)
+[hybrid] Acc=0.957 FPR=0.0351 FNR=0.0195 risk=0.0234 bias=+1.50 (raw: FPR=0.027 FNR=0.0213 risk=0.0227) (elapsed=128s)
+
+결과 -> results_cross/cross_A2B_metrics.json
+[cross-done] A2B
+================================================================
+[cross-start] B2A
+================================================================
+=== cross=B2A: train=['finance', 'messaging', 'social_media', 'web'] -> eval=['coding', 'cloud', 'project', 'shopping'] ===
+  [load] train/finance: n=3200
+  [load] test/finance: n=800
+  [load] train/messaging: n=3200
+  [load] test/messaging: n=800
+  [load] train/social_media: n=3200
+  [load] test/social_media: n=800
+  [load] train/web: n=3200
+  [load] test/web: n=800
+  [load] train/coding: n=3200
+  [load] test/coding: n=800
+  [load] train/cloud: n=3200
+  [load] test/cloud: n=800
+  [load] train/project: n=3200
+  [load] test/project: n=800
+  [load] train/shopping: n=3200
+  [load] test/shopping: n=800
+n_train=16000 n_test=16000 lh=960 hd=32768 (elapsed=29s)
+표준화 통계 완료 (elapsed=132s)
+    [attn] fp16 데이터 GPU 상주 성공 (device=cuda)
+    [attn] epoch 10/200 elapsed=26s val_acc=0.946 val_risk=0.0415
+    [attn] epoch 20/200 elapsed=51s val_acc=0.949 val_risk=0.0296
+    [attn] epoch 30/200 elapsed=77s val_acc=0.946 val_risk=0.0383
+    [attn] epoch 40/200 elapsed=102s val_acc=0.950 val_risk=0.0273
+    [attn] epoch 50/200 elapsed=127s val_acc=0.942 val_risk=0.0400
+    [attn] epoch 60/200 elapsed=153s val_acc=0.948 val_risk=0.0325
+    [attn] early stop @ epoch 68 (best_val_risk=0.0177)
+    [attn] 임계값 보정: misaligned bias=+1.00 (val risk 0.0177 -> 0.0175)
+[attn] Acc=0.932 FPR=0.0558 FNR=0.0276 risk=0.0347 bias=+1.00 (raw: FPR=0.0474 FNR=0.031 risk=0.0351) (elapsed=180s)
+    [hybrid] fp16 데이터 GPU 상주 성공 (device=cuda)
+    [hybrid] epoch 10/200 elapsed=31s val_acc=0.963 val_risk=0.0158
+    [hybrid] epoch 20/200 elapsed=61s val_acc=0.970 val_risk=0.0146
+    [hybrid] epoch 30/200 elapsed=92s val_acc=0.913 val_risk=0.1050
+    [hybrid] early stop @ epoch 39 (best_val_risk=0.0104)
+    [hybrid] 임계값 보정: misaligned bias=-0.50 (val risk 0.0104 -> 0.0098)
+[hybrid] Acc=0.951 FPR=0.0516 FNR=0.0126 risk=0.0224 bias=-0.50 (raw: FPR=0.0532 FNR=0.0121 risk=0.0224) (elapsed=128s)
+
+결과 -> results_cross/cross_B2A_metrics.json
+[cross-done] B2A
+================================================================
+[cross-all-complete]
+================================================================

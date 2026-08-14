@@ -1,0 +1,36 @@
+[ENTITY VOTE] 모델 1개 (min_votes=1):
+  - models/xlm_roberta_large/seed42
+평가 데이터: /data/team/hwan/synthetic/test.json
+라벨 필터: 전체 19개 라벨 평가
+
+[models/xlm_roberta_large/seed42] 예측 중...
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 5488.38it/s]
+  아키텍처: baseline  (795문장)
+
+다수결 앙상블 (min_votes=1)...
+
+====================================================================
+[test / VOTE×1]  Micro F1=0.8251  P=0.7786  R=0.8774
+  TP=1210  FP=344  FN=169
+====================================================================
+  PS_NAME                F1=0.8691 P=0.8750 R=0.8633  TP=  581 FP=   83 FN=   92
+  LC_ADDRESS             F1=0.8601 P=0.8737 R=0.8469  TP=   83 FP=   12 FN=   15
+  OG_WORKPLACE           F1=0.6614 P=0.5316 R=0.8750  TP=   42 FP=   37 FN=    6
+  OG_DEPARTMENT          F1=0.6098 P=0.4545 R=0.9259  TP=   25 FP=   30 FN=    2
+  CV_POSITION            F1=0.0630 P=0.0345 R=0.3636  TP=    4 FP=  112 FN=    7
+  OGG_EDUCATION          F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    1 FN=    0
+  QT_MOBILE              F1=0.9919 P=0.9840 R=1.0000  TP=  123 FP=    2 FN=    0
+  QT_PHONE               F1=0.9375 P=0.8824 R=1.0000  TP=   75 FP=   10 FN=    0
+  QT_RESIDENT_NUMBER     F1=0.5556 P=0.3846 R=1.0000  TP=   15 FP=   24 FN=    0
+  QT_ALIEN_NUMBER        F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_DRIVER_NUMBER       F1=0.3000 P=0.1765 R=1.0000  TP=    3 FP=   14 FN=    0
+  QT_PLATE_NUMBER        F1=0.9412 P=0.8889 R=1.0000  TP=    8 FP=    1 FN=    0
+  QT_ACCOUNT_NUMBER      F1=0.8302 P=0.8980 R=0.7719  TP=   44 FP=    5 FN=   13
+  QT_CARD_NUMBER         F1=1.0000 P=1.0000 R=1.0000  TP=   27 FP=    0 FN=    0
+  TMI_EMAIL              F1=0.9105 P=1.0000 R=0.8357  TP=  117 FP=    0 FN=   23
+  QT_PASSPORT_NUMBER     F1=0.8571 P=0.7500 R=1.0000  TP=    9 FP=    3 FN=    0
+  QT_AGE                 F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    1 FN=    0
+  DT_BIRTH               F1=0.8438 P=0.8571 R=0.8308  TP=   54 FP=    9 FN=   11
+  FD_MAJOR               F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+
+MD 저장: /data/team/hwan/results/ensemble_vote/eval_vote_test_xlm_kdpii_seed42_to_synth_20260704_142727.md

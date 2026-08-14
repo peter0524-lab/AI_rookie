@@ -1,0 +1,206 @@
+{
+  "split": "test",
+  "data_dir": "/data/team/hwan/synthetic",
+  "tag": "synthetic_test",
+  "spacy_model": "ko_core_news_lg",
+  "labels": [
+    "PS_NAME",
+    "LC_ADDRESS",
+    "OG_WORKPLACE",
+    "OG_DEPARTMENT",
+    "CV_POSITION",
+    "OGG_EDUCATION",
+    "QT_MOBILE",
+    "QT_PHONE",
+    "QT_RESIDENT_NUMBER",
+    "QT_ALIEN_NUMBER",
+    "QT_DRIVER_NUMBER",
+    "QT_PLATE_NUMBER",
+    "QT_ACCOUNT_NUMBER",
+    "QT_CARD_NUMBER",
+    "TMI_EMAIL",
+    "QT_PASSPORT_NUMBER",
+    "QT_AGE",
+    "DT_BIRTH",
+    "FD_MAJOR"
+  ],
+  "excluded_labels": [],
+  "micro": {
+    "f1": 0.49673202614379086,
+    "p": 0.9978118161925602,
+    "r": 0.3306744017403916,
+    "tp": 456,
+    "fp": 1,
+    "fn": 923
+  },
+  "direct": {
+    "f1": 0.5412462908011869,
+    "p": 0.9978118161925602,
+    "r": 0.3713355048859935,
+    "tp": 456,
+    "fp": 1,
+    "fn": 772
+  },
+  "indirect": {
+    "f1": 0.0,
+    "p": 0.0,
+    "r": 0.0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 151
+  },
+  "per_label": {
+    "PS_NAME": {
+      "f1": 0.0,
+      "p": 0.0,
+      "r": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 673
+    },
+    "LC_ADDRESS": {
+      "f1": 0.0,
+      "p": 0.0,
+      "r": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 98
+    },
+    "OG_WORKPLACE": {
+      "f1": 0.0,
+      "p": 0.0,
+      "r": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 48
+    },
+    "OG_DEPARTMENT": {
+      "f1": 0.0,
+      "p": 0.0,
+      "r": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 27
+    },
+    "CV_POSITION": {
+      "f1": 0.0,
+      "p": 0.0,
+      "r": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 11
+    },
+    "OGG_EDUCATION": {
+      "f1": 0.0,
+      "p": 0.0,
+      "r": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    },
+    "QT_MOBILE": {
+      "f1": 1.0,
+      "p": 1.0,
+      "r": 1.0,
+      "tp": 123,
+      "fp": 0,
+      "fn": 0
+    },
+    "QT_PHONE": {
+      "f1": 0.9933774834437086,
+      "p": 0.9868421052631579,
+      "r": 1.0,
+      "tp": 75,
+      "fp": 1,
+      "fn": 0
+    },
+    "QT_RESIDENT_NUMBER": {
+      "f1": 1.0,
+      "p": 1.0,
+      "r": 1.0,
+      "tp": 15,
+      "fp": 0,
+      "fn": 0
+    },
+    "QT_ALIEN_NUMBER": {
+      "f1": 0.0,
+      "p": 0.0,
+      "r": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    },
+    "QT_DRIVER_NUMBER": {
+      "f1": 1.0,
+      "p": 1.0,
+      "r": 1.0,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    "QT_PLATE_NUMBER": {
+      "f1": 1.0,
+      "p": 1.0,
+      "r": 1.0,
+      "tp": 8,
+      "fp": 0,
+      "fn": 0
+    },
+    "QT_ACCOUNT_NUMBER": {
+      "f1": 0.9911504424778761,
+      "p": 1.0,
+      "r": 0.9824561403508771,
+      "tp": 56,
+      "fp": 0,
+      "fn": 1
+    },
+    "QT_CARD_NUMBER": {
+      "f1": 1.0,
+      "p": 1.0,
+      "r": 1.0,
+      "tp": 27,
+      "fp": 0,
+      "fn": 0
+    },
+    "TMI_EMAIL": {
+      "f1": 1.0,
+      "p": 1.0,
+      "r": 1.0,
+      "tp": 140,
+      "fp": 0,
+      "fn": 0
+    },
+    "QT_PASSPORT_NUMBER": {
+      "f1": 1.0,
+      "p": 1.0,
+      "r": 1.0,
+      "tp": 9,
+      "fp": 0,
+      "fn": 0
+    },
+    "QT_AGE": {
+      "f1": 0.0,
+      "p": 0.0,
+      "r": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    },
+    "DT_BIRTH": {
+      "f1": 0.0,
+      "p": 0.0,
+      "r": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 65
+    },
+    "FD_MAJOR": {
+      "f1": 0.0,
+      "p": 0.0,
+      "r": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    }
+  }
+}

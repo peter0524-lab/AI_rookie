@@ -1,0 +1,59 @@
+nohup: ignoring input
+[run] tag=smoke_exaone_fix2_20260722_2220
+[run] data=data_32k_final/full_train.json data_32k_final/full_test.json
+[run] features=features_smoke_exaone_fix
+[run] results=results_smoke_exaone_fix
+[run] models=models_smoke_exaone_fix
+[run] clean_features_after=1
+[run] model_ids=LGAI-EXAONE/EXAONE-Deep-7.8B
+================================================================
+[sequential] MODEL_SET=all DETECTOR=regularized
+[sequential] SKIP_DONE=0 CONTINUE_ON_ERROR=0
+[sequential] models=1
+[sequential] CACHE_ROOT=auto
+[sequential] data=data_32k_final/full_train.json data_32k_final/full_test.json
+[sequential] roots=features_smoke_exaone_fix results_smoke_exaone_fix models_smoke_exaone_fix
+================================================================
+================================================================
+[start] LGAI-EXAONE/EXAONE-Deep-7.8B
+================================================================
+[env] EXAONE_PYTHON_BIN=/data/team/hwan/.venvs/alignsentinel_exaone/bin/python
+[env] EXAONE HF_MODULES_CACHE=/data/team/hwan/.cache/huggingface/modules_exaone_py5.1.0
+[env] EXAONE offline cache mode enabled
+================================================================
+[model] LGAI-EXAONE/EXAONE-Deep-7.8B
+[dirs] features=features_smoke_exaone_fix/LGAI-EXAONE_EXAONE-Deep-7_8B results=results_smoke_exaone_fix/LGAI-EXAONE_EXAONE-Deep-7_8B_regularized models=models_smoke_exaone_fix/LGAI-EXAONE_EXAONE-Deep-7_8B_regularized
+================================================================
+`torch_dtype` is deprecated! Use `dtype` instead!
+loading LGAI-EXAONE/EXAONE-Deep-7.8B (attn_implementation=eager, dtype=bfloat16)
+Traceback (most recent call last):
+  File "/data/team/hwan/.venvs/alignsentinel_exaone/lib/python3.10/site-packages/transformers/utils/hub.py", line 433, in cached_files
+    snapshot_download(
+  File "/data/team/hwan/.venvs/alignsentinel_exaone/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/data/team/hwan/.venvs/alignsentinel_exaone/lib/python3.10/site-packages/huggingface_hub/_snapshot_download.py", line 313, in snapshot_download
+    _raise_if_incomplete_snapshot(
+  File "/data/team/hwan/.venvs/alignsentinel_exaone/lib/python3.10/site-packages/huggingface_hub/_snapshot_download.py", line 569, in _raise_if_incomplete_snapshot
+    raise IncompleteSnapshotError(
+huggingface_hub.errors.IncompleteSnapshotError: The cached snapshot for 'LGAI-EXAONE/EXAONE-Deep-7.8B' (revision 'main', commit 8a120673fc7309b55be2175a2e61f9a0839e4f61) is incomplete: 1 file(s) are missing (model-00001-of-00004.safetensors). Outgoing traffic is disabled ('local_files_only=True'). Re-run the download with network access to complete the snapshot.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/data/team/hwan/alignsentinel_replicate/src/extract_features.py", line 236, in <module>
+    main()
+  File "/data/team/hwan/alignsentinel_replicate/src/extract_features.py", line 129, in main
+    model = AutoModelForCausalLM.from_pretrained(
+  File "/data/team/hwan/.venvs/alignsentinel_exaone/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py", line 367, in from_pretrained
+    return model_class.from_pretrained(
+  File "/data/team/hwan/.venvs/alignsentinel_exaone/lib/python3.10/site-packages/transformers/modeling_utils.py", line 3987, in from_pretrained
+    checkpoint_files, sharded_metadata = _get_resolved_checkpoint_files(
+  File "/data/team/hwan/.venvs/alignsentinel_exaone/lib/python3.10/site-packages/transformers/modeling_utils.py", line 737, in _get_resolved_checkpoint_files
+    checkpoint_files, sharded_metadata = get_checkpoint_shard_files(
+  File "/data/team/hwan/.venvs/alignsentinel_exaone/lib/python3.10/site-packages/transformers/utils/hub.py", line 869, in get_checkpoint_shard_files
+    cached_filenames = cached_files(
+  File "/data/team/hwan/.venvs/alignsentinel_exaone/lib/python3.10/site-packages/transformers/utils/hub.py", line 493, in cached_files
+    raise OSError(
+OSError: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+[fail] LGAI-EXAONE/EXAONE-Deep-7.8B exit=1

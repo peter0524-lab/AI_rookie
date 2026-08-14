@@ -1,0 +1,46 @@
+[ENTITY VOTE] 모델 3개 (min_votes=2):
+  - models/skt_encoder_distill_crf_gaz_mixed_natural/seed42
+  - models/skt_encoder_distill_crf_gaz_mixed_natural/seed43
+  - models/skt_encoder_distill_crf_gaz_mixed_natural/seed44
+평가 데이터: /data/team/hwan/data/test.json
+라벨 필터: 전체 19개 라벨 평가
+
+[models/skt_encoder_distill_crf_gaz_mixed_natural/seed42] 예측 중...
+Loading weights:   0%|          | 0/141 [00:00<?, ?it/s]Loading weights: 100%|██████████| 141/141 [00:00<00:00, 3445.32it/s]
+  아키텍처: pii_hwan  (4,891문장)
+
+[models/skt_encoder_distill_crf_gaz_mixed_natural/seed43] 예측 중...
+Loading weights:   0%|          | 0/141 [00:00<?, ?it/s]Loading weights: 100%|██████████| 141/141 [00:00<00:00, 3572.12it/s]
+  아키텍처: pii_hwan  (4,891문장)
+
+[models/skt_encoder_distill_crf_gaz_mixed_natural/seed44] 예측 중...
+Loading weights:   0%|          | 0/141 [00:00<?, ?it/s]Loading weights: 100%|██████████| 141/141 [00:00<00:00, 3015.10it/s]
+  아키텍처: pii_hwan  (4,891문장)
+
+다수결 앙상블 (min_votes=2)...
+
+====================================================================
+[test / VOTE×3]  Micro F1=0.9650  P=0.9739  R=0.9561
+  TP=1308  FP=35  FN=60
+====================================================================
+  PS_NAME                F1=0.9435 P=0.9435 R=0.9435  TP=  167 FP=   10 FN=   10
+  LC_ADDRESS             F1=0.9347 P=0.9490 R=0.9208  TP=   93 FP=    5 FN=    8
+  OG_WORKPLACE           F1=0.8585 P=0.9565 R=0.7788  TP=   88 FP=    4 FN=   25
+  OG_DEPARTMENT          F1=1.0000 P=1.0000 R=1.0000  TP=   99 FP=    0 FN=    0
+  CV_POSITION            F1=0.9106 P=0.9180 R=0.9032  TP=  112 FP=   10 FN=   12
+  OGG_EDUCATION          F1=0.9886 P=1.0000 R=0.9775  TP=   87 FP=    0 FN=    2
+  QT_MOBILE              F1=1.0000 P=1.0000 R=1.0000  TP=   55 FP=    0 FN=    0
+  QT_PHONE               F1=1.0000 P=1.0000 R=1.0000  TP=   69 FP=    0 FN=    0
+  QT_RESIDENT_NUMBER     F1=1.0000 P=1.0000 R=1.0000  TP=   18 FP=    0 FN=    0
+  QT_ALIEN_NUMBER        F1=1.0000 P=1.0000 R=1.0000  TP=    9 FP=    0 FN=    0
+  QT_DRIVER_NUMBER       F1=1.0000 P=1.0000 R=1.0000  TP=   17 FP=    0 FN=    0
+  QT_PLATE_NUMBER        F1=1.0000 P=1.0000 R=1.0000  TP=   52 FP=    0 FN=    0
+  QT_ACCOUNT_NUMBER      F1=1.0000 P=1.0000 R=1.0000  TP=   77 FP=    0 FN=    0
+  QT_CARD_NUMBER         F1=1.0000 P=1.0000 R=1.0000  TP=   78 FP=    0 FN=    0
+  TMI_EMAIL              F1=1.0000 P=1.0000 R=1.0000  TP=   81 FP=    0 FN=    0
+  QT_PASSPORT_NUMBER     F1=1.0000 P=1.0000 R=1.0000  TP=   18 FP=    0 FN=    0
+  QT_AGE                 F1=0.9558 P=0.9474 R=0.9643  TP=   54 FP=    3 FN=    2
+  DT_BIRTH               F1=0.9929 P=0.9859 R=1.0000  TP=   70 FP=    1 FN=    0
+  FD_MAJOR               F1=0.9771 P=0.9697 R=0.9846  TP=   64 FP=    2 FN=    1
+
+MD 저장: /data/team/hwan/results/ensemble_vote/eval_vote_test_skt_distill_crf_gaz_mixed_natural_x3_vote_to_kdpii_full_20260705_042414.md

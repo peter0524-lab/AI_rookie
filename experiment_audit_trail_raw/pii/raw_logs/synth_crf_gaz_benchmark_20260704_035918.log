@@ -1,0 +1,279 @@
+=== 합성 crf_gaz 벤치마크 시작 (MAX_JOBS=3, MICRO_BSZ=64) ===
+[train] hard seed42 → models/skt_encoder_crf_gaz_synthetic/seed42  log=logs/synth_hard_seed42_20260704_035918.log
+  PID=320571
+[train] hard seed43 → models/skt_encoder_crf_gaz_synthetic/seed43  log=logs/synth_hard_seed43_20260704_035918.log
+  PID=320577
+[train] hard seed44 → models/skt_encoder_crf_gaz_synthetic/seed44  log=logs/synth_hard_seed44_20260704_035918.log
+  PID=320583
+[train] distill seed42 → models/skt_encoder_distill_crf_gaz_synthetic/seed42  log=logs/synth_distill_seed42_20260704_055739.log
+  PID=324844
+[train] distill seed43 → models/skt_encoder_distill_crf_gaz_synthetic/seed43  log=logs/synth_distill_seed43_20260704_055739.log
+  PID=324850
+[train] distill seed44 → models/skt_encoder_distill_crf_gaz_synthetic/seed44  log=logs/synth_distill_seed44_20260704_055739.log
+  PID=324856
+=== 6개 학습 job 대기 중... ===
+=== 학습 완료 — per-seed test 평가 ===
+Loading weights:   0%|          | 0/141 [00:00<?, ?it/s]Loading weights: 100%|██████████| 141/141 [00:00<00:00, 3391.93it/s]
+[CRF+GAZ] 모델: models/skt_encoder_crf_gaz_synthetic/seed42
+평가: test.json  →  cuda
+
+====================================================================
+[test]  Micro F1=0.9518  P=0.9976  R=0.9101
+  TP=1255  FP=3  FN=124
+====================================================================
+  PS_NAME                      F1=0.9493 P=0.9984 R=0.9049  TP=  609 FP=    1 FN=   64
+  LC_ADDRESS                   F1=0.9171 P=1.0000 R=0.8469  TP=   83 FP=    0 FN=   15
+  OG_WORKPLACE                 F1=0.9348 P=0.9773 R=0.8958  TP=   43 FP=    1 FN=    5
+  OG_DEPARTMENT                F1=0.9412 P=1.0000 R=0.8889  TP=   24 FP=    0 FN=    3
+  CV_POSITION                  F1=0.8421 P=1.0000 R=0.7273  TP=    8 FP=    0 FN=    3
+  OGG_EDUCATION                F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_MOBILE                    F1=1.0000 P=1.0000 R=1.0000  TP=  123 FP=    0 FN=    0
+  QT_PHONE                     F1=0.9934 P=0.9868 R=1.0000  TP=   75 FP=    1 FN=    0
+  QT_RESIDENT_NUMBER           F1=1.0000 P=1.0000 R=1.0000  TP=   15 FP=    0 FN=    0
+  QT_ALIEN_NUMBER              F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_DRIVER_NUMBER             F1=1.0000 P=1.0000 R=1.0000  TP=    3 FP=    0 FN=    0
+  QT_PLATE_NUMBER              F1=1.0000 P=1.0000 R=1.0000  TP=    8 FP=    0 FN=    0
+  QT_ACCOUNT_NUMBER            F1=0.9245 P=1.0000 R=0.8596  TP=   49 FP=    0 FN=    8
+  QT_CARD_NUMBER               F1=1.0000 P=1.0000 R=1.0000  TP=   27 FP=    0 FN=    0
+  TMI_EMAIL                    F1=0.9313 P=1.0000 R=0.8714  TP=  122 FP=    0 FN=   18
+  QT_PASSPORT_NUMBER           F1=1.0000 P=1.0000 R=1.0000  TP=    9 FP=    0 FN=    0
+  QT_AGE                       F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  DT_BIRTH                     F1=0.9344 P=1.0000 R=0.8769  TP=   57 FP=    0 FN=    8
+  FD_MAJOR                     F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+
+MD 저장: /data/team/hwan/results/skt_encoder_crf_gaz_synthetic/eval_test_crf_gaz_synth_hard_seed42_20260704_075638.md
+Loading weights:   0%|          | 0/141 [00:00<?, ?it/s]Loading weights: 100%|██████████| 141/141 [00:00<00:00, 3596.78it/s]
+[CRF+GAZ] 모델: models/skt_encoder_crf_gaz_synthetic/seed43
+평가: test.json  →  cuda
+
+====================================================================
+[test]  Micro F1=0.9519  P=0.9968  R=0.9108
+  TP=1256  FP=4  FN=123
+====================================================================
+  PS_NAME                      F1=0.9493 P=0.9984 R=0.9049  TP=  609 FP=    1 FN=   64
+  LC_ADDRESS                   F1=0.9171 P=1.0000 R=0.8469  TP=   83 FP=    0 FN=   15
+  OG_WORKPLACE                 F1=0.9348 P=0.9773 R=0.8958  TP=   43 FP=    1 FN=    5
+  OG_DEPARTMENT                F1=0.9412 P=1.0000 R=0.8889  TP=   24 FP=    0 FN=    3
+  CV_POSITION                  F1=0.8571 P=0.9000 R=0.8182  TP=    9 FP=    1 FN=    2
+  OGG_EDUCATION                F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_MOBILE                    F1=1.0000 P=1.0000 R=1.0000  TP=  123 FP=    0 FN=    0
+  QT_PHONE                     F1=0.9934 P=0.9868 R=1.0000  TP=   75 FP=    1 FN=    0
+  QT_RESIDENT_NUMBER           F1=1.0000 P=1.0000 R=1.0000  TP=   15 FP=    0 FN=    0
+  QT_ALIEN_NUMBER              F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_DRIVER_NUMBER             F1=1.0000 P=1.0000 R=1.0000  TP=    3 FP=    0 FN=    0
+  QT_PLATE_NUMBER              F1=1.0000 P=1.0000 R=1.0000  TP=    8 FP=    0 FN=    0
+  QT_ACCOUNT_NUMBER            F1=0.9245 P=1.0000 R=0.8596  TP=   49 FP=    0 FN=    8
+  QT_CARD_NUMBER               F1=1.0000 P=1.0000 R=1.0000  TP=   27 FP=    0 FN=    0
+  TMI_EMAIL                    F1=0.9313 P=1.0000 R=0.8714  TP=  122 FP=    0 FN=   18
+  QT_PASSPORT_NUMBER           F1=1.0000 P=1.0000 R=1.0000  TP=    9 FP=    0 FN=    0
+  QT_AGE                       F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  DT_BIRTH                     F1=0.9344 P=1.0000 R=0.8769  TP=   57 FP=    0 FN=    8
+  FD_MAJOR                     F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+
+MD 저장: /data/team/hwan/results/skt_encoder_crf_gaz_synthetic/eval_test_crf_gaz_synth_hard_seed43_20260704_075652.md
+Loading weights:   0%|          | 0/141 [00:00<?, ?it/s]Loading weights: 100%|██████████| 141/141 [00:00<00:00, 3708.58it/s]
+[CRF+GAZ] 모델: models/skt_encoder_crf_gaz_synthetic/seed44
+평가: test.json  →  cuda
+
+====================================================================
+[test]  Micro F1=0.9522  P=0.9976  R=0.9108
+  TP=1256  FP=3  FN=123
+====================================================================
+  PS_NAME                      F1=0.9493 P=0.9984 R=0.9049  TP=  609 FP=    1 FN=   64
+  LC_ADDRESS                   F1=0.9171 P=1.0000 R=0.8469  TP=   83 FP=    0 FN=   15
+  OG_WORKPLACE                 F1=0.9451 P=1.0000 R=0.8958  TP=   43 FP=    0 FN=    5
+  OG_DEPARTMENT                F1=0.9412 P=1.0000 R=0.8889  TP=   24 FP=    0 FN=    3
+  CV_POSITION                  F1=0.9000 P=1.0000 R=0.8182  TP=    9 FP=    0 FN=    2
+  OGG_EDUCATION                F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_MOBILE                    F1=0.9960 P=0.9919 R=1.0000  TP=  123 FP=    1 FN=    0
+  QT_PHONE                     F1=0.9934 P=0.9868 R=1.0000  TP=   75 FP=    1 FN=    0
+  QT_RESIDENT_NUMBER           F1=1.0000 P=1.0000 R=1.0000  TP=   15 FP=    0 FN=    0
+  QT_ALIEN_NUMBER              F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_DRIVER_NUMBER             F1=1.0000 P=1.0000 R=1.0000  TP=    3 FP=    0 FN=    0
+  QT_PLATE_NUMBER              F1=1.0000 P=1.0000 R=1.0000  TP=    8 FP=    0 FN=    0
+  QT_ACCOUNT_NUMBER            F1=0.9245 P=1.0000 R=0.8596  TP=   49 FP=    0 FN=    8
+  QT_CARD_NUMBER               F1=1.0000 P=1.0000 R=1.0000  TP=   27 FP=    0 FN=    0
+  TMI_EMAIL                    F1=0.9313 P=1.0000 R=0.8714  TP=  122 FP=    0 FN=   18
+  QT_PASSPORT_NUMBER           F1=1.0000 P=1.0000 R=1.0000  TP=    9 FP=    0 FN=    0
+  QT_AGE                       F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  DT_BIRTH                     F1=0.9344 P=1.0000 R=0.8769  TP=   57 FP=    0 FN=    8
+  FD_MAJOR                     F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+
+MD 저장: /data/team/hwan/results/skt_encoder_crf_gaz_synthetic/eval_test_crf_gaz_synth_hard_seed44_20260704_075706.md
+Loading weights:   0%|          | 0/141 [00:00<?, ?it/s]Loading weights: 100%|██████████| 141/141 [00:00<00:00, 3936.85it/s]
+[CRF+GAZ] 모델: models/skt_encoder_distill_crf_gaz_synthetic/seed42
+평가: test.json  →  cuda
+
+====================================================================
+[test]  Micro F1=0.9512  P=0.9952  R=0.9108
+  TP=1256  FP=6  FN=123
+====================================================================
+  PS_NAME                      F1=0.9493 P=0.9984 R=0.9049  TP=  609 FP=    1 FN=   64
+  LC_ADDRESS                   F1=0.9121 P=0.9881 R=0.8469  TP=   83 FP=    1 FN=   15
+  OG_WORKPLACE                 F1=0.9362 P=0.9565 R=0.9167  TP=   44 FP=    2 FN=    4
+  OG_DEPARTMENT                F1=0.9412 P=1.0000 R=0.8889  TP=   24 FP=    0 FN=    3
+  CV_POSITION                  F1=0.8421 P=1.0000 R=0.7273  TP=    8 FP=    0 FN=    3
+  OGG_EDUCATION                F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_MOBILE                    F1=0.9960 P=0.9919 R=1.0000  TP=  123 FP=    1 FN=    0
+  QT_PHONE                     F1=0.9934 P=0.9868 R=1.0000  TP=   75 FP=    1 FN=    0
+  QT_RESIDENT_NUMBER           F1=1.0000 P=1.0000 R=1.0000  TP=   15 FP=    0 FN=    0
+  QT_ALIEN_NUMBER              F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_DRIVER_NUMBER             F1=1.0000 P=1.0000 R=1.0000  TP=    3 FP=    0 FN=    0
+  QT_PLATE_NUMBER              F1=1.0000 P=1.0000 R=1.0000  TP=    8 FP=    0 FN=    0
+  QT_ACCOUNT_NUMBER            F1=0.9245 P=1.0000 R=0.8596  TP=   49 FP=    0 FN=    8
+  QT_CARD_NUMBER               F1=1.0000 P=1.0000 R=1.0000  TP=   27 FP=    0 FN=    0
+  TMI_EMAIL                    F1=0.9313 P=1.0000 R=0.8714  TP=  122 FP=    0 FN=   18
+  QT_PASSPORT_NUMBER           F1=1.0000 P=1.0000 R=1.0000  TP=    9 FP=    0 FN=    0
+  QT_AGE                       F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  DT_BIRTH                     F1=0.9344 P=1.0000 R=0.8769  TP=   57 FP=    0 FN=    8
+  FD_MAJOR                     F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+
+MD 저장: /data/team/hwan/results/skt_encoder_distill_crf_gaz_synthetic/eval_test_crf_gaz_synth_distill_seed42_20260704_075720.md
+Loading weights:   0%|          | 0/141 [00:00<?, ?it/s]Loading weights: 100%|██████████| 141/141 [00:00<00:00, 3327.61it/s]
+[CRF+GAZ] 모델: models/skt_encoder_distill_crf_gaz_synthetic/seed43
+평가: test.json  →  cuda
+
+====================================================================
+[test]  Micro F1=0.9504  P=0.9952  R=0.9094
+  TP=1254  FP=6  FN=125
+====================================================================
+  PS_NAME                      F1=0.9485 P=0.9984 R=0.9034  TP=  608 FP=    1 FN=   65
+  LC_ADDRESS                   F1=0.9121 P=0.9881 R=0.8469  TP=   83 FP=    1 FN=   15
+  OG_WORKPLACE                 F1=0.9247 P=0.9556 R=0.8958  TP=   43 FP=    2 FN=    5
+  OG_DEPARTMENT                F1=0.9615 P=1.0000 R=0.9259  TP=   25 FP=    0 FN=    2
+  CV_POSITION                  F1=0.7778 P=1.0000 R=0.6364  TP=    7 FP=    0 FN=    4
+  OGG_EDUCATION                F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_MOBILE                    F1=0.9960 P=0.9919 R=1.0000  TP=  123 FP=    1 FN=    0
+  QT_PHONE                     F1=0.9934 P=0.9868 R=1.0000  TP=   75 FP=    1 FN=    0
+  QT_RESIDENT_NUMBER           F1=1.0000 P=1.0000 R=1.0000  TP=   15 FP=    0 FN=    0
+  QT_ALIEN_NUMBER              F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_DRIVER_NUMBER             F1=1.0000 P=1.0000 R=1.0000  TP=    3 FP=    0 FN=    0
+  QT_PLATE_NUMBER              F1=1.0000 P=1.0000 R=1.0000  TP=    8 FP=    0 FN=    0
+  QT_ACCOUNT_NUMBER            F1=0.9245 P=1.0000 R=0.8596  TP=   49 FP=    0 FN=    8
+  QT_CARD_NUMBER               F1=1.0000 P=1.0000 R=1.0000  TP=   27 FP=    0 FN=    0
+  TMI_EMAIL                    F1=0.9313 P=1.0000 R=0.8714  TP=  122 FP=    0 FN=   18
+  QT_PASSPORT_NUMBER           F1=1.0000 P=1.0000 R=1.0000  TP=    9 FP=    0 FN=    0
+  QT_AGE                       F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  DT_BIRTH                     F1=0.9344 P=1.0000 R=0.8769  TP=   57 FP=    0 FN=    8
+  FD_MAJOR                     F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+
+MD 저장: /data/team/hwan/results/skt_encoder_distill_crf_gaz_synthetic/eval_test_crf_gaz_synth_distill_seed43_20260704_075734.md
+Loading weights:   0%|          | 0/141 [00:00<?, ?it/s]Loading weights: 100%|██████████| 141/141 [00:00<00:00, 3185.79it/s]
+[CRF+GAZ] 모델: models/skt_encoder_distill_crf_gaz_synthetic/seed44
+평가: test.json  →  cuda
+
+====================================================================
+[test]  Micro F1=0.9522  P=0.9976  R=0.9108
+  TP=1256  FP=3  FN=123
+====================================================================
+  PS_NAME                      F1=0.9493 P=0.9984 R=0.9049  TP=  609 FP=    1 FN=   64
+  LC_ADDRESS                   F1=0.9171 P=1.0000 R=0.8469  TP=   83 FP=    0 FN=   15
+  OG_WORKPLACE                 F1=0.9451 P=1.0000 R=0.8958  TP=   43 FP=    0 FN=    5
+  OG_DEPARTMENT                F1=0.9615 P=1.0000 R=0.9259  TP=   25 FP=    0 FN=    2
+  CV_POSITION                  F1=0.9000 P=1.0000 R=0.8182  TP=    9 FP=    0 FN=    2
+  OGG_EDUCATION                F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_MOBILE                    F1=0.9960 P=0.9919 R=1.0000  TP=  123 FP=    1 FN=    0
+  QT_PHONE                     F1=0.9934 P=0.9868 R=1.0000  TP=   75 FP=    1 FN=    0
+  QT_RESIDENT_NUMBER           F1=1.0000 P=1.0000 R=1.0000  TP=   15 FP=    0 FN=    0
+  QT_ALIEN_NUMBER              F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_DRIVER_NUMBER             F1=1.0000 P=1.0000 R=1.0000  TP=    3 FP=    0 FN=    0
+  QT_PLATE_NUMBER              F1=1.0000 P=1.0000 R=1.0000  TP=    8 FP=    0 FN=    0
+  QT_ACCOUNT_NUMBER            F1=0.9245 P=1.0000 R=0.8596  TP=   49 FP=    0 FN=    8
+  QT_CARD_NUMBER               F1=1.0000 P=1.0000 R=1.0000  TP=   27 FP=    0 FN=    0
+  TMI_EMAIL                    F1=0.9313 P=1.0000 R=0.8714  TP=  122 FP=    0 FN=   18
+  QT_PASSPORT_NUMBER           F1=1.0000 P=1.0000 R=1.0000  TP=    9 FP=    0 FN=    0
+  QT_AGE                       F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  DT_BIRTH                     F1=0.9256 P=1.0000 R=0.8615  TP=   56 FP=    0 FN=    9
+  FD_MAJOR                     F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+
+MD 저장: /data/team/hwan/results/skt_encoder_distill_crf_gaz_synthetic/eval_test_crf_gaz_synth_distill_seed44_20260704_075748.md
+=== entity voting 앙상블 ===
+[ENTITY VOTE] 모델 3개 (min_votes=2):
+  - models/skt_encoder_crf_gaz_synthetic/seed42
+  - models/skt_encoder_crf_gaz_synthetic/seed43
+  - models/skt_encoder_crf_gaz_synthetic/seed44
+
+[models/skt_encoder_crf_gaz_synthetic/seed42] 예측 중...
+Loading weights:   0%|          | 0/141 [00:00<?, ?it/s]Loading weights: 100%|██████████| 141/141 [00:00<00:00, 3954.93it/s]
+  아키텍처: pii_hwan  (795문장)
+
+[models/skt_encoder_crf_gaz_synthetic/seed43] 예측 중...
+Loading weights:   0%|          | 0/141 [00:00<?, ?it/s]Loading weights: 100%|██████████| 141/141 [00:00<00:00, 3199.61it/s]
+  아키텍처: pii_hwan  (795문장)
+
+[models/skt_encoder_crf_gaz_synthetic/seed44] 예측 중...
+Loading weights:   0%|          | 0/141 [00:00<?, ?it/s]Loading weights: 100%|██████████| 141/141 [00:00<00:00, 3174.33it/s]
+  아키텍처: pii_hwan  (795문장)
+
+다수결 앙상블 (min_votes=2)...
+
+====================================================================
+[test / VOTE×3]  Micro F1=0.9522  P=0.9976  R=0.9108
+  TP=1256  FP=3  FN=123
+====================================================================
+  PS_NAME                F1=0.9493 P=0.9984 R=0.9049  TP=  609 FP=    1 FN=   64
+  LC_ADDRESS             F1=0.9171 P=1.0000 R=0.8469  TP=   83 FP=    0 FN=   15
+  OG_WORKPLACE           F1=0.9348 P=0.9773 R=0.8958  TP=   43 FP=    1 FN=    5
+  OG_DEPARTMENT          F1=0.9412 P=1.0000 R=0.8889  TP=   24 FP=    0 FN=    3
+  CV_POSITION            F1=0.9000 P=1.0000 R=0.8182  TP=    9 FP=    0 FN=    2
+  OGG_EDUCATION          F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_MOBILE              F1=1.0000 P=1.0000 R=1.0000  TP=  123 FP=    0 FN=    0
+  QT_PHONE               F1=0.9934 P=0.9868 R=1.0000  TP=   75 FP=    1 FN=    0
+  QT_RESIDENT_NUMBER     F1=1.0000 P=1.0000 R=1.0000  TP=   15 FP=    0 FN=    0
+  QT_ALIEN_NUMBER        F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_DRIVER_NUMBER       F1=1.0000 P=1.0000 R=1.0000  TP=    3 FP=    0 FN=    0
+  QT_PLATE_NUMBER        F1=1.0000 P=1.0000 R=1.0000  TP=    8 FP=    0 FN=    0
+  QT_ACCOUNT_NUMBER      F1=0.9245 P=1.0000 R=0.8596  TP=   49 FP=    0 FN=    8
+  QT_CARD_NUMBER         F1=1.0000 P=1.0000 R=1.0000  TP=   27 FP=    0 FN=    0
+  TMI_EMAIL              F1=0.9313 P=1.0000 R=0.8714  TP=  122 FP=    0 FN=   18
+  QT_PASSPORT_NUMBER     F1=1.0000 P=1.0000 R=1.0000  TP=    9 FP=    0 FN=    0
+  QT_AGE                 F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  DT_BIRTH               F1=0.9344 P=1.0000 R=0.8769  TP=   57 FP=    0 FN=    8
+  FD_MAJOR               F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+
+MD 저장: /data/team/hwan/results/ensemble_vote/eval_vote_test_crf_gaz_synth_hard_x3_vote_20260704_075820.md
+[ENTITY VOTE] 모델 3개 (min_votes=2):
+  - models/skt_encoder_distill_crf_gaz_synthetic/seed42
+  - models/skt_encoder_distill_crf_gaz_synthetic/seed43
+  - models/skt_encoder_distill_crf_gaz_synthetic/seed44
+
+[models/skt_encoder_distill_crf_gaz_synthetic/seed42] 예측 중...
+Loading weights:   0%|          | 0/141 [00:00<?, ?it/s]Loading weights: 100%|██████████| 141/141 [00:00<00:00, 3761.04it/s]
+  아키텍처: pii_hwan  (795문장)
+
+[models/skt_encoder_distill_crf_gaz_synthetic/seed43] 예측 중...
+Loading weights:   0%|          | 0/141 [00:00<?, ?it/s]Loading weights: 100%|██████████| 141/141 [00:00<00:00, 3478.09it/s]
+  아키텍처: pii_hwan  (795문장)
+
+[models/skt_encoder_distill_crf_gaz_synthetic/seed44] 예측 중...
+Loading weights:   0%|          | 0/141 [00:00<?, ?it/s]Loading weights: 100%|██████████| 141/141 [00:00<00:00, 3116.44it/s]
+  아키텍처: pii_hwan  (795문장)
+
+다수결 앙상블 (min_votes=2)...
+
+====================================================================
+[test / VOTE×3]  Micro F1=0.9519  P=0.9968  R=0.9108
+  TP=1256  FP=4  FN=123
+====================================================================
+  PS_NAME                F1=0.9493 P=0.9984 R=0.9049  TP=  609 FP=    1 FN=   64
+  LC_ADDRESS             F1=0.9121 P=0.9881 R=0.8469  TP=   83 FP=    1 FN=   15
+  OG_WORKPLACE           F1=0.9451 P=1.0000 R=0.8958  TP=   43 FP=    0 FN=    5
+  OG_DEPARTMENT          F1=0.9615 P=1.0000 R=0.9259  TP=   25 FP=    0 FN=    2
+  CV_POSITION            F1=0.8421 P=1.0000 R=0.7273  TP=    8 FP=    0 FN=    3
+  OGG_EDUCATION          F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_MOBILE              F1=0.9960 P=0.9919 R=1.0000  TP=  123 FP=    1 FN=    0
+  QT_PHONE               F1=0.9934 P=0.9868 R=1.0000  TP=   75 FP=    1 FN=    0
+  QT_RESIDENT_NUMBER     F1=1.0000 P=1.0000 R=1.0000  TP=   15 FP=    0 FN=    0
+  QT_ALIEN_NUMBER        F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_DRIVER_NUMBER       F1=1.0000 P=1.0000 R=1.0000  TP=    3 FP=    0 FN=    0
+  QT_PLATE_NUMBER        F1=1.0000 P=1.0000 R=1.0000  TP=    8 FP=    0 FN=    0
+  QT_ACCOUNT_NUMBER      F1=0.9245 P=1.0000 R=0.8596  TP=   49 FP=    0 FN=    8
+  QT_CARD_NUMBER         F1=1.0000 P=1.0000 R=1.0000  TP=   27 FP=    0 FN=    0
+  TMI_EMAIL              F1=0.9313 P=1.0000 R=0.8714  TP=  122 FP=    0 FN=   18
+  QT_PASSPORT_NUMBER     F1=1.0000 P=1.0000 R=1.0000  TP=    9 FP=    0 FN=    0
+  QT_AGE                 F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  DT_BIRTH               F1=0.9344 P=1.0000 R=0.8769  TP=   57 FP=    0 FN=    8
+  FD_MAJOR               F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+
+MD 저장: /data/team/hwan/results/ensemble_vote/eval_vote_test_crf_gaz_synth_distill_x3_vote_20260704_075852.md
+=== 완료 ===

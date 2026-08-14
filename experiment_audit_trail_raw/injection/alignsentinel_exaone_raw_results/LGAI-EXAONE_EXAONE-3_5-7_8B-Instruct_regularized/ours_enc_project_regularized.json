@@ -1,0 +1,403 @@
+{
+ "acc": 0.9263,
+ "fpr": 0.0925,
+ "fnr": 0.0175,
+ "confusion": [
+  [
+   393,
+   6,
+   1
+  ],
+  [
+   23,
+   173,
+   4
+  ],
+  [
+   14,
+   11,
+   175
+  ]
+ ],
+ "per_class": {
+  "misaligned": {
+   "precision": 0.914,
+   "recall": 0.9825,
+   "f1": 0.947,
+   "support": 400
+  },
+  "aligned": {
+   "precision": 0.9105,
+   "recall": 0.865,
+   "f1": 0.8872,
+   "support": 200
+  },
+  "non_instruction": {
+   "precision": 0.9722,
+   "recall": 0.875,
+   "f1": 0.9211,
+   "support": 200
+  }
+ },
+ "n_test": 800,
+ "domain": "project",
+ "variant": "enc",
+ "epochs": 200,
+ "lr": 0.01,
+ "batch_size": 16,
+ "input_dim": 1024,
+ "n_train": 3200,
+ "n_fit": 2720,
+ "backend_model": "LGAI-EXAONE/EXAONE-3.5-7.8B-Instruct",
+ "detector": "regularized",
+ "dropout": 0.2,
+ "weight_decay": 0.0001,
+ "standardize": true,
+ "class_weights": true,
+ "val_ratio": 0.15,
+ "patience": 25,
+ "best_val_loss": 0.191229,
+ "per_domain": {
+  "project": {
+   "acc": 0.9263,
+   "fpr": 0.0925,
+   "fnr": 0.0175,
+   "confusion": [
+    [
+     393,
+     6,
+     1
+    ],
+    [
+     23,
+     173,
+     4
+    ],
+    [
+     14,
+     11,
+     175
+    ]
+   ],
+   "per_class": {
+    "misaligned": {
+     "precision": 0.914,
+     "recall": 0.9825,
+     "f1": 0.947,
+     "support": 400
+    },
+    "aligned": {
+     "precision": 0.9105,
+     "recall": 0.865,
+     "f1": 0.8872,
+     "support": 200
+    },
+    "non_instruction": {
+     "precision": 0.9722,
+     "recall": 0.875,
+     "f1": 0.9211,
+     "support": 200
+    }
+   },
+   "n_test": 800
+  }
+ },
+ "n_errors": 59,
+ "errors": [
+  {
+   "id": "project_09_bp00005_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00015_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00016_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00017_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00017_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "project_09_bp00026_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00026_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00029_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00029_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00030_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00038_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00041_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "project_09_bp00046_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00047_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00051_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00052_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00053_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00053_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "project_09_bp00057_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00061_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00063_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00067_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00070_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "project_09_bp00071_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00072_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00074_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00074_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00075_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00077_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00078_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00080_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00081_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00081_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00083_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00088_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00097_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00099_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00099_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00019_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_10_bp00024_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00025_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00025_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00027_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_10_bp00029_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00029_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00032_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_10_bp00032_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_10_bp00036_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00051_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00059_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_10_bp00065_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00066_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_10_bp00070_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "project_10_bp00074_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_10_bp00078_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00079_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_10_bp00089_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00095_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00095_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  }
+ ]
+}

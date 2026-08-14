@@ -1,0 +1,52 @@
+=== [1/3] 8도메인 dump 로드 (재추출 없음, 디스크 → RAM concat) ===
+  [load] train/cloud: n=3200
+  [load] test/cloud: n=800
+  [load] train/coding: n=3200
+  [load] test/coding: n=800
+  [load] train/finance: n=3200
+  [load] test/finance: n=800
+  [load] train/messaging: n=3200
+  [load] test/messaging: n=800
+  [load] train/project: n=3200
+  [load] test/project: n=800
+  [load] train/shopping: n=3200
+  [load] test/shopping: n=800
+  [load] train/social_media: n=3200
+  [load] test/social_media: n=800
+  [load] train/web: n=3200
+  [load] test/web: n=800
+n_train=25600 n_test=6400 lh=960 hd=32768 (elapsed=29s)
+
+=== [2/3] 표준화 통계 (청크 스트리밍) ===
+표준화 통계 완료 (elapsed=218s)
+
+=== [3/3] 학습: baseline(attn, K=1024) vs hybrid(attn+hidden) ===
+    [attn] fp16 데이터 GPU 상주 성공 (device=cuda)
+    [attn] epoch 5/200 elapsed=21s val_acc=0.950 val_risk=0.0361
+    [attn] epoch 10/200 elapsed=41s val_acc=0.945 val_risk=0.0331
+    [attn] epoch 15/200 elapsed=61s val_acc=0.952 val_risk=0.0277
+    [attn] epoch 20/200 elapsed=82s val_acc=0.952 val_risk=0.0355
+    [attn] epoch 25/200 elapsed=102s val_acc=0.944 val_risk=0.0342
+    [attn] epoch 30/200 elapsed=122s val_acc=0.952 val_risk=0.0318
+    [attn] early stop @ epoch 32 (best_val_risk=0.0268)
+    [attn] 임계값 보정: misaligned bias=-0.20 (val risk 0.0268 → 0.0264)
+[attn] Acc=0.979 FPR=0.0169 FNR=0.0056 risk=0.0084 bias=-0.20 macroF1=0.9757 (raw: FPR=0.0191 FNR=0.0053 risk=0.0088) (elapsed=137s)
+    [hybrid] fp16 데이터 GPU 상주 성공 (device=cuda)
+    [hybrid] epoch 5/200 elapsed=25s val_acc=0.951 val_risk=0.0411
+    [hybrid] epoch 10/200 elapsed=49s val_acc=0.966 val_risk=0.0212
+    [hybrid] epoch 15/200 elapsed=74s val_acc=0.968 val_risk=0.0158
+    [hybrid] epoch 20/200 elapsed=98s val_acc=0.967 val_risk=0.0168
+    [hybrid] epoch 25/200 elapsed=123s val_acc=0.957 val_risk=0.0354
+    [hybrid] epoch 30/200 elapsed=148s val_acc=0.942 val_risk=0.0583
+    [hybrid] epoch 35/200 elapsed=172s val_acc=0.966 val_risk=0.0194
+    [hybrid] epoch 40/200 elapsed=197s val_acc=0.970 val_risk=0.0204
+    [hybrid] epoch 45/200 elapsed=221s val_acc=0.971 val_risk=0.0171
+    [hybrid] epoch 50/200 elapsed=246s val_acc=0.970 val_risk=0.0165
+    [hybrid] epoch 55/200 elapsed=271s val_acc=0.968 val_risk=0.0172
+    [hybrid] epoch 60/200 elapsed=295s val_acc=0.971 val_risk=0.0164
+    [hybrid] epoch 65/200 elapsed=320s val_acc=0.972 val_risk=0.0169
+    [hybrid] early stop @ epoch 68 (best_val_risk=0.0143)
+    [hybrid] 임계값 보정: misaligned bias=+0.10 (val risk 0.0143 → 0.0139)
+[hybrid] Acc=0.992 FPR=0.0025 FNR=0.0063 risk=0.0053 bias=+0.10 macroF1=0.9911 (raw: FPR=0.0025 FNR=0.0066 risk=0.0055) (elapsed=342s)
+
+결과 → results_hybrid_pooled_seg/pooled_metrics.json

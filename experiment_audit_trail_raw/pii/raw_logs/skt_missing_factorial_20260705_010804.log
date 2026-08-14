@@ -1,0 +1,59 @@
+=== SKT missing factorial ===
+gpu: NVIDIA A100-SXM4-80GB, 81920 MiB, 81050 MiB
+KDPII_DATA_DIR=data  SYNTH_DATA_DIR=synthetic
+MIXED_DATA_DIR=mixed/natural_86_14  SPLIT=test
+SEEDS=42 43 44  EPOCHS=5  MICRO_BSZ=64
+MAX_TRAIN_JOBS=3  MAX_EVAL_JOBS=3
+HARD_KDPII_BASE=models/skt_encoder_crf_gaz_kdpii_hard
+DISTILL_MIX_BASE=models/skt_encoder_distill_crf_gaz_mixed_natural
+MIX_TEACHER_DIR=models/klue_roberta_large_mixed_natural/seed42
+
+=== Phase 1: hard x3 on KDPII ===
+[train] train_skt_crf_gaz_kdpii_hard_seed42
+       log=logs/train_skt_crf_gaz_kdpii_hard_seed42_20260705_010804.log
+[train] train_skt_crf_gaz_kdpii_hard_seed43
+       log=logs/train_skt_crf_gaz_kdpii_hard_seed43_20260705_010804.log
+[train] train_skt_crf_gaz_kdpii_hard_seed44
+       log=logs/train_skt_crf_gaz_kdpii_hard_seed44_20260705_010804.log
+[done] train_skt_crf_gaz_kdpii_hard_seed42
+[done] train_skt_crf_gaz_kdpii_hard_seed43
+[done] train_skt_crf_gaz_kdpii_hard_seed44
+
+=== Phase 2: distill x3 on KDPII+synthetic ===
+[train] train_skt_distill_crf_gaz_mixed_natural_seed42
+       log=logs/train_skt_distill_crf_gaz_mixed_natural_seed42_20260705_015827.log
+[train] train_skt_distill_crf_gaz_mixed_natural_seed43
+       log=logs/train_skt_distill_crf_gaz_mixed_natural_seed43_20260705_015827.log
+[train] train_skt_distill_crf_gaz_mixed_natural_seed44
+       log=logs/train_skt_distill_crf_gaz_mixed_natural_seed44_20260705_015827.log
+[done] train_skt_distill_crf_gaz_mixed_natural_seed42
+[done] train_skt_distill_crf_gaz_mixed_natural_seed43
+[done] train_skt_distill_crf_gaz_mixed_natural_seed44
+
+=== Phase 3: evaluate missing cells ===
+[eval] skt_hard_kdpii_to_kdpii_full
+       log=logs/skt_hard_kdpii_to_kdpii_full_20260705_042122.log
+[eval] skt_hard_kdpii_to_kdpii_common15
+       log=logs/skt_hard_kdpii_to_kdpii_common15_20260705_042122.log
+[eval] skt_hard_kdpii_to_synthetic
+       log=logs/skt_hard_kdpii_to_synthetic_20260705_042122.log
+[eval] skt_distill_mixed_to_kdpii_full
+       log=logs/skt_distill_mixed_to_kdpii_full_20260705_042232.log
+[eval] skt_distill_mixed_to_kdpii_common15
+       log=logs/skt_distill_mixed_to_kdpii_common15_20260705_042322.log
+[eval] skt_distill_mixed_to_synthetic
+       log=logs/skt_distill_mixed_to_synthetic_20260705_042322.log
+[done] skt_hard_kdpii_to_kdpii_full
+[done] skt_hard_kdpii_to_kdpii_common15
+[done] skt_hard_kdpii_to_synthetic
+[done] skt_distill_mixed_to_kdpii_full
+[done] skt_distill_mixed_to_kdpii_common15
+[done] skt_distill_mixed_to_synthetic
+
+=== Done ===
+results/ensemble_vote/eval_vote_test_skt_crf_gaz_kdpii_hard_x3_vote_to_kdpii_common15_20260705_042316.md
+results/ensemble_vote/eval_vote_test_skt_crf_gaz_kdpii_hard_x3_vote_to_kdpii_full_20260705_042316.md
+results/ensemble_vote/eval_vote_test_skt_crf_gaz_kdpii_hard_x3_vote_to_synth_20260705_042221.md
+results/ensemble_vote/eval_vote_test_skt_distill_crf_gaz_mixed_natural_x3_vote_to_kdpii_common15_20260705_042446.md
+results/ensemble_vote/eval_vote_test_skt_distill_crf_gaz_mixed_natural_x3_vote_to_kdpii_full_20260705_042414.md
+results/ensemble_vote/eval_vote_test_skt_distill_crf_gaz_mixed_natural_x3_vote_to_synth_20260705_042422.md

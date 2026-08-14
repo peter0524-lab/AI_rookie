@@ -1,0 +1,27 @@
+[run] tag=smoke_exaone_fix_20260722_2210
+[run] data=data_32k_final/full_train.json data_32k_final/full_test.json
+[run] features=features_smoke_exaone_fix
+[run] results=results_smoke_exaone_fix
+[run] models=models_smoke_exaone_fix
+[run] clean_features_after=1
+[run] model_ids=LGAI-EXAONE/EXAONE-Deep-7.8B
+================================================================
+[sequential] MODEL_SET=all DETECTOR=regularized
+[sequential] SKIP_DONE=0 CONTINUE_ON_ERROR=0
+[sequential] models=1
+[sequential] CACHE_ROOT=auto
+[sequential] data=data_32k_final/full_train.json data_32k_final/full_test.json
+[sequential] roots=features_smoke_exaone_fix results_smoke_exaone_fix models_smoke_exaone_fix
+================================================================
+================================================================
+[start] LGAI-EXAONE/EXAONE-Deep-7.8B
+================================================================
+[env] EXAONE_PYTHON_BIN=/data/team/hwan/.venvs/alignsentinel_exaone/bin/python
+[env] EXAONE HF_MODULES_CACHE=/data/team/hwan/.cache/huggingface/modules_exaone_py5.1.0
+================================================================
+[model] LGAI-EXAONE/EXAONE-Deep-7.8B
+[dirs] features=features_smoke_exaone_fix/LGAI-EXAONE_EXAONE-Deep-7_8B results=results_smoke_exaone_fix/LGAI-EXAONE_EXAONE-Deep-7_8B_regularized models=models_smoke_exaone_fix/LGAI-EXAONE_EXAONE-Deep-7_8B_regularized
+================================================================
+`torch_dtype` is deprecated! Use `dtype` instead!
+loading LGAI-EXAONE/EXAONE-Deep-7.8B (attn_implementation=eager, dtype=bfloat16)
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]

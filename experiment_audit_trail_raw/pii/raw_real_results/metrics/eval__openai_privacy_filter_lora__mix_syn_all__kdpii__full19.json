@@ -1,0 +1,20 @@
+{
+  "job_id": "eval__openai_privacy_filter_lora__mix_syn_all__kdpii__full19",
+  "model": "openai_privacy_filter_lora",
+  "model_display": "OpenAI privacy-filter LoRA",
+  "train_set": "mix_syn_all",
+  "synthetic_ratio": "all",
+  "test_set": "kdpii",
+  "label_scope": "full19",
+  "log_path": "/data/team/hwan/real/logs/jobs/eval__openai_privacy_filter_lora__mix_syn_all__kdpii__full19.log",
+  "model_dirs": [
+    "/data/team/hwan/real/models/openai_privacy_filter_lora/mix_syn_all/seed42/inference"
+  ],
+  "precision_micro": 0.9347,
+  "recall_micro": 0.4079,
+  "f1_micro": 0.5679,
+  "tp": 558,
+  "fp": 39,
+  "fn": 810,
+  "result_path": "/data/team/hwan/results/ensemble_vote/eval_vote_test_real_openai_privacy_filter_lora_mix_syn_all_to_kdpii_full19_20260718_115744.md"
+}

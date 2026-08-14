@@ -1,0 +1,36 @@
+[ENTITY VOTE] 모델 1개 (min_votes=1):
+  - models/privacy_filter_korean_Lora_mixed_natural/seed42/inference
+평가 데이터: /data/team/hwan/synthetic/test.json
+라벨 필터: 전체 19개 라벨 평가
+
+[models/privacy_filter_korean_Lora_mixed_natural/seed42/inference] 예측 중...
+Loading weights:   0%|          | 0/140 [00:00<?, ?it/s]Loading weights: 100%|██████████| 140/140 [00:00<00:00, 5726.85it/s]
+  아키텍처: baseline  (795문장)
+
+다수결 앙상블 (min_votes=1)...
+
+====================================================================
+[test / VOTE×1]  Micro F1=0.5166  P=0.9897  R=0.3495
+  TP=482  FP=5  FN=897
+====================================================================
+  PS_NAME                F1=0.3087 P=0.9919 R=0.1828  TP=  123 FP=    1 FN=  550
+  LC_ADDRESS             F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=   98
+  OG_WORKPLACE           F1=0.1176 P=1.0000 R=0.0625  TP=    3 FP=    0 FN=   45
+  OG_DEPARTMENT          F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    1 FN=   27
+  CV_POSITION            F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=   11
+  OGG_EDUCATION          F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_MOBILE              F1=1.0000 P=1.0000 R=1.0000  TP=  123 FP=    0 FN=    0
+  QT_PHONE               F1=0.9934 P=0.9868 R=1.0000  TP=   75 FP=    1 FN=    0
+  QT_RESIDENT_NUMBER     F1=1.0000 P=1.0000 R=1.0000  TP=   15 FP=    0 FN=    0
+  QT_ALIEN_NUMBER        F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_DRIVER_NUMBER       F1=1.0000 P=1.0000 R=1.0000  TP=    3 FP=    0 FN=    0
+  QT_PLATE_NUMBER        F1=1.0000 P=1.0000 R=1.0000  TP=    8 FP=    0 FN=    0
+  QT_ACCOUNT_NUMBER      F1=0.9143 P=1.0000 R=0.8421  TP=   48 FP=    0 FN=    9
+  QT_CARD_NUMBER         F1=0.9818 P=0.9643 R=1.0000  TP=   27 FP=    1 FN=    0
+  TMI_EMAIL              F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=  140
+  QT_PASSPORT_NUMBER     F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    9
+  QT_AGE                 F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  DT_BIRTH               F1=0.9268 P=0.9828 R=0.8769  TP=   57 FP=    1 FN=    8
+  FD_MAJOR               F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+
+MD 저장: /data/team/hwan/results/ensemble_vote/eval_vote_test_privacy_korean_lora_mixed_natural_seed42_to_synth_20260705_004634.md

@@ -1,0 +1,36 @@
+[ENTITY VOTE] 모델 1개 (min_votes=1):
+  - models/skt_ablation_v1/crf/kdpii/seed42
+평가 데이터: /data/team/hwan/synthetic/test.json
+라벨 필터: 전체 19개 라벨 평가
+
+[models/skt_ablation_v1/crf/kdpii/seed42] 예측 중...
+Loading weights:   0%|          | 0/139 [00:00<?, ?it/s]Loading weights: 100%|██████████| 139/139 [00:00<00:00, 3539.13it/s]
+  아키텍처: pii_hwan  (795문장)
+
+다수결 앙상블 (min_votes=1)...
+
+====================================================================
+[test / VOTE×1]  Micro F1=0.8496  P=0.8153  R=0.8869
+  TP=1223  FP=277  FN=156
+====================================================================
+  PS_NAME                F1=0.8592 P=0.8397 R=0.8796  TP=  592 FP=  113 FN=   81
+  LC_ADDRESS             F1=0.8513 P=0.8557 R=0.8469  TP=   83 FP=   14 FN=   15
+  OG_WORKPLACE           F1=0.7193 P=0.6212 R=0.8542  TP=   41 FP=   25 FN=    7
+  OG_DEPARTMENT          F1=0.6173 P=0.4630 R=0.9259  TP=   25 FP=   29 FN=    2
+  CV_POSITION            F1=0.2222 P=0.1600 R=0.3636  TP=    4 FP=   21 FN=    7
+  OGG_EDUCATION          F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_MOBILE              F1=0.9960 P=0.9919 R=1.0000  TP=  123 FP=    1 FN=    0
+  QT_PHONE               F1=0.9868 P=0.9740 R=1.0000  TP=   75 FP=    2 FN=    0
+  QT_RESIDENT_NUMBER     F1=0.6250 P=0.4545 R=1.0000  TP=   15 FP=   18 FN=    0
+  QT_ALIEN_NUMBER        F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_DRIVER_NUMBER       F1=0.3750 P=0.2308 R=1.0000  TP=    3 FP=   10 FN=    0
+  QT_PLATE_NUMBER        F1=1.0000 P=1.0000 R=1.0000  TP=    8 FP=    0 FN=    0
+  QT_ACCOUNT_NUMBER      F1=0.9159 P=0.9800 R=0.8596  TP=   49 FP=    1 FN=    8
+  QT_CARD_NUMBER         F1=0.8710 P=0.7714 R=1.0000  TP=   27 FP=    8 FN=    0
+  TMI_EMAIL              F1=0.9313 P=1.0000 R=0.8714  TP=  122 FP=    0 FN=   18
+  QT_PASSPORT_NUMBER     F1=0.9474 P=0.9000 R=1.0000  TP=    9 FP=    1 FN=    0
+  QT_AGE                 F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    1 FN=    0
+  DT_BIRTH               F1=0.6528 P=0.5949 R=0.7231  TP=   47 FP=   32 FN=   18
+  FD_MAJOR               F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    1 FN=    0
+
+MD 저장: /data/team/hwan/results/ensemble_vote/eval_vote_test_skt_ablation_v1_crf_kdpii_to_synthetic_test_20260705_073117.md

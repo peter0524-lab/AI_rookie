@@ -1,0 +1,33 @@
+================================================================
+[stage-1] 8도메인 추출 — 4개씩 동시 실행
+================================================================
+[extract-done] messaging exit=0
+[extract-done] finance exit=0
+[extract-done] coding exit=0
+[extract-done] cloud exit=0
+[extract-done] social_media exit=0
+[extract-done] shopping exit=0
+[extract-done] web exit=0
+[extract-done] project exit=0
+[stage-1-complete] 추출 전체 완료
+================================================================
+[stage-2] 8도메인 학습(attn/hidden/hybrid) — 4개씩 동시 실행
+  (주의: train_hybrid.py는 도메인 전체를 float32로 GPU에 직접 올림 — 도메인당 최대 ~16GB,
+   8개를 한꺼번에 돌리면 125GB로 OOM나서 extraction과 동일하게 스로틀링함)
+================================================================
+[train-done] finance exit=1
+[train-done] messaging exit=1
+[train-done] cloud exit=1
+[train-done] coding exit=1
+[train-done] social_media exit=1
+[train-done] shopping exit=1
+[train-done] web exit=1
+[train-done] project exit=1
+[stage-2-complete] 학습 전체 완료
+================================================================
+[stage-3] pooled 학습 (8도메인 전부 필요 — 단독 실행)
+================================================================
+[stage-3-complete] pooled 완료
+================================================================
+[all-complete] segment-hidden 8도메인+pooled 검증 완료 (병렬판)
+================================================================

@@ -1,0 +1,34 @@
+# entity-level 다수결 앙상블: test  (20260705_073714)
+
+min_votes=1
+data_dir=`/data/team/hwan/synthetic`
+evaluated_labels=19: `PS_NAME, LC_ADDRESS, OG_WORKPLACE, OG_DEPARTMENT, CV_POSITION, OGG_EDUCATION, QT_MOBILE, QT_PHONE, QT_RESIDENT_NUMBER, QT_ALIEN_NUMBER, QT_DRIVER_NUMBER, QT_PLATE_NUMBER, QT_ACCOUNT_NUMBER, QT_CARD_NUMBER, TMI_EMAIL, QT_PASSPORT_NUMBER, QT_AGE, DT_BIRTH, FD_MAJOR`
+excluded_labels=0: `-`
+excluded_gold_entities=0  excluded_predicted_entities=0
+
+| Entity Micro F1 | **0.9500** |
+| Precision | 0.9937 |
+| Recall | 0.9101 |
+| TP | 1255 | FP | 8 | FN | 124 |
+
+| 레이블 | F1 | P | R | TP | FP | FN |
+|--------|-----|---|---|----|----|-----|
+| QT_MOBILE | 1.0000 | 1.0000 | 1.0000 | 123 | 0 | 0 |
+| QT_RESIDENT_NUMBER | 1.0000 | 1.0000 | 1.0000 | 15 | 0 | 0 |
+| QT_DRIVER_NUMBER | 1.0000 | 1.0000 | 1.0000 | 3 | 0 | 0 |
+| QT_PLATE_NUMBER | 1.0000 | 1.0000 | 1.0000 | 8 | 0 | 0 |
+| QT_CARD_NUMBER | 1.0000 | 1.0000 | 1.0000 | 27 | 0 | 0 |
+| QT_PASSPORT_NUMBER | 1.0000 | 1.0000 | 1.0000 | 9 | 0 | 0 |
+| QT_PHONE | 0.9934 | 0.9868 | 1.0000 | 75 | 1 | 0 |
+| PS_NAME | 0.9485 | 0.9984 | 0.9034 | 608 | 1 | 65 |
+| TMI_EMAIL | 0.9313 | 1.0000 | 0.8714 | 122 | 0 | 18 |
+| OG_DEPARTMENT | 0.9259 | 0.9259 | 0.9259 | 25 | 2 | 2 |
+| DT_BIRTH | 0.9256 | 1.0000 | 0.8615 | 56 | 0 | 9 |
+| OG_WORKPLACE | 0.9247 | 0.9556 | 0.8958 | 43 | 2 | 5 |
+| QT_ACCOUNT_NUMBER | 0.9245 | 1.0000 | 0.8596 | 49 | 0 | 8 |
+| LC_ADDRESS | 0.9171 | 1.0000 | 0.8469 | 83 | 0 | 15 |
+| CV_POSITION | 0.9000 | 1.0000 | 0.8182 | 9 | 0 | 2 |
+| OGG_EDUCATION | 0.0000 | 0.0000 | 0.0000 | 0 | 0 | 0 |
+| QT_ALIEN_NUMBER | 0.0000 | 0.0000 | 0.0000 | 0 | 0 | 0 |
+| QT_AGE | 0.0000 | 0.0000 | 0.0000 | 0 | 1 | 0 |
+| FD_MAJOR | 0.0000 | 0.0000 | 0.0000 | 0 | 1 | 0 |

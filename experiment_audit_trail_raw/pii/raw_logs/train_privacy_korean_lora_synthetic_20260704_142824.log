@@ -1,0 +1,90 @@
+Loading weights:   0%|          | 0/140 [00:00<?, ?it/s]Loading weights: 100%|██████████| 140/140 [00:00<00:00, 6061.20it/s]
+[transformers] [1mOpenAIPrivacyFilterForTokenClassification LOAD REPORT[0m from: models/privacy_filter_korean
+Key          | Status   |                                                                                         
+-------------+----------+-----------------------------------------------------------------------------------------
+score.bias   | MISMATCH | Reinit due to size mismatch - ckpt: torch.Size([37]) vs model:torch.Size([39])          
+score.weight | MISMATCH | Reinit due to size mismatch - ckpt: torch.Size([37, 640]) vs model:torch.Size([39, 640])
+
+Notes:
+- MISMATCH:	ckpt weights were loaded, but they did not match the original empty weight shapes.
+[transformers] warmup_ratio is deprecated and will be removed in v5.2. Use `warmup_steps` instead.
+trainable params: 614,823 || all params: 1,400,105,534 || trainable%: 0.0439
+GPU: NVIDIA A100-SXM4-80GB ×1
+[privacy-filter LoRA] 사전학습: models/privacy_filter_korean
+LoRA r=16 alpha=32 targets=['q_proj', 'k_proj', 'v_proj', 'o_proj']
+DATA_DIR=/data/team/hwan/synthetic  TRAIN_FILE=train.json  VALID_FILE=valid.json
+RUN_TAG=privacy_korean_lora_synth_seed42  OUTPUT_DIR=models/privacy_filter_korean_Lora_synthetic/seed42
+Train 6,605  Valid 824
+Epochs=20  LR=0.0005  MicroBSZ=256×Accum=1(=eff 256)  MaxLen=256  Seed=42  bf16
+  0%|          | 0/520 [00:00<?, ?it/s][transformers] `use_return_dict` is deprecated! Use `return_dict` instead!
+Traceback (most recent call last):
+  File "/data/team/hwan/open_ai_privacy_filter_lora_train.py", line 433, in <module>
+    main()
+  File "/data/team/hwan/open_ai_privacy_filter_lora_train.py", line 394, in main
+    trainer.train()
+  File "/home/tta/.local/lib/python3.10/site-packages/transformers/trainer.py", line 1433, in train
+    return inner_training_loop(
+  File "/home/tta/.local/lib/python3.10/site-packages/transformers/trainer.py", line 1515, in _inner_training_loop
+    self._run_epoch(
+  File "/home/tta/.local/lib/python3.10/site-packages/transformers/trainer.py", line 1743, in _run_epoch
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/home/tta/.local/lib/python3.10/site-packages/transformers/trainer.py", line 1915, in training_step
+    loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+  File "/home/tta/.local/lib/python3.10/site-packages/transformers/trainer.py", line 1987, in compute_loss
+    outputs = model(**inputs)
+  File "/home/tta/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/tta/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/tta/.local/lib/python3.10/site-packages/accelerate/utils/operations.py", line 943, in forward
+    return model_forward(*args, **kwargs)
+  File "/home/tta/.local/lib/python3.10/site-packages/accelerate/utils/operations.py", line 931, in __call__
+    return convert_to_fp32(self.model_forward(*args, **kwargs))
+  File "/home/tta/.local/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 44, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/home/tta/.local/lib/python3.10/site-packages/peft/peft_model.py", line 2683, in forward
+    return self.base_model(
+  File "/home/tta/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/tta/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/tta/.local/lib/python3.10/site-packages/peft/tuners/tuners_utils.py", line 330, in forward
+    return self.model.forward(*args, **kwargs)
+  File "/home/tta/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 907, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/tta/.local/lib/python3.10/site-packages/transformers/modeling_layers.py", line 266, in forward
+    outputs: BaseModelOutputWithPast = getattr(self, self.base_model_prefix)(
+  File "/home/tta/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/tta/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/tta/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 1036, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/tta/.local/lib/python3.10/site-packages/transformers/utils/output_capturing.py", line 252, in wrapper
+    outputs = func(self, *args, **kwargs)
+  File "/home/tta/.local/lib/python3.10/site-packages/transformers/models/openai_privacy_filter/modeling_openai_privacy_filter.py", line 492, in forward
+    hidden_states = encoder_layer(
+  File "/home/tta/.local/lib/python3.10/site-packages/transformers/modeling_layers.py", line 93, in __call__
+    return super().__call__(*args, **kwargs)
+  File "/home/tta/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/tta/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/tta/.local/lib/python3.10/site-packages/transformers/models/openai_privacy_filter/modeling_openai_privacy_filter.py", line 396, in forward
+    hidden_states, _ = self.mlp(hidden_states)
+  File "/home/tta/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/tta/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/tta/.local/lib/python3.10/site-packages/transformers/models/openai_privacy_filter/modeling_openai_privacy_filter.py", line 359, in forward
+    hidden_states = self.experts(hidden_states, router_indices, router_scores)
+  File "/home/tta/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/tta/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/tta/.local/lib/python3.10/site-packages/transformers/integrations/moe.py", line 573, in forward
+    return experts_forward(self, *args, **kwargs)
+  File "/home/tta/.local/lib/python3.10/site-packages/transformers/models/openai_privacy_filter/modeling_openai_privacy_filter.py", line 318, in forward
+    out = gated_output.float() @ self.down_proj[expert_idx].float() + self.down_proj_bias[expert_idx].float()
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB. GPU 0 has a total capacity of 79.15 GiB of which 2.12 MiB is free. Including non-PyTorch memory, this process has 65.35 GiB memory in use. Process 331834 has 13.78 GiB memory in use. Of the allocated memory 64.78 GiB is allocated by PyTorch, and 82.04 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  0%|          | 0/520 [00:09<?, ?it/s]

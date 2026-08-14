@@ -1,0 +1,34 @@
+=== fill missing table evals ===
+gpu: NVIDIA A100-SXM4-80GB, 81920 MiB, 81050 MiB
+KDPII_DATA_DIR=data SYNTH_DATA_DIR=synthetic SPLIT=test
+MAX_EVAL_JOBS=3
+
+=== Phase 1: KDPII-trained -> KDPII common-15 ===
+[eval] privacy_kdpii_to_kdpii_common15
+       log=logs/privacy_kdpii_to_kdpii_common15_20260705_050421.log
+[eval] xlm_kdpii_to_kdpii_common15
+       log=logs/xlm_kdpii_to_kdpii_common15_20260705_050421.log
+[eval] klue_kdpii_to_kdpii_common15
+       log=logs/klue_kdpii_to_kdpii_common15_20260705_050421.log
+[done] privacy_kdpii_to_kdpii_common15
+[done] xlm_kdpii_to_kdpii_common15
+[done] klue_kdpii_to_kdpii_common15
+
+=== Phase 2: SKT distill KDPII x3 -> full/common-15/synthetic ===
+[eval] skt_distill_kdpii_to_kdpii_full
+       log=logs/skt_distill_kdpii_to_kdpii_full_20260705_050522.log
+[eval] skt_distill_kdpii_to_kdpii_common15
+       log=logs/skt_distill_kdpii_to_kdpii_common15_20260705_050522.log
+[eval] skt_distill_kdpii_to_synthetic
+       log=logs/skt_distill_kdpii_to_synthetic_20260705_050522.log
+[done] skt_distill_kdpii_to_kdpii_full
+[done] skt_distill_kdpii_to_kdpii_common15
+[done] skt_distill_kdpii_to_synthetic
+
+=== Done ===
+results/ensemble_vote/eval_vote_test_klue_kdpii_seed42_to_kdpii_common15_20260705_050440.md
+results/ensemble_vote/eval_vote_test_privacy_korean_lora_kdpii_seed42_to_kdpii_common15_20260705_050521.md
+results/ensemble_vote/eval_vote_test_skt_distill_crf_gaz_kdpii_x3_vote_to_kdpii_common15_20260705_050731.md
+results/ensemble_vote/eval_vote_test_skt_distill_crf_gaz_kdpii_x3_vote_to_kdpii_full_20260705_050728.md
+results/ensemble_vote/eval_vote_test_skt_distill_crf_gaz_kdpii_x3_vote_to_synth_20260705_050637.md
+results/ensemble_vote/eval_vote_test_xlm_kdpii_seed42_to_kdpii_common15_20260705_050443.md

@@ -1,0 +1,30 @@
+[BASELINE / 무형태소] 모델: models/skt_encoder_synthetic/seed42
+평가: test.json  →  cuda
+Loading weights:   0%|          | 0/138 [00:00<?, ?it/s]Loading weights: 100%|██████████| 138/138 [00:00<00:00, 6978.03it/s]
+총 795문장 예측 중...
+
+====================================================================
+[test]  Micro F1=0.9481  P=0.9929  R=0.9072
+  TP=1251  FP=9  FN=128
+====================================================================
+  PS_NAME                      F1=0.9493 P=0.9984 R=0.9049  TP=  609 FP=    1 FN=   64
+  LC_ADDRESS                   F1=0.9121 P=0.9881 R=0.8469  TP=   83 FP=    1 FN=   15
+  OG_WORKPLACE                 F1=0.9348 P=0.9773 R=0.8958  TP=   43 FP=    1 FN=    5
+  OG_DEPARTMENT                F1=0.8980 P=1.0000 R=0.8148  TP=   22 FP=    0 FN=    5
+  CV_POSITION                  F1=0.6364 P=0.6364 R=0.6364  TP=    7 FP=    4 FN=    4
+  OGG_EDUCATION                F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_MOBILE                    F1=0.9960 P=0.9919 R=1.0000  TP=  123 FP=    1 FN=    0
+  QT_PHONE                     F1=0.9934 P=0.9868 R=1.0000  TP=   75 FP=    1 FN=    0
+  QT_RESIDENT_NUMBER           F1=1.0000 P=1.0000 R=1.0000  TP=   15 FP=    0 FN=    0
+  QT_ALIEN_NUMBER              F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_DRIVER_NUMBER             F1=1.0000 P=1.0000 R=1.0000  TP=    3 FP=    0 FN=    0
+  QT_PLATE_NUMBER              F1=1.0000 P=1.0000 R=1.0000  TP=    8 FP=    0 FN=    0
+  QT_ACCOUNT_NUMBER            F1=0.9245 P=1.0000 R=0.8596  TP=   49 FP=    0 FN=    8
+  QT_CARD_NUMBER               F1=1.0000 P=1.0000 R=1.0000  TP=   27 FP=    0 FN=    0
+  TMI_EMAIL                    F1=0.9313 P=1.0000 R=0.8714  TP=  122 FP=    0 FN=   18
+  QT_PASSPORT_NUMBER           F1=0.9412 P=1.0000 R=0.8889  TP=    8 FP=    0 FN=    1
+  QT_AGE                       F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  DT_BIRTH                     F1=0.9344 P=1.0000 R=0.8769  TP=   57 FP=    0 FN=    8
+  FD_MAJOR                     F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+
+MD 저장: /data/team/hwan/results/baseline/eval_test_synth_test_skt_synth_20260704_033135.md

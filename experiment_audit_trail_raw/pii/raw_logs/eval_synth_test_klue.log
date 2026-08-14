@@ -1,0 +1,30 @@
+[BASELINE / 무형태소] 모델: models/klue_roberta_large/seed42
+평가: test.json  →  cuda
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 5561.93it/s]
+총 795문장 예측 중...
+
+====================================================================
+[test]  Micro F1=0.8554  P=0.8249  R=0.8883
+  TP=1225  FP=260  FN=154
+====================================================================
+  PS_NAME                      F1=0.8743 P=0.8704 R=0.8782  TP=  591 FP=   88 FN=   82
+  LC_ADDRESS                   F1=0.8830 P=0.9222 R=0.8469  TP=   83 FP=    7 FN=   15
+  OG_WORKPLACE                 F1=0.7241 P=0.6176 R=0.8750  TP=   42 FP=   26 FN=    6
+  OG_DEPARTMENT                F1=0.6250 P=0.4717 R=0.9259  TP=   25 FP=   28 FN=    2
+  CV_POSITION                  F1=0.3030 P=0.2273 R=0.4545  TP=    5 FP=   17 FN=    6
+  OGG_EDUCATION                F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_MOBILE                    F1=0.9919 P=0.9840 R=1.0000  TP=  123 FP=    2 FN=    0
+  QT_PHONE                     F1=0.9804 P=0.9615 R=1.0000  TP=   75 FP=    3 FN=    0
+  QT_RESIDENT_NUMBER           F1=0.6977 P=0.5357 R=1.0000  TP=   15 FP=   13 FN=    0
+  QT_ALIEN_NUMBER              F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_DRIVER_NUMBER             F1=0.8571 P=0.7500 R=1.0000  TP=    3 FP=    1 FN=    0
+  QT_PLATE_NUMBER              F1=0.8889 P=0.8000 R=1.0000  TP=    8 FP=    2 FN=    0
+  QT_ACCOUNT_NUMBER            F1=0.7101 P=0.6049 R=0.8596  TP=   49 FP=   32 FN=    8
+  QT_CARD_NUMBER               F1=1.0000 P=1.0000 R=1.0000  TP=   27 FP=    0 FN=    0
+  TMI_EMAIL                    F1=0.9242 P=0.9839 R=0.8714  TP=  122 FP=    2 FN=   18
+  QT_PASSPORT_NUMBER           F1=0.8571 P=0.7500 R=1.0000  TP=    9 FP=    3 FN=    0
+  QT_AGE                       F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    1 FN=    0
+  DT_BIRTH                     F1=0.6486 P=0.5783 R=0.7385  TP=   48 FP=   35 FN=   17
+  FD_MAJOR                     F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+
+MD 저장: /data/team/hwan/results/klue_roberta_large/eval_test_synth_test_klue_20260704_033029.md

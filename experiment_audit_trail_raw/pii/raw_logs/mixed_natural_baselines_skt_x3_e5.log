@@ -1,0 +1,86 @@
+nohup: ignoring input
+=== mixed natural baseline batch ===
+gpu: NVIDIA A100-SXM4-80GB, 81920 MiB, 81050 MiB
+KDPII_DATA_DIR=data  SYNTH_DATA_DIR=synthetic
+MIXED_DATA_DIR=mixed/natural_86_14  split=test
+MAX_TRAIN_JOBS=1  MAX_EVAL_JOBS=3
+SKT_SEEDS=42 43 44
+
+=== Phase 0: build mixed data ===
+[mixed] wrote mixed/natural_86_14
+  train: kdpii=40109 synthetic=6605 total=46714 synthetic_ratio=0.1414
+  valid: kdpii=5011 synthetic=824 total=5835 synthetic_ratio=0.1412
+
+=== Phase 1: train mixed models ===
+[train] train_privacy_korean_lora_mixed_natural
+       log=logs/train_privacy_korean_lora_mixed_natural_20260704_203536.log
+[train] train_xlm_mixed_natural
+       log=logs/train_xlm_mixed_natural_20260704_212738.log
+[train] train_klue_mixed_natural
+       log=logs/train_klue_mixed_natural_20260704_214704.log
+[train] train_skt_crf_gaz_mixed_natural_seed42
+       log=logs/train_skt_crf_gaz_mixed_natural_seed42_20260704_220545.log
+[train] train_skt_crf_gaz_mixed_natural_seed43
+       log=logs/train_skt_crf_gaz_mixed_natural_seed43_20260704_225912.log
+[train] train_skt_crf_gaz_mixed_natural_seed44
+       log=logs/train_skt_crf_gaz_mixed_natural_seed44_20260704_235229.log
+[done] train_privacy_korean_lora_mixed_natural
+[done] train_xlm_mixed_natural
+[done] train_klue_mixed_natural
+[done] train_skt_crf_gaz_mixed_natural_seed42
+[done] train_skt_crf_gaz_mixed_natural_seed43
+[done] train_skt_crf_gaz_mixed_natural_seed44
+
+=== Phase 2: evaluate mixed models ===
+[eval] privacy_mixed_to_kdpii_full
+       log=logs/privacy_mixed_to_kdpii_full_20260705_004546.log
+[eval] privacy_mixed_to_kdpii_common15
+       log=logs/privacy_mixed_to_kdpii_common15_20260705_004546.log
+[eval] privacy_mixed_to_synthetic
+       log=logs/privacy_mixed_to_synthetic_20260705_004546.log
+[eval] xlm_mixed_to_kdpii_full
+       log=logs/xlm_mixed_to_kdpii_full_20260705_004636.log
+[eval] xlm_mixed_to_kdpii_common15
+       log=logs/xlm_mixed_to_kdpii_common15_20260705_004656.log
+[eval] xlm_mixed_to_synthetic
+       log=logs/xlm_mixed_to_synthetic_20260705_004716.log
+[eval] klue_mixed_to_kdpii_full
+       log=logs/klue_mixed_to_kdpii_full_20260705_004736.log
+[eval] klue_mixed_to_kdpii_common15
+       log=logs/klue_mixed_to_kdpii_common15_20260705_004756.log
+[eval] klue_mixed_to_synthetic
+       log=logs/klue_mixed_to_synthetic_20260705_004816.log
+[eval] skt_mixed_to_kdpii_full
+       log=logs/skt_mixed_to_kdpii_full_20260705_004831.log
+[eval] skt_mixed_to_kdpii_common15
+       log=logs/skt_mixed_to_kdpii_common15_20260705_004931.log
+[eval] skt_mixed_to_synthetic
+       log=logs/skt_mixed_to_synthetic_20260705_004931.log
+[done] privacy_mixed_to_kdpii_full
+[done] privacy_mixed_to_kdpii_common15
+[done] privacy_mixed_to_synthetic
+[done] xlm_mixed_to_kdpii_full
+[done] xlm_mixed_to_kdpii_common15
+[done] xlm_mixed_to_synthetic
+[done] klue_mixed_to_kdpii_full
+[done] klue_mixed_to_kdpii_common15
+[done] klue_mixed_to_synthetic
+[done] skt_mixed_to_kdpii_full
+[done] skt_mixed_to_kdpii_common15
+[done] skt_mixed_to_synthetic
+
+=== Done ===
+Mixed data: mixed/natural_86_14
+Latest reports:
+results/ensemble_vote/eval_vote_test_skt_crf_gaz_mixed_natural_x3_vote_to_kdpii_common15_20260705_005056.md
+results/ensemble_vote/eval_vote_test_skt_crf_gaz_mixed_natural_x3_vote_to_synth_20260705_005031.md
+results/ensemble_vote/eval_vote_test_skt_crf_gaz_mixed_natural_x3_vote_to_kdpii_full_20260705_005023.md
+results/ensemble_vote/eval_vote_test_privacy_korean_lora_mixed_natural_seed42_to_kdpii_full_20260705_004928.md
+results/ensemble_vote/eval_vote_test_privacy_korean_lora_mixed_natural_seed42_to_kdpii_common15_20260705_004928.md
+results/ensemble_vote/eval_vote_test_klue_mixed_natural_seed42_to_synth_20260705_004829.md
+results/ensemble_vote/eval_vote_test_klue_mixed_natural_seed42_to_kdpii_common15_20260705_004811.md
+results/ensemble_vote/eval_vote_test_klue_mixed_natural_seed42_to_kdpii_full_20260705_004751.md
+results/ensemble_vote/eval_vote_test_xlm_mixed_natural_seed42_to_synth_20260705_004732.md
+results/ensemble_vote/eval_vote_test_xlm_mixed_natural_seed42_to_kdpii_common15_20260705_004714.md
+results/ensemble_vote/eval_vote_test_xlm_mixed_natural_seed42_to_kdpii_full_20260705_004654.md
+results/ensemble_vote/eval_vote_test_privacy_korean_lora_mixed_natural_seed42_to_synth_20260705_004634.md

@@ -1,0 +1,221 @@
+nohup: ignoring input
+=== SKT ablation v1 ===
+date=Sun Jul  5 05:54:31 AM KST 2026
+CUDA_VISIBLE_DEVICES=0
+NVIDIA A100-SXM4-80GB, 81920 MiB, 81050 MiB
+SEED=42 EPOCHS=5 MAX_LEN=256 LR=3e-5
+KDPII_DATA_DIR=data
+SYNTH_DATA_DIR=synthetic
+MIXED_DATA_DIR=mixed/natural_86_14
+BASE_OUT=models/skt_ablation_v1
+RESULTS_OUT=results/skt_ablation_v1
+MASTER_LOG=results/skt_ablation_v1/run_seed42_20260705_055431.log
+
+=== Phase 1: train 13 fresh ablation models sequentially ===
+
+[train] plain_mixed
+        log=logs/skt_ablation_v1_train_plain_mixed_seed42_20260705_055431.log
+[done] plain_mixed
+
+[train] plain_distill_kdpii
+        log=logs/skt_ablation_v1_train_plain_distill_kdpii_seed42_20260705_060151.log
+[done] plain_distill_kdpii
+
+[train] plain_distill_synthetic
+        log=logs/skt_ablation_v1_train_plain_distill_synthetic_seed42_20260705_060544.log
+[done] plain_distill_synthetic
+
+[train] plain_distill_mixed
+        log=logs/skt_ablation_v1_train_plain_distill_mixed_seed42_20260705_060735.log
+[done] plain_distill_mixed
+
+[train] crf_kdpii
+        log=logs/skt_ablation_v1_train_crf_kdpii_seed42_20260705_061558.log
+[done] crf_kdpii
+
+[train] crf_synthetic
+        log=logs/skt_ablation_v1_train_crf_synthetic_seed42_20260705_062214.log
+[done] crf_synthetic
+
+[train] crf_mixed
+        log=logs/skt_ablation_v1_train_crf_mixed_seed42_20260705_062514.log
+[done] crf_mixed
+
+[train] gaz_kdpii
+        log=logs/skt_ablation_v1_train_gaz_kdpii_seed42_20260705_063900.log
+[done] gaz_kdpii
+
+[train] gaz_synthetic
+        log=logs/skt_ablation_v1_train_gaz_synthetic_seed42_20260705_064442.log
+[done] gaz_synthetic
+
+[train] gaz_mixed
+        log=logs/skt_ablation_v1_train_gaz_mixed_seed42_20260705_064654.log
+[done] gaz_mixed
+
+[train] crf_gaz_kdpii
+        log=logs/skt_ablation_v1_train_crf_gaz_kdpii_seed42_20260705_065933.log
+[done] crf_gaz_kdpii
+
+[train] crf_gaz_synthetic
+        log=logs/skt_ablation_v1_train_crf_gaz_synthetic_seed42_20260705_070734.log
+[done] crf_gaz_synthetic
+
+[train] crf_gaz_mixed
+        log=logs/skt_ablation_v1_train_crf_gaz_mixed_seed42_20260705_071058.log
+[done] crf_gaz_mixed
+
+=== Phase 2: evaluate according to train-domain policy ===
+
+[eval] plain/mixed -> kdpii_full19
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_plain_mixed_to_kdpii_full19_seed42_20260705_072921.log
+[done] plain/mixed -> kdpii_full19
+
+[eval] plain/mixed -> kdpii_common15
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_plain_mixed_to_kdpii_common15_seed42_20260705_072929.log
+[done] plain/mixed -> kdpii_common15
+
+[eval] plain/mixed -> synthetic_test
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_plain_mixed_to_synthetic_test_seed42_20260705_072936.log
+[done] plain/mixed -> synthetic_test
+
+[eval] plain_distill/kdpii -> kdpii_full19
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_plain_distill_kdpii_to_kdpii_full19_seed42_20260705_072943.log
+[done] plain_distill/kdpii -> kdpii_full19
+
+[eval] plain_distill/kdpii -> kdpii_common15
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_plain_distill_kdpii_to_kdpii_common15_seed42_20260705_072950.log
+[done] plain_distill/kdpii -> kdpii_common15
+
+[eval] plain_distill/kdpii -> synthetic_test
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_plain_distill_kdpii_to_synthetic_test_seed42_20260705_072958.log
+[done] plain_distill/kdpii -> synthetic_test
+[skip-eval] plain_distill/synthetic -> KDPII full-19 (synthetic train lacks 4 labels)
+
+[eval] plain_distill/synthetic -> kdpii_common15
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_plain_distill_synthetic_to_kdpii_common15_seed42_20260705_073005.log
+[done] plain_distill/synthetic -> kdpii_common15
+
+[eval] plain_distill/synthetic -> synthetic_test
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_plain_distill_synthetic_to_synthetic_test_seed42_20260705_073012.log
+[done] plain_distill/synthetic -> synthetic_test
+
+[eval] plain_distill/mixed -> kdpii_full19
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_plain_distill_mixed_to_kdpii_full19_seed42_20260705_073019.log
+[done] plain_distill/mixed -> kdpii_full19
+
+[eval] plain_distill/mixed -> kdpii_common15
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_plain_distill_mixed_to_kdpii_common15_seed42_20260705_073026.log
+[done] plain_distill/mixed -> kdpii_common15
+
+[eval] plain_distill/mixed -> synthetic_test
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_plain_distill_mixed_to_synthetic_test_seed42_20260705_073034.log
+[done] plain_distill/mixed -> synthetic_test
+
+[eval] crf/kdpii -> kdpii_full19
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_crf_kdpii_to_kdpii_full19_seed42_20260705_073040.log
+[done] crf/kdpii -> kdpii_full19
+
+[eval] crf/kdpii -> kdpii_common15
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_crf_kdpii_to_kdpii_common15_seed42_20260705_073054.log
+[done] crf/kdpii -> kdpii_common15
+
+[eval] crf/kdpii -> synthetic_test
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_crf_kdpii_to_synthetic_test_seed42_20260705_073106.log
+[done] crf/kdpii -> synthetic_test
+[skip-eval] crf/synthetic -> KDPII full-19 (synthetic train lacks 4 labels)
+
+[eval] crf/synthetic -> kdpii_common15
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_crf_synthetic_to_kdpii_common15_seed42_20260705_073118.log
+[done] crf/synthetic -> kdpii_common15
+
+[eval] crf/synthetic -> synthetic_test
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_crf_synthetic_to_synthetic_test_seed42_20260705_073130.log
+[done] crf/synthetic -> synthetic_test
+
+[eval] crf/mixed -> kdpii_full19
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_crf_mixed_to_kdpii_full19_seed42_20260705_073141.log
+[done] crf/mixed -> kdpii_full19
+
+[eval] crf/mixed -> kdpii_common15
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_crf_mixed_to_kdpii_common15_seed42_20260705_073154.log
+[done] crf/mixed -> kdpii_common15
+
+[eval] crf/mixed -> synthetic_test
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_crf_mixed_to_synthetic_test_seed42_20260705_073207.log
+[done] crf/mixed -> synthetic_test
+
+[eval] gaz/kdpii -> kdpii_full19
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_gaz_kdpii_to_kdpii_full19_seed42_20260705_073218.log
+[done] gaz/kdpii -> kdpii_full19
+
+[eval] gaz/kdpii -> kdpii_common15
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_gaz_kdpii_to_kdpii_common15_seed42_20260705_073237.log
+[done] gaz/kdpii -> kdpii_common15
+
+[eval] gaz/kdpii -> synthetic_test
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_gaz_kdpii_to_synthetic_test_seed42_20260705_073256.log
+[done] gaz/kdpii -> synthetic_test
+[skip-eval] gaz/synthetic -> KDPII full-19 (synthetic train lacks 4 labels)
+
+[eval] gaz/synthetic -> kdpii_common15
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_gaz_synthetic_to_kdpii_common15_seed42_20260705_073312.log
+[done] gaz/synthetic -> kdpii_common15
+
+[eval] gaz/synthetic -> synthetic_test
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_gaz_synthetic_to_synthetic_test_seed42_20260705_073328.log
+[done] gaz/synthetic -> synthetic_test
+
+[eval] gaz/mixed -> kdpii_full19
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_gaz_mixed_to_kdpii_full19_seed42_20260705_073341.log
+[done] gaz/mixed -> kdpii_full19
+
+[eval] gaz/mixed -> kdpii_common15
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_gaz_mixed_to_kdpii_common15_seed42_20260705_073403.log
+[done] gaz/mixed -> kdpii_common15
+
+[eval] gaz/mixed -> synthetic_test
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_gaz_mixed_to_synthetic_test_seed42_20260705_073425.log
+[done] gaz/mixed -> synthetic_test
+
+[eval] crf_gaz/kdpii -> kdpii_full19
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_crf_gaz_kdpii_to_kdpii_full19_seed42_20260705_073443.log
+[done] crf_gaz/kdpii -> kdpii_full19
+
+[eval] crf_gaz/kdpii -> kdpii_common15
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_crf_gaz_kdpii_to_kdpii_common15_seed42_20260705_073503.log
+[done] crf_gaz/kdpii -> kdpii_common15
+
+[eval] crf_gaz/kdpii -> synthetic_test
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_crf_gaz_kdpii_to_synthetic_test_seed42_20260705_073523.log
+[done] crf_gaz/kdpii -> synthetic_test
+[skip-eval] crf_gaz/synthetic -> KDPII full-19 (synthetic train lacks 4 labels)
+
+[eval] crf_gaz/synthetic -> kdpii_common15
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_crf_gaz_synthetic_to_kdpii_common15_seed42_20260705_073540.log
+[done] crf_gaz/synthetic -> kdpii_common15
+
+[eval] crf_gaz/synthetic -> synthetic_test
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_crf_gaz_synthetic_to_synthetic_test_seed42_20260705_073556.log
+[done] crf_gaz/synthetic -> synthetic_test
+
+[eval] crf_gaz/mixed -> kdpii_full19
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_crf_gaz_mixed_to_kdpii_full19_seed42_20260705_073610.log
+[done] crf_gaz/mixed -> kdpii_full19
+
+[eval] crf_gaz/mixed -> kdpii_common15
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_crf_gaz_mixed_to_kdpii_common15_seed42_20260705_073633.log
+[done] crf_gaz/mixed -> kdpii_common15
+
+[eval] crf_gaz/mixed -> synthetic_test
+       log=logs/skt_ablation_v1_eval_skt_ablation_v1_crf_gaz_mixed_to_synthetic_test_seed42_20260705_073657.log
+[done] crf_gaz/mixed -> synthetic_test
+
+=== Phase 3: collect summary ===
+results/skt_ablation_v1/summary_seed42.md
+results/skt_ablation_v1/summary_seed42.tsv
+
+=== Done ===
+summary_md=results/skt_ablation_v1/summary_seed42.md
+summary_tsv=results/skt_ablation_v1/summary_seed42.tsv
+master_log=results/skt_ablation_v1/run_seed42_20260705_055431.log

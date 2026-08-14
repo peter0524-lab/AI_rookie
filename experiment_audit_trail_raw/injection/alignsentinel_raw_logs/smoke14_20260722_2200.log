@@ -1,0 +1,251 @@
+nohup: ignoring input
+================================================================
+[two-datasets] original full-attention regularized sweep with Llama
+[two-datasets] RUN_TAG_PREFIX=smoke14_20260722_2200
+[two-datasets] SKIP_DONE=0
+[two-datasets] CONTINUE_ON_ERROR=1
+[two-datasets] CONTINUE_DATASETS_ON_ERROR=1
+[two-datasets] CLEAN_FEATURES_AFTER=1
+[two-datasets] models=7
+ - skt/A.X-4.0-Light
+ - LGAI-EXAONE/EXAONE-Deep-7.8B
+ - NCSOFT/Llama-VARCO-8B-Instruct
+ - upstage/SOLAR-10.7B-Instruct-v1.0
+ - Qwen/Qwen3-8B
+ - mistralai/Mistral-7B-Instruct-v0.3
+ - meta-llama/Llama-3.1-8B-Instruct
+[two-datasets] dataset specs:
+ - final:data_32k_final/full_train.json:data_32k_final/full_test.json
+ - data:data_32k_data/full_train.json:data_32k_data/full_test.json
+================================================================
+================================================================
+[dataset-start] final
+[dataset] train=data_32k_final/full_train.json
+[dataset] test=data_32k_final/full_test.json
+[dataset] features=features_smoke14_20260722_2200_final
+[dataset] results=results_smoke14_20260722_2200_final
+[dataset] models=models_smoke14_20260722_2200_final
+================================================================
+[run] tag=smoke14_20260722_2200_final
+[run] data=data_32k_final/full_train.json data_32k_final/full_test.json
+[run] features=features_smoke14_20260722_2200_final
+[run] results=results_smoke14_20260722_2200_final
+[run] models=models_smoke14_20260722_2200_final
+[run] clean_features_after=1
+[run] model_ids=skt/A.X-4.0-Light LGAI-EXAONE/EXAONE-Deep-7.8B NCSOFT/Llama-VARCO-8B-Instruct upstage/SOLAR-10.7B-Instruct-v1.0 Qwen/Qwen3-8B mistralai/Mistral-7B-Instruct-v0.3 meta-llama/Llama-3.1-8B-Instruct
+================================================================
+[sequential] MODEL_SET=all DETECTOR=regularized
+[sequential] SKIP_DONE=0 CONTINUE_ON_ERROR=1
+[sequential] models=7
+[sequential] CACHE_ROOT=auto
+[sequential] data=data_32k_final/full_train.json data_32k_final/full_test.json
+[sequential] roots=features_smoke14_20260722_2200_final results_smoke14_20260722_2200_final models_smoke14_20260722_2200_final
+================================================================
+================================================================
+[start] skt/A.X-4.0-Light
+================================================================
+================================================================
+[model] skt/A.X-4.0-Light
+[dirs] features=features_smoke14_20260722_2200_final/skt_A_X-4_0-Light results=results_smoke14_20260722_2200_final/skt_A_X-4_0-Light_regularized models=models_smoke14_20260722_2200_final/skt_A_X-4_0-Light_regularized
+================================================================
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+loading skt/A.X-4.0-Light (attn_implementation=eager, dtype=bfloat16)
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights:   0%|          | 1/339 [00:01<08:49,  1.57s/it]Loading weights:   1%|          | 2/339 [00:03<09:46,  1.74s/it]Loading weights:   1%|          | 4/339 [00:03<04:13,  1.32it/s]Loading weights:   1%|▏         | 5/339 [00:03<03:13,  1.73it/s]Loading weights:   2%|▏         | 6/339 [00:04<02:31,  2.20it/s]Loading weights:   5%|▍         | 16/339 [00:04<00:45,  7.14it/s]Loading weights:   5%|▌         | 17/339 [00:05<01:01,  5.26it/s]Loading weights:   5%|▌         | 18/339 [00:06<01:18,  4.07it/s]Loading weights:   6%|▋         | 22/339 [00:06<00:49,  6.45it/s]Loading weights:   7%|▋         | 24/339 [00:06<00:41,  7.52it/s]Loading weights:   8%|▊         | 28/339 [00:06<00:44,  7.03it/s]Loading weights:   9%|▉         | 30/339 [00:08<01:20,  3.83it/s]Loading weights:  10%|█         | 34/339 [00:08<00:52,  5.76it/s]Loading weights:  11%|█         | 36/339 [00:08<00:45,  6.67it/s]Loading weights:  12%|█▏        | 40/339 [00:09<01:03,  4.74it/s]Loading weights:  12%|█▏        | 42/339 [00:10<01:09,  4.30it/s]Loading weights:  14%|█▎        | 46/339 [00:10<00:45,  6.38it/s]Loading weights:  14%|█▍        | 48/339 [00:10<00:39,  7.33it/s]Loading weights:  15%|█▌        | 52/339 [00:11<00:42,  6.83it/s]Loading weights:  16%|█▌        | 54/339 [00:12<01:11,  3.99it/s]Loading weights:  17%|█▋        | 58/339 [00:12<00:47,  5.93it/s]Loading weights:  18%|█▊        | 60/339 [00:12<00:40,  6.85it/s]Loading weights:  19%|█▊        | 63/339 [00:13<00:45,  6.02it/s]Loading weights:  19%|█▉        | 65/339 [00:14<00:54,  5.07it/s]Loading weights:  19%|█▉        | 66/339 [00:14<01:10,  3.86it/s]Loading weights:  21%|██        | 70/339 [00:14<00:45,  5.85it/s]Loading weights:  22%|██▏       | 76/339 [00:15<00:37,  7.08it/s]Loading weights:  23%|██▎       | 77/339 [00:16<00:50,  5.20it/s]Loading weights:  23%|██▎       | 78/339 [00:16<01:05,  3.98it/s]Loading weights:  24%|██▍       | 82/339 [00:17<00:40,  6.30it/s]Loading weights:  25%|██▍       | 84/339 [00:17<00:34,  7.37it/s]Loading weights:  26%|██▌       | 88/339 [00:17<00:34,  7.32it/s]Loading weights:  27%|██▋       | 90/339 [00:18<00:46,  5.40it/s]Loading weights:  28%|██▊       | 95/339 [00:18<00:27,  8.78it/s]Loading weights:  29%|██▉       | 99/339 [00:18<00:24,  9.90it/s]Loading weights:  30%|██▉       | 101/339 [00:19<00:25,  9.48it/s]Loading weights:  30%|███       | 103/339 [00:19<00:25,  9.23it/s]Loading weights:  33%|███▎      | 112/339 [00:19<00:19, 11.77it/s]Loading weights:  34%|███▎      | 114/339 [00:20<00:32,  6.91it/s]Loading weights:  35%|███▌      | 119/339 [00:21<00:22,  9.72it/s]Loading weights:  37%|███▋      | 124/339 [00:21<00:20, 10.52it/s]Loading weights:  37%|███▋      | 126/339 [00:22<00:34,  6.09it/s]Loading weights:  38%|███▊      | 130/339 [00:22<00:25,  8.25it/s]Loading weights:  39%|███▉      | 133/339 [00:22<00:20, 10.03it/s]Loading weights:  40%|████      | 136/339 [00:23<00:24,  8.43it/s]Loading weights:  41%|████      | 138/339 [00:24<00:39,  5.05it/s]Loading weights:  42%|████▏     | 142/339 [00:24<00:28,  6.90it/s]Loading weights:  44%|████▎     | 148/339 [00:24<00:22,  8.32it/s]Loading weights:  44%|████▍     | 150/339 [00:26<00:36,  5.24it/s]Loading weights:  45%|████▌     | 154/339 [00:26<00:25,  7.31it/s]Loading weights:  47%|████▋     | 158/339 [00:26<00:18,  9.82it/s]Loading weights:  47%|████▋     | 161/339 [00:27<00:29,  6.13it/s]Loading weights:  48%|████▊     | 163/339 [00:27<00:31,  5.54it/s]Loading weights:  50%|████▉     | 168/339 [00:27<00:20,  8.22it/s]Loading weights:  51%|█████     | 172/339 [00:28<00:20,  7.97it/s]Loading weights:  51%|█████▏    | 174/339 [00:29<00:32,  5.15it/s]Loading weights:  53%|█████▎    | 180/339 [00:29<00:19,  8.20it/s]Loading weights:  54%|█████▍    | 184/339 [00:30<00:19,  7.78it/s]Loading weights:  55%|█████▍    | 186/339 [00:31<00:29,  5.17it/s]Loading weights:  56%|█████▌    | 190/339 [00:31<00:20,  7.23it/s]Loading weights:  57%|█████▋    | 192/339 [00:31<00:17,  8.19it/s]Loading weights:  58%|█████▊    | 196/339 [00:31<00:17,  7.97it/s]Loading weights:  58%|█████▊    | 198/339 [00:32<00:28,  4.96it/s]Loading weights:  60%|█████▉    | 202/339 [00:33<00:18,  7.28it/s]Loading weights:  60%|██████    | 204/339 [00:33<00:16,  8.32it/s]Loading weights:  61%|██████▏   | 208/339 [00:33<00:15,  8.32it/s]Loading weights:  62%|██████▏   | 210/339 [00:34<00:25,  5.11it/s]Loading weights:  63%|██████▎   | 214/339 [00:34<00:16,  7.53it/s]Loading weights:  65%|██████▍   | 220/339 [00:35<00:13,  8.79it/s]Loading weights:  65%|██████▌   | 222/339 [00:36<00:20,  5.64it/s]Loading weights:  67%|██████▋   | 226/339 [00:36<00:14,  7.87it/s]Loading weights:  68%|██████▊   | 230/339 [00:36<00:10, 10.56it/s]Loading weights:  69%|██████▊   | 233/339 [00:37<00:15,  6.83it/s]Loading weights:  69%|██████▉   | 235/339 [00:37<00:17,  5.96it/s]Loading weights:  70%|███████   | 238/339 [00:37<00:12,  7.80it/s]Loading weights:  71%|███████▏  | 242/339 [00:38<00:08, 10.90it/s]Loading weights:  72%|███████▏  | 245/339 [00:38<00:12,  7.40it/s]Loading weights:  73%|███████▎  | 247/339 [00:39<00:13,  7.00it/s]Loading weights:  74%|███████▍  | 252/339 [00:39<00:08, 10.45it/s]Loading weights:  76%|███████▌  | 256/339 [00:39<00:06, 12.04it/s]Loading weights:  76%|███████▌  | 258/339 [00:39<00:08,  9.79it/s]Loading weights:  79%|███████▉  | 268/339 [00:40<00:04, 16.52it/s]Loading weights:  80%|███████▉  | 271/339 [00:40<00:05, 12.57it/s]Loading weights:  81%|████████▏ | 276/339 [00:40<00:03, 16.17it/s]Loading weights:  82%|████████▏ | 279/339 [00:41<00:04, 14.69it/s]Loading weights:  83%|████████▎ | 281/339 [00:41<00:05, 10.21it/s]Loading weights:  83%|████████▎ | 283/339 [00:42<00:07,  7.66it/s]Loading weights:  84%|████████▍ | 286/339 [00:42<00:05,  9.71it/s]Loading weights:  86%|████████▌ | 290/339 [00:42<00:03, 13.22it/s]Loading weights:  86%|████████▋ | 293/339 [00:43<00:07,  6.56it/s]Loading weights:  87%|████████▋ | 295/339 [00:43<00:07,  5.66it/s]Loading weights:  88%|████████▊ | 298/339 [00:44<00:05,  7.44it/s]Loading weights:  89%|████████▉ | 302/339 [00:44<00:03, 10.64it/s]Loading weights:  90%|████████▉ | 305/339 [00:45<00:05,  6.17it/s]Loading weights:  91%|█████████ | 307/339 [00:45<00:05,  5.68it/s]Loading weights:  92%|█████████▏| 312/339 [00:45<00:03,  8.70it/s]Loading weights:  93%|█████████▎| 316/339 [00:46<00:02,  8.59it/s]Loading weights:  94%|█████████▍| 318/339 [00:47<00:04,  5.11it/s]Loading weights:  95%|█████████▍| 322/339 [00:47<00:02,  7.34it/s]Loading weights:  96%|█████████▌| 324/339 [00:47<00:01,  8.36it/s]Loading weights:  97%|█████████▋| 328/339 [00:48<00:01,  7.82it/s]Loading weights:  97%|█████████▋| 330/339 [00:49<00:01,  4.53it/s]Loading weights:  99%|█████████▊| 334/339 [00:49<00:00,  6.65it/s]Loading weights:  99%|█████████▉| 336/339 [00:49<00:00,  7.65it/s]Loading weights: 100%|██████████| 339/339 [00:49<00:00,  6.85it/s]
+L=28 H=28 → feature dim 784
+test/cloud:   0%|          | 0/4 [00:00<?, ?it/s]test/cloud:  25%|██▌       | 1/4 [00:00<00:02,  1.47it/s]test/cloud: 100%|██████████| 4/4 [00:00<00:00,  6.06it/s]test/cloud: 100%|██████████| 4/4 [00:00<00:00,  4.90it/s]
+[done] test/cloud: 4/4 in 1s (skipped 0)
+test/coding:   0%|          | 0/4 [00:00<?, ?it/s]test/coding:  75%|███████▌  | 3/4 [00:00<00:00, 23.08it/s]test/coding: 100%|██████████| 4/4 [00:00<00:00, 24.04it/s]
+[done] test/coding: 4/4 in 0s (skipped 0)
+test/finance:   0%|          | 0/4 [00:00<?, ?it/s]test/finance:  75%|███████▌  | 3/4 [00:00<00:00, 22.09it/s]test/finance: 100%|██████████| 4/4 [00:00<00:00, 23.23it/s]
+[done] test/finance: 4/4 in 0s (skipped 0)
+test/messaging:   0%|          | 0/4 [00:00<?, ?it/s]test/messaging:  75%|███████▌  | 3/4 [00:00<00:00, 28.11it/s]test/messaging: 100%|██████████| 4/4 [00:00<00:00, 28.15it/s]
+[done] test/messaging: 4/4 in 0s (skipped 0)
+test/project:   0%|          | 0/4 [00:00<?, ?it/s]test/project:  75%|███████▌  | 3/4 [00:00<00:00, 27.47it/s]test/project: 100%|██████████| 4/4 [00:00<00:00, 27.53it/s]
+[done] test/project: 4/4 in 0s (skipped 0)
+test/shopping:   0%|          | 0/4 [00:00<?, ?it/s]test/shopping:  75%|███████▌  | 3/4 [00:00<00:00, 27.89it/s]test/shopping: 100%|██████████| 4/4 [00:00<00:00, 27.87it/s]
+[done] test/shopping: 4/4 in 0s (skipped 0)
+test/social_media:   0%|          | 0/4 [00:00<?, ?it/s]test/social_media:  75%|███████▌  | 3/4 [00:00<00:00, 27.95it/s]test/social_media: 100%|██████████| 4/4 [00:00<00:00, 27.98it/s]
+[done] test/social_media: 4/4 in 0s (skipped 0)
+test/web:   0%|          | 0/4 [00:00<?, ?it/s]test/web:  75%|███████▌  | 3/4 [00:00<00:00, 27.75it/s]test/web: 100%|██████████| 4/4 [00:00<00:00, 27.73it/s]
+[done] test/web: 4/4 in 0s (skipped 0)
+train/cloud:   0%|          | 0/4 [00:00<?, ?it/s]train/cloud:  75%|███████▌  | 3/4 [00:00<00:00, 23.49it/s]train/cloud: 100%|██████████| 4/4 [00:00<00:00, 23.53it/s]
+[done] train/cloud: 4/4 in 0s (skipped 0)
+train/coding:   0%|          | 0/4 [00:00<?, ?it/s]train/coding:  75%|███████▌  | 3/4 [00:00<00:00, 26.33it/s]train/coding: 100%|██████████| 4/4 [00:00<00:00, 26.64it/s]
+[done] train/coding: 4/4 in 0s (skipped 0)
+train/finance:   0%|          | 0/4 [00:00<?, ?it/s]train/finance:  75%|███████▌  | 3/4 [00:00<00:00, 27.00it/s]train/finance: 100%|██████████| 4/4 [00:00<00:00, 26.91it/s]
+[done] train/finance: 4/4 in 0s (skipped 0)
+train/messaging:   0%|          | 0/4 [00:00<?, ?it/s]train/messaging:  75%|███████▌  | 3/4 [00:00<00:00, 25.75it/s]train/messaging: 100%|██████████| 4/4 [00:00<00:00, 26.23it/s]
+[done] train/messaging: 4/4 in 0s (skipped 0)
+train/project:   0%|          | 0/4 [00:00<?, ?it/s]train/project:  50%|█████     | 2/4 [00:00<00:00, 18.91it/s]train/project: 100%|██████████| 4/4 [00:00<00:00, 20.84it/s]
+[done] train/project: 4/4 in 0s (skipped 0)
+train/shopping:   0%|          | 0/4 [00:00<?, ?it/s]train/shopping:  75%|███████▌  | 3/4 [00:00<00:00, 27.36it/s]train/shopping: 100%|██████████| 4/4 [00:00<00:00, 27.34it/s]
+[done] train/shopping: 4/4 in 0s (skipped 0)
+train/social_media:   0%|          | 0/4 [00:00<?, ?it/s]train/social_media:  75%|███████▌  | 3/4 [00:00<00:00, 27.67it/s]train/social_media: 100%|██████████| 4/4 [00:00<00:00, 27.69it/s]
+[done] train/social_media: 4/4 in 0s (skipped 0)
+train/web:   0%|          | 0/4 [00:00<?, ?it/s]train/web:  75%|███████▌  | 3/4 [00:00<00:00, 23.57it/s]train/web: 100%|██████████| 4/4 [00:00<00:00, 24.51it/s]
+[done] train/web: 4/4 in 0s (skipped 0)
+domains: ['cloud', 'coding', 'finance', 'messaging', 'project', 'shopping', 'social_media', 'web']
+  [cloud/avg] loading features into memory…
+    data resident on GPU (0.0 GB)
+    data resident on GPU (0.0 GB)
+  [cloud/avg] regularized split: train=3 val=1
+  [cloud/avg] class weights=[1.0, 1.0, 1.0]
+[cloud/avg] Acc=0.250 FPR=0.000 FNR=1.000
+  [coding/avg] loading features into memory…
+    data resident on GPU (0.0 GB)
+    data resident on GPU (0.0 GB)
+  [coding/avg] regularized split: train=3 val=1
+  [coding/avg] class weights=[1.0, 1.0, 1.0]
+[coding/avg] Acc=0.500 FPR=0.500 FNR=0.000
+  [finance/avg] loading features into memory…
+    data resident on GPU (0.0 GB)
+    data resident on GPU (0.0 GB)
+  [finance/avg] regularized split: train=3 val=1
+  [finance/avg] class weights=[1.0, 1.0, 1.0]
+[finance/avg] Acc=0.500 FPR=1.000 FNR=0.000
+  [messaging/avg] loading features into memory…
+    data resident on GPU (0.0 GB)
+    data resident on GPU (0.0 GB)
+  [messaging/avg] regularized split: train=3 val=1
+  [messaging/avg] class weights=[1.0, 1.0, 1.0]
+[messaging/avg] Acc=0.500 FPR=1.000 FNR=0.000
+  [project/avg] loading features into memory…
+    data resident on GPU (0.0 GB)
+    data resident on GPU (0.0 GB)
+  [project/avg] regularized split: train=3 val=1
+  [project/avg] class weights=[1.0, 1.0, 1.0]
+[project/avg] Acc=0.250 FPR=0.000 FNR=1.000
+  [shopping/avg] loading features into memory…
+    data resident on GPU (0.0 GB)
+    data resident on GPU (0.0 GB)
+  [shopping/avg] regularized split: train=3 val=1
+  [shopping/avg] class weights=[1.0, 1.0, 1.0]
+[shopping/avg] Acc=0.250 FPR=0.000 FNR=1.000
+  [social_media/avg] loading features into memory…
+    data resident on GPU (0.0 GB)
+    data resident on GPU (0.0 GB)
+  [social_media/avg] regularized split: train=3 val=1
+  [social_media/avg] class weights=[1.0, 1.0, 1.0]
+[social_media/avg] Acc=0.500 FPR=0.000 FNR=0.500
+  [web/avg] loading features into memory…
+    data resident on GPU (0.0 GB)
+    data resident on GPU (0.0 GB)
+  [web/avg] regularized split: train=3 val=1
+  [web/avg] class weights=[1.0, 1.0, 1.0]
+[web/avg] Acc=0.500 FPR=0.000 FNR=1.000
+domains: ['cloud', 'coding', 'finance', 'messaging', 'project', 'shopping', 'social_media', 'web']
+  [cloud/enc] loading features into memory…
+    data resident on GPU (0.0 GB)
+    data resident on GPU (0.0 GB)
+  [cloud/enc] regularized split: train=3 val=1
+  [cloud/enc] class weights=[1.0, 1.0, 1.0]
+[cloud/enc] Acc=0.500 FPR=1.000 FNR=0.000
+  [coding/enc] loading features into memory…
+    data resident on GPU (0.0 GB)
+    data resident on GPU (0.0 GB)
+  [coding/enc] regularized split: train=3 val=1
+  [coding/enc] class weights=[1.0, 1.0, 1.0]
+[coding/enc] Acc=0.250 FPR=0.000 FNR=1.000
+  [finance/enc] loading features into memory…
+    data resident on GPU (0.0 GB)
+    data resident on GPU (0.0 GB)
+  [finance/enc] regularized split: train=3 val=1
+  [finance/enc] class weights=[1.0, 1.0, 1.0]
+[finance/enc] Acc=0.500 FPR=0.000 FNR=0.500
+  [messaging/enc] loading features into memory…
+    data resident on GPU (0.0 GB)
+    data resident on GPU (0.0 GB)
+  [messaging/enc] regularized split: train=3 val=1
+  [messaging/enc] class weights=[1.0, 1.0, 1.0]
+[messaging/enc] Acc=0.500 FPR=0.000 FNR=0.500
+  [project/enc] loading features into memory…
+    data resident on GPU (0.0 GB)
+    data resident on GPU (0.0 GB)
+  [project/enc] regularized split: train=3 val=1
+  [project/enc] class weights=[1.0, 1.0, 1.0]
+[project/enc] Acc=0.250 FPR=0.000 FNR=1.000
+  [shopping/enc] loading features into memory…
+    data resident on GPU (0.0 GB)
+    data resident on GPU (0.0 GB)
+  [shopping/enc] regularized split: train=3 val=1
+  [shopping/enc] class weights=[1.0, 1.0, 1.0]
+[shopping/enc] Acc=0.250 FPR=0.000 FNR=1.000
+  [social_media/enc] loading features into memory…
+    data resident on GPU (0.0 GB)
+    data resident on GPU (0.0 GB)
+  [social_media/enc] regularized split: train=3 val=1
+  [social_media/enc] class weights=[1.0, 1.0, 1.0]
+[social_media/enc] Acc=0.250 FPR=0.000 FNR=1.000
+  [web/enc] loading features into memory…
+    data resident on GPU (0.0 GB)
+    data resident on GPU (0.0 GB)
+  [web/enc] regularized split: train=3 val=1
+  [web/enc] class weights=[1.0, 1.0, 1.0]
+[web/enc] Acc=0.500 FPR=0.500 FNR=0.500
+pooled: 전체 8개 도메인 train split 학습 → 전체 test split 평가
+  [pooled/avg] loading features into memory…
+    data resident on GPU (0.0 GB)
+    data resident on GPU (0.0 GB)
+  [pooled/avg] regularized split: train=28 val=4
+  [pooled/avg] class weights=[0.6669999957084656, 1.3329999446868896, 1.3329999446868896]
+[pooled/avg] Acc=0.531 FPR=0.562 FNR=0.312
+pooled: 전체 8개 도메인 train split 학습 → 전체 test split 평가
+  [pooled/enc] loading features into memory…
+    data resident on GPU (0.0 GB)
+    data resident on GPU (0.0 GB)
+  [pooled/enc] regularized split: train=28 val=4
+  [pooled/enc] class weights=[0.6669999957084656, 1.3329999446868896, 1.3329999446868896]
+[pooled/enc] Acc=0.250 FPR=0.000 FNR=1.000
+cross-domain A2B: train=['coding', 'cloud', 'project', 'shopping'] → test=['finance', 'messaging', 'social_media', 'web']
+  [A2B/avg] loading features into memory…
+    data resident on GPU (0.0 GB)
+    data resident on GPU (0.0 GB)
+  [A2B/avg] regularized split: train=28 val=4
+  [A2B/avg] class weights=[0.6669999957084656, 1.3329999446868896, 1.3329999446868896]
+[A2B/avg] Acc=0.500 FPR=0.438 FNR=0.312
+cross-domain A2B: train=['coding', 'cloud', 'project', 'shopping'] → test=['finance', 'messaging', 'social_media', 'web']
+  [A2B/enc] loading features into memory…
+    data resident on GPU (0.0 GB)
+    data resident on GPU (0.0 GB)
+  [A2B/enc] regularized split: train=28 val=4
+  [A2B/enc] class weights=[0.6669999957084656, 1.3329999446868896, 1.3329999446868896]
+[A2B/enc] Acc=0.500 FPR=0.562 FNR=0.375
+cross-domain B2A: train=['finance', 'messaging', 'social_media', 'web'] → test=['coding', 'cloud', 'project', 'shopping']
+  [B2A/avg] loading features into memory…
+    data resident on GPU (0.0 GB)
+    data resident on GPU (0.0 GB)
+  [B2A/avg] regularized split: train=28 val=4
+  [B2A/avg] class weights=[0.6669999957084656, 1.3329999446868896, 1.3329999446868896]
+[B2A/avg] Acc=0.438 FPR=0.438 FNR=0.500
+cross-domain B2A: train=['finance', 'messaging', 'social_media', 'web'] → test=['coding', 'cloud', 'project', 'shopping']
+  [B2A/enc] loading features into memory…
+    data resident on GPU (0.0 GB)
+    data resident on GPU (0.0 GB)
+  [B2A/enc] regularized split: train=28 val=4
+  [B2A/enc] class weights=[0.6669999957084656, 1.3329999446868896, 1.3329999446868896]
+[B2A/enc] Acc=0.250 FPR=0.000 FNR=1.000
+→ results_smoke14_20260722_2200_final/skt_A_X-4_0-Light_regularized/summary.md  (기계용: results_smoke14_20260722_2200_final/skt_A_X-4_0-Light_regularized/summary_full.json)
+   섹션: 도메인별 표 / pooled / cross / confusion+클래스별 / 오분류 샘플 / 베이스라인 / 추출 통계
+[done] skt/A.X-4.0-Light: results_smoke14_20260722_2200_final/skt_A_X-4_0-Light_regularized/summary.md
+[cleanup] removing features after summary: features_smoke14_20260722_2200_final/skt_A_X-4_0-Light
+전체 sweep 완료
+[done] skt/A.X-4.0-Light
+================================================================
+[start] LGAI-EXAONE/EXAONE-Deep-7.8B
+================================================================
+================================================================
+[model] LGAI-EXAONE/EXAONE-Deep-7.8B
+[dirs] features=features_smoke14_20260722_2200_final/LGAI-EXAONE_EXAONE-Deep-7_8B results=results_smoke14_20260722_2200_final/LGAI-EXAONE_EXAONE-Deep-7_8B_regularized models=models_smoke14_20260722_2200_final/LGAI-EXAONE_EXAONE-Deep-7_8B_regularized
+================================================================
+[transformers] A new version of the following files was downloaded from https://huggingface.co/LGAI-EXAONE/EXAONE-Deep-7.8B:
+- configuration_exaone.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[transformers] A new version of the following files was downloaded from https://huggingface.co/LGAI-EXAONE/EXAONE-Deep-7.8B:
+- modeling_exaone.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+[transformers] The `check_model_inputs` decorator is deprecated in favor of `merge_with_config_defaults`.
+loading LGAI-EXAONE/EXAONE-Deep-7.8B (attn_implementation=eager, dtype=bfloat16)
+[ERROR] `cache_position` is part of ExaoneModel.forward's signature, but not documented. Make sure to add it to the docstring of the function in /home/tta/team/ho/huggingface_cache/modules/transformers_modules/LGAI_hyphen_EXAONE/EXAONE_hyphen_Deep_hyphen_7_dot_8B/8a120673fc7309b55be2175a2e61f9a0839e4f61/modeling_exaone.py.
+[ERROR] `cache_position` is part of ExaoneForCausalLM.forward's signature, but not documented. Make sure to add it to the docstring of the function in /home/tta/team/ho/huggingface_cache/modules/transformers_modules/LGAI_hyphen_EXAONE/EXAONE_hyphen_Deep_hyphen_7_dot_8B/8a120673fc7309b55be2175a2e61f9a0839e4f61/modeling_exaone.py.
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Terminated

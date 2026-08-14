@@ -1,0 +1,11 @@
+pooled: 도메인 ['project']
+Traceback (most recent call last):
+  File "/data/team/ho/injection_diag/src/train_hybrid.py", line 324, in <module>
+    main()
+  File "/data/team/ho/injection_diag/src/train_hybrid.py", line 296, in main
+    results[v] = run_variant(v, feat_dir, domains, args)
+  File "/data/team/ho/injection_diag/src/train_hybrid.py", line 277, in run_variant
+    m = train_eval(variant, Ptr, Htr, ytr, Pte, Hte, yte, args, lh, hd)
+  File "/data/team/ho/injection_diag/src/train_hybrid.py", line 181, in train_eval
+    Ptr_t = (Ptr_t - pmu) / psd; Pte_t = (Pte_t - pmu) / psd
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 11.72 GiB. GPU 0 has a total capacity of 79.15 GiB of which 4.94 GiB is free. Process 679690 has 15.62 GiB memory in use. Process 679691 has 27.34 GiB memory in use. Including non-PyTorch memory, this process has 15.62 GiB memory in use. Process 679692 has 15.62 GiB memory in use. Of the allocated memory 15.14 GiB is allocated by PyTorch, and 1.72 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

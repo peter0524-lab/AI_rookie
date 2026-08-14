@@ -1,0 +1,64 @@
+{
+  "attn": {
+    "acc": 0.9938,
+    "fpr": 0.005,
+    "fnr": 0.005,
+    "macro_f1": 0.9933,
+    "risk": 0.005,
+    "n_test": 800,
+    "per_domain": {
+      "messaging": {
+        "acc": 0.9938,
+        "fpr": 0.005,
+        "fnr": 0.005
+      }
+    },
+    "bias": 0.0,
+    "raw": {
+      "acc": 0.9938,
+      "fpr": 0.005,
+      "fnr": 0.005,
+      "macro_f1": 0.9933,
+      "risk": 0.005,
+      "n_test": 800,
+      "per_domain": {
+        "messaging": {
+          "acc": 0.9938,
+          "fpr": 0.005,
+          "fnr": 0.005
+        }
+      }
+    }
+  },
+  "hybrid": {
+    "acc": 0.9925,
+    "fpr": 0.0025,
+    "fnr": 0.0125,
+    "macro_f1": 0.9925,
+    "risk": 0.01,
+    "n_test": 800,
+    "per_domain": {
+      "messaging": {
+        "acc": 0.9925,
+        "fpr": 0.0025,
+        "fnr": 0.0125
+      }
+    },
+    "bias": 0.0,
+    "raw": {
+      "acc": 0.9925,
+      "fpr": 0.0025,
+      "fnr": 0.0125,
+      "macro_f1": 0.9925,
+      "risk": 0.01,
+      "n_test": 800,
+      "per_domain": {
+        "messaging": {
+          "acc": 0.9925,
+          "fpr": 0.0025,
+          "fnr": 0.0125
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+[ENTITY VOTE] 모델 1개 (min_votes=1):
+  - models/privacy_filter_korean_Lora_synthetic/seed42/inference
+평가 데이터: /data/team/hwan/data/test.json
+라벨 필터: 15개 평가, 4개 제외
+  제외: OGG_EDUCATION, QT_ALIEN_NUMBER, QT_AGE, FD_MAJOR
+
+[models/privacy_filter_korean_Lora_synthetic/seed42/inference] 예측 중...
+Loading weights:   0%|          | 0/140 [00:00<?, ?it/s]Loading weights: 100%|██████████| 140/140 [00:00<00:00, 27776.85it/s]
+  아키텍처: baseline  (4,891문장)
+
+다수결 앙상블 (min_votes=1)...
+
+====================================================================
+[test / VOTE×1]  Micro F1=0.4542  P=0.7167  R=0.3325
+  TP=382  FP=151  FN=767
+  excluded gold entities=219  excluded predicted entities=9
+====================================================================
+  PS_NAME                F1=0.2475 P=0.3033 R=0.2090  TP=   37 FP=   85 FN=  140
+  LC_ADDRESS             F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=  101
+  OG_WORKPLACE           F1=0.0157 P=0.0714 R=0.0088  TP=    1 FP=   13 FN=  112
+  OG_DEPARTMENT          F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=   99
+  CV_POSITION            F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=  124
+  QT_MOBILE              F1=1.0000 P=1.0000 R=1.0000  TP=   55 FP=    0 FN=    0
+  QT_PHONE               F1=0.9650 P=0.9324 R=1.0000  TP=   69 FP=    5 FN=    0
+  QT_RESIDENT_NUMBER     F1=0.8000 P=0.6667 R=1.0000  TP=   18 FP=    9 FN=    0
+  QT_DRIVER_NUMBER       F1=0.3182 P=0.2593 R=0.4118  TP=    7 FP=   20 FN=   10
+  QT_PLATE_NUMBER        F1=0.0377 P=1.0000 R=0.0192  TP=    1 FP=    0 FN=   51
+  QT_ACCOUNT_NUMBER      F1=0.8129 P=0.8077 R=0.8182  TP=   63 FP=   15 FN=   14
+  QT_CARD_NUMBER         F1=0.8406 P=0.9667 R=0.7436  TP=   58 FP=    2 FN=   20
+  TMI_EMAIL              F1=0.4272 P=1.0000 R=0.2716  TP=   22 FP=    0 FN=   59
+  QT_PASSPORT_NUMBER     F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=   18
+  DT_BIRTH               F1=0.8293 P=0.9623 R=0.7286  TP=   51 FP=    2 FN=   19
+
+MD 저장: /data/team/hwan/results/ensemble_vote/eval_vote_test_privacy_korean_lora_synth_seed42_to_kdpii_common15_20260704_153256.md

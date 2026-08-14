@@ -1,0 +1,36 @@
+[ENTITY VOTE] 모델 1개 (min_votes=1):
+  - models/skt_ablation_v1/plain/mixed/seed42
+평가 데이터: /data/team/hwan/synthetic/test.json
+라벨 필터: 전체 19개 라벨 평가
+
+[models/skt_ablation_v1/plain/mixed/seed42] 예측 중...
+Loading weights:   0%|          | 0/138 [00:00<?, ?it/s]Loading weights: 100%|██████████| 138/138 [00:00<00:00, 6658.70it/s]
+  아키텍처: baseline  (795문장)
+
+다수결 앙상블 (min_votes=1)...
+
+====================================================================
+[test / VOTE×1]  Micro F1=0.9422  P=0.9834  R=0.9043
+  TP=1247  FP=21  FN=132
+====================================================================
+  PS_NAME                F1=0.9486 P=0.9967 R=0.9049  TP=  609 FP=    2 FN=   64
+  LC_ADDRESS             F1=0.9011 P=0.9762 R=0.8367  TP=   82 FP=    2 FN=   16
+  OG_WORKPLACE           F1=0.9231 P=0.9767 R=0.8750  TP=   42 FP=    1 FN=    6
+  OG_DEPARTMENT          F1=0.8727 P=0.8571 R=0.8889  TP=   24 FP=    4 FN=    3
+  CV_POSITION            F1=0.6087 P=0.5833 R=0.6364  TP=    7 FP=    5 FN=    4
+  OGG_EDUCATION          F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_MOBILE              F1=0.9960 P=0.9919 R=1.0000  TP=  123 FP=    1 FN=    0
+  QT_PHONE               F1=0.9934 P=0.9868 R=1.0000  TP=   75 FP=    1 FN=    0
+  QT_RESIDENT_NUMBER     F1=1.0000 P=1.0000 R=1.0000  TP=   15 FP=    0 FN=    0
+  QT_ALIEN_NUMBER        F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    0 FN=    0
+  QT_DRIVER_NUMBER       F1=1.0000 P=1.0000 R=1.0000  TP=    3 FP=    0 FN=    0
+  QT_PLATE_NUMBER        F1=0.9412 P=0.8889 R=1.0000  TP=    8 FP=    1 FN=    0
+  QT_ACCOUNT_NUMBER      F1=0.9038 P=1.0000 R=0.8246  TP=   47 FP=    0 FN=   10
+  QT_CARD_NUMBER         F1=0.9643 P=0.9310 R=1.0000  TP=   27 FP=    2 FN=    0
+  TMI_EMAIL              F1=0.9313 P=1.0000 R=0.8714  TP=  122 FP=    0 FN=   18
+  QT_PASSPORT_NUMBER     F1=0.9412 P=1.0000 R=0.8889  TP=    8 FP=    0 FN=    1
+  QT_AGE                 F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    1 FN=    0
+  DT_BIRTH               F1=0.9167 P=1.0000 R=0.8462  TP=   55 FP=    0 FN=   10
+  FD_MAJOR               F1=0.0000 P=0.0000 R=0.0000  TP=    0 FP=    1 FN=    0
+
+MD 저장: /data/team/hwan/results/ensemble_vote/eval_vote_test_skt_ablation_v1_plain_mixed_to_synthetic_test_20260705_072942.md

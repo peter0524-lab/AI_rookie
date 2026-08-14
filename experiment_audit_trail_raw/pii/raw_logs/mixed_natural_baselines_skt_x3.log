@@ -1,0 +1,16 @@
+nohup: ignoring input
+=== mixed natural baseline batch ===
+gpu: NVIDIA A100-SXM4-80GB, 81920 MiB, 81050 MiB
+KDPII_DATA_DIR=data  SYNTH_DATA_DIR=synthetic
+MIXED_DATA_DIR=mixed/natural_86_14  split=test
+MAX_TRAIN_JOBS=1  MAX_EVAL_JOBS=3
+SKT_SEEDS=42 43 44
+
+=== Phase 0: build mixed data ===
+[mixed] wrote mixed/natural_86_14
+  train: kdpii=40109 synthetic=6605 total=46714 synthetic_ratio=0.1414
+  valid: kdpii=5011 synthetic=824 total=5835 synthetic_ratio=0.1412
+
+=== Phase 1: train mixed models ===
+[train] train_privacy_korean_lora_mixed_natural
+       log=logs/train_privacy_korean_lora_mixed_natural_20260704_163220.log

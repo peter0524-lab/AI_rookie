@@ -1,0 +1,34 @@
+[ENTITY VOTE] 모델 1개 (min_votes=1):
+  - models/skt_ablation_v1/gaz/synthetic/seed42
+평가 데이터: /data/team/hwan/data/test.json
+라벨 필터: 15개 평가, 4개 제외
+  제외: OGG_EDUCATION, QT_ALIEN_NUMBER, QT_AGE, FD_MAJOR
+
+[models/skt_ablation_v1/gaz/synthetic/seed42] 예측 중...
+Loading weights:   0%|          | 0/138 [00:00<?, ?it/s]Loading weights: 100%|██████████| 138/138 [00:00<00:00, 3460.52it/s]
+  아키텍처: pii_hwan  (4,891문장)
+
+다수결 앙상블 (min_votes=1)...
+
+====================================================================
+[test / VOTE×1]  Micro F1=0.6335  P=0.7285  R=0.5605
+  TP=644  FP=240  FN=505
+  excluded gold entities=219  excluded predicted entities=9
+====================================================================
+  PS_NAME                F1=0.7293 P=0.7135 R=0.7458  TP=  132 FP=   53 FN=   45
+  LC_ADDRESS             F1=0.0926 P=0.7143 R=0.0495  TP=    5 FP=    2 FN=   96
+  OG_WORKPLACE           F1=0.4286 P=0.3593 R=0.5310  TP=   60 FP=  107 FN=   53
+  OG_DEPARTMENT          F1=0.2712 P=0.8421 R=0.1616  TP=   16 FP=    3 FN=   83
+  CV_POSITION            F1=0.3949 P=0.9394 R=0.2500  TP=   31 FP=    2 FN=   93
+  QT_MOBILE              F1=1.0000 P=1.0000 R=1.0000  TP=   55 FP=    0 FN=    0
+  QT_PHONE               F1=0.9784 P=0.9714 R=0.9855  TP=   68 FP=    2 FN=    1
+  QT_RESIDENT_NUMBER     F1=1.0000 P=1.0000 R=1.0000  TP=   18 FP=    0 FN=    0
+  QT_DRIVER_NUMBER       F1=0.6400 P=1.0000 R=0.4706  TP=    8 FP=    0 FN=    9
+  QT_PLATE_NUMBER        F1=0.0625 P=0.1667 R=0.0385  TP=    2 FP=   10 FN=   50
+  QT_ACCOUNT_NUMBER      F1=0.7831 P=0.6607 R=0.9610  TP=   74 FP=   38 FN=    3
+  QT_CARD_NUMBER         F1=0.7846 P=0.9808 R=0.6538  TP=   51 FP=    1 FN=   27
+  TMI_EMAIL              F1=0.8852 P=0.7941 R=1.0000  TP=   81 FP=   21 FN=    0
+  QT_PASSPORT_NUMBER     F1=1.0000 P=1.0000 R=1.0000  TP=   18 FP=    0 FN=    0
+  DT_BIRTH               F1=0.5208 P=0.9615 R=0.3571  TP=   25 FP=    1 FN=   45
+
+MD 저장: /data/team/hwan/results/ensemble_vote/eval_vote_test_skt_ablation_v1_gaz_synthetic_to_kdpii_common15_20260705_073327.md

@@ -1,0 +1,31 @@
+nohup: ignoring input
+=== XLM/OpenAI privacy cross-domain batch ===
+gpu: NVIDIA A100-SXM4-80GB, 81920 MiB, 81050 MiB
+KDPII_DATA_DIR=data  SYNTH_DATA_DIR=synthetic  split=test
+MAX_EVAL_JOBS=3
+MAX_TRAIN_JOBS=2
+XLM_KDPII_DIR=models/xlm_roberta_large/seed42
+XLM_SYNTH_DIR=models/xlm_roberta_large_synthetic/seed42
+PRIVACY_KDPII_DIR=models/privacy_filter_korean_Lora/seed42/inference
+PRIVACY_BASE_MODEL_DIR=models/privacy_filter_korean
+PRIVACY_SYNTH_INFERENCE_DIR=models/privacy_filter_korean_Lora_synthetic/seed42/inference
+
+=== Phase 1: existing-model evals in parallel ===
+[launch] xlm_kdpii_to_synthetic
+         log=logs/xlm_kdpii_to_synthetic_20260704_142711.log
+[launch] privacy_kdpii_lora_to_kdpii
+         log=logs/privacy_kdpii_lora_to_kdpii_20260704_142711.log
+[launch] privacy_kdpii_lora_to_synthetic
+         log=logs/privacy_kdpii_lora_to_synthetic_20260704_142711.log
+[done] xlm_kdpii_to_synthetic
+[done] privacy_kdpii_lora_to_kdpii
+[done] privacy_kdpii_lora_to_synthetic
+
+=== Phase 2: train synthetic models if needed ===
+[train-launch] train_xlm_synthetic
+               log=logs/train_xlm_synthetic_20260704_142824.log
+[train-launch] train_privacy_korean_lora_synthetic
+               log=logs/train_privacy_korean_lora_synthetic_20260704_142824.log
+[done] train_xlm_synthetic
+[FAIL] train_privacy_korean_lora_synthetic
+[ERROR] One or more jobs failed. Check logs/.

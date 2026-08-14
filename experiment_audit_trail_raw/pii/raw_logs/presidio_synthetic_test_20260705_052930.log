@@ -1,0 +1,36 @@
+[Presidio+ko spaCy+KO regex]
+data=/data/team/hwan/synthetic/test.json
+spacy_model=ko_core_news_lg
+include=- exclude=-
+loaded spaCy pipeline: ['tok2vec', 'tagger', 'morphologizer', 'parser', 'lemmatizer', 'attribute_ruler', 'ner']
+sentences=795
+  predicted 500/795
+
+========================================================================
+[test] Micro F1=0.4967 P=0.9978 R=0.3307
+TP=456 FP=1 FN=923
+Direct   F1=0.5412 P=0.9978 R=0.3713 TP=456 FP=1 FN=772
+Indirect F1=0.0000 P=0.0000 R=0.0000 TP=0 FP=0 FN=151
+========================================================================
+  PS_NAME                F1=0.0000 P=0.0000 R=0.0000 TP=   0 FP=   0 FN= 673
+  LC_ADDRESS             F1=0.0000 P=0.0000 R=0.0000 TP=   0 FP=   0 FN=  98
+  OG_WORKPLACE           F1=0.0000 P=0.0000 R=0.0000 TP=   0 FP=   0 FN=  48
+  OG_DEPARTMENT          F1=0.0000 P=0.0000 R=0.0000 TP=   0 FP=   0 FN=  27
+  CV_POSITION            F1=0.0000 P=0.0000 R=0.0000 TP=   0 FP=   0 FN=  11
+  OGG_EDUCATION          F1=0.0000 P=0.0000 R=0.0000 TP=   0 FP=   0 FN=   0
+  QT_MOBILE              F1=1.0000 P=1.0000 R=1.0000 TP= 123 FP=   0 FN=   0
+  QT_PHONE               F1=0.9934 P=0.9868 R=1.0000 TP=  75 FP=   1 FN=   0
+  QT_RESIDENT_NUMBER     F1=1.0000 P=1.0000 R=1.0000 TP=  15 FP=   0 FN=   0
+  QT_ALIEN_NUMBER        F1=0.0000 P=0.0000 R=0.0000 TP=   0 FP=   0 FN=   0
+  QT_DRIVER_NUMBER       F1=1.0000 P=1.0000 R=1.0000 TP=   3 FP=   0 FN=   0
+  QT_PLATE_NUMBER        F1=1.0000 P=1.0000 R=1.0000 TP=   8 FP=   0 FN=   0
+  QT_ACCOUNT_NUMBER      F1=0.9912 P=1.0000 R=0.9825 TP=  56 FP=   0 FN=   1
+  QT_CARD_NUMBER         F1=1.0000 P=1.0000 R=1.0000 TP=  27 FP=   0 FN=   0
+  TMI_EMAIL              F1=1.0000 P=1.0000 R=1.0000 TP= 140 FP=   0 FN=   0
+  QT_PASSPORT_NUMBER     F1=1.0000 P=1.0000 R=1.0000 TP=   9 FP=   0 FN=   0
+  QT_AGE                 F1=0.0000 P=0.0000 R=0.0000 TP=   0 FP=   0 FN=   0
+  DT_BIRTH               F1=0.0000 P=0.0000 R=0.0000 TP=   0 FP=   0 FN=  65
+  FD_MAJOR               F1=0.0000 P=0.0000 R=0.0000 TP=   0 FP=   0 FN=   0
+
+MD 저장: /data/team/hwan/results/presidio_ko_spacy_regex/eval_presidio_ko_spacy_regex_test_synthetic_test_20260705_052942.md
+JSON 저장: /data/team/hwan/results/presidio_ko_spacy_regex/eval_presidio_ko_spacy_regex_test_synthetic_test_20260705_052942.json
