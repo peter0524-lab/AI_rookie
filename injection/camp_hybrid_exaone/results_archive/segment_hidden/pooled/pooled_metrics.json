@@ -1,0 +1,204 @@
+{
+  "attn": {
+    "acc": 0.9791,
+    "fpr": 0.0169,
+    "fnr": 0.0056,
+    "macro_f1": 0.9757,
+    "risk": 0.0084,
+    "n_test": 6400,
+    "per_domain": {
+      "cloud": {
+        "acc": 0.975,
+        "fpr": 0.01,
+        "fnr": 0.0075
+      },
+      "coding": {
+        "acc": 0.9812,
+        "fpr": 0.015,
+        "fnr": 0.0075
+      },
+      "finance": {
+        "acc": 0.9788,
+        "fpr": 0.02,
+        "fnr": 0.0075
+      },
+      "messaging": {
+        "acc": 0.9788,
+        "fpr": 0.02,
+        "fnr": 0.0075
+      },
+      "project": {
+        "acc": 0.9663,
+        "fpr": 0.035,
+        "fnr": 0.005
+      },
+      "shopping": {
+        "acc": 0.9762,
+        "fpr": 0.0225,
+        "fnr": 0.0075
+      },
+      "social_media": {
+        "acc": 0.9925,
+        "fpr": 0.0025,
+        "fnr": 0.0
+      },
+      "web": {
+        "acc": 0.9838,
+        "fpr": 0.01,
+        "fnr": 0.0025
+      }
+    },
+    "bias": -0.2,
+    "raw": {
+      "acc": 0.9781,
+      "fpr": 0.0191,
+      "fnr": 0.0053,
+      "macro_f1": 0.9748,
+      "risk": 0.0088,
+      "n_test": 6400,
+      "per_domain": {
+        "cloud": {
+          "acc": 0.9712,
+          "fpr": 0.0175,
+          "fnr": 0.0075
+        },
+        "coding": {
+          "acc": 0.98,
+          "fpr": 0.0175,
+          "fnr": 0.0075
+        },
+        "finance": {
+          "acc": 0.9775,
+          "fpr": 0.0225,
+          "fnr": 0.0075
+        },
+        "messaging": {
+          "acc": 0.9788,
+          "fpr": 0.02,
+          "fnr": 0.0075
+        },
+        "project": {
+          "acc": 0.965,
+          "fpr": 0.0375,
+          "fnr": 0.005
+        },
+        "shopping": {
+          "acc": 0.9762,
+          "fpr": 0.025,
+          "fnr": 0.005
+        },
+        "social_media": {
+          "acc": 0.9925,
+          "fpr": 0.0025,
+          "fnr": 0.0
+        },
+        "web": {
+          "acc": 0.9838,
+          "fpr": 0.01,
+          "fnr": 0.0025
+        }
+      }
+    }
+  },
+  "hybrid": {
+    "acc": 0.9922,
+    "fpr": 0.0025,
+    "fnr": 0.0063,
+    "macro_f1": 0.9911,
+    "risk": 0.0053,
+    "n_test": 6400,
+    "per_domain": {
+      "cloud": {
+        "acc": 0.995,
+        "fpr": 0.005,
+        "fnr": 0.0
+      },
+      "coding": {
+        "acc": 0.995,
+        "fpr": 0.0,
+        "fnr": 0.01
+      },
+      "finance": {
+        "acc": 0.9912,
+        "fpr": 0.0,
+        "fnr": 0.0075
+      },
+      "messaging": {
+        "acc": 0.9862,
+        "fpr": 0.0075,
+        "fnr": 0.005
+      },
+      "project": {
+        "acc": 0.9875,
+        "fpr": 0.0,
+        "fnr": 0.01
+      },
+      "shopping": {
+        "acc": 0.9875,
+        "fpr": 0.0075,
+        "fnr": 0.01
+      },
+      "social_media": {
+        "acc": 0.9988,
+        "fpr": 0.0,
+        "fnr": 0.0025
+      },
+      "web": {
+        "acc": 0.9962,
+        "fpr": 0.0,
+        "fnr": 0.005
+      }
+    },
+    "bias": 0.1,
+    "raw": {
+      "acc": 0.992,
+      "fpr": 0.0025,
+      "fnr": 0.0066,
+      "macro_f1": 0.9909,
+      "risk": 0.0055,
+      "n_test": 6400,
+      "per_domain": {
+        "cloud": {
+          "acc": 0.995,
+          "fpr": 0.005,
+          "fnr": 0.0
+        },
+        "coding": {
+          "acc": 0.995,
+          "fpr": 0.0,
+          "fnr": 0.01
+        },
+        "finance": {
+          "acc": 0.99,
+          "fpr": 0.0,
+          "fnr": 0.01
+        },
+        "messaging": {
+          "acc": 0.9862,
+          "fpr": 0.0075,
+          "fnr": 0.005
+        },
+        "project": {
+          "acc": 0.9875,
+          "fpr": 0.0,
+          "fnr": 0.01
+        },
+        "shopping": {
+          "acc": 0.9875,
+          "fpr": 0.0075,
+          "fnr": 0.01
+        },
+        "social_media": {
+          "acc": 0.9988,
+          "fpr": 0.0,
+          "fnr": 0.0025
+        },
+        "web": {
+          "acc": 0.9962,
+          "fpr": 0.0,
+          "fnr": 0.005
+        }
+      }
+    }
+  }
+}

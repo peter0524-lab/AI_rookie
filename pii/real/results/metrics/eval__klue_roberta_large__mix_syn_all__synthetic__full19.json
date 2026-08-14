@@ -1,0 +1,20 @@
+{
+  "job_id": "eval__klue_roberta_large__mix_syn_all__synthetic__full19",
+  "model": "klue_roberta_large",
+  "model_display": "KLUE RoBERTa-large",
+  "train_set": "mix_syn_all",
+  "synthetic_ratio": "all",
+  "test_set": "synthetic",
+  "label_scope": "full19",
+  "log_path": "/data/team/hwan/real/logs/jobs/eval__klue_roberta_large__mix_syn_all__synthetic__full19.log",
+  "model_dirs": [
+    "/data/team/hwan/real/models/klue_roberta_large/mix_syn_all/seed42"
+  ],
+  "precision_micro": 0.9925,
+  "recall_micro": 0.9579,
+  "f1_micro": 0.9749,
+  "tp": 6231,
+  "fp": 47,
+  "fn": 274,
+  "result_path": "/data/team/hwan/results/ensemble_vote/eval_vote_test_real_klue_roberta_large_mix_syn_all_to_synthetic_full19_20260717_111025.md"
+}

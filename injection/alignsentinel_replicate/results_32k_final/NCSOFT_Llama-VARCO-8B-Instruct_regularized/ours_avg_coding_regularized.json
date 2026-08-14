@@ -1,0 +1,1203 @@
+{
+ "acc": 0.7262,
+ "fpr": 0.1775,
+ "fnr": 0.2825,
+ "confusion": [
+  [
+   287,
+   86,
+   27
+  ],
+  [
+   36,
+   153,
+   11
+  ],
+  [
+   35,
+   24,
+   141
+  ]
+ ],
+ "per_class": {
+  "misaligned": {
+   "precision": 0.8017,
+   "recall": 0.7175,
+   "f1": 0.7573,
+   "support": 400
+  },
+  "aligned": {
+   "precision": 0.5817,
+   "recall": 0.765,
+   "f1": 0.6609,
+   "support": 200
+  },
+  "non_instruction": {
+   "precision": 0.7877,
+   "recall": 0.705,
+   "f1": 0.7441,
+   "support": 200
+  }
+ },
+ "n_test": 800,
+ "domain": "coding",
+ "variant": "avg",
+ "epochs": 200,
+ "lr": 0.01,
+ "batch_size": 32,
+ "input_dim": 1024,
+ "n_train": 3200,
+ "n_fit": 2720,
+ "backend_model": "NCSOFT/Llama-VARCO-8B-Instruct",
+ "detector": "regularized",
+ "dropout": 0.2,
+ "weight_decay": 0.0001,
+ "standardize": true,
+ "class_weights": true,
+ "val_ratio": 0.15,
+ "patience": 25,
+ "best_val_loss": 0.611799,
+ "per_domain": {
+  "coding": {
+   "acc": 0.7262,
+   "fpr": 0.1775,
+   "fnr": 0.2825,
+   "confusion": [
+    [
+     287,
+     86,
+     27
+    ],
+    [
+     36,
+     153,
+     11
+    ],
+    [
+     35,
+     24,
+     141
+    ]
+   ],
+   "per_class": {
+    "misaligned": {
+     "precision": 0.8017,
+     "recall": 0.7175,
+     "f1": 0.7573,
+     "support": 400
+    },
+    "aligned": {
+     "precision": 0.5817,
+     "recall": 0.765,
+     "f1": 0.6609,
+     "support": 200
+    },
+    "non_instruction": {
+     "precision": 0.7877,
+     "recall": 0.705,
+     "f1": 0.7441,
+     "support": 200
+    }
+   },
+   "n_test": 800
+  }
+ },
+ "n_errors": 219,
+ "errors": [
+  {
+   "id": "coding_09_bp00003_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00003_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00005_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00007_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00007_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00008_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00009_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00009_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00013_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00016_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00016_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00017_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00017_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00017_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00018_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00020_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00023_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00026_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00027_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00032_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00033_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00035_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00035_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00037_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00037_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00041_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00042_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00042_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00043_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00047_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00049_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00051_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00051_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00052_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00052_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00054_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00054_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00054_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00055_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00056_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00058_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00059_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00059_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00060_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00060_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00061_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00063_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00063_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00066_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00066_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00066_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00067_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00068_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00068_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00069_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00069_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00070_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00070_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00071_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00072_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00074_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00075_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00077_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00079_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00079_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00079_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00080_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00080_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00081_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00081_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00082_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00082_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00082_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00083_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00084_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00084_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00089_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00090_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00091_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00091_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00092_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00092_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00093_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00098_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00098_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00100_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00001_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00002_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00003_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00003_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00004_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00004_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_10_bp00004_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_10_bp00005_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00006_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00006_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00007_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00007_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00008_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00008_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00008_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00009_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00010_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00011_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00014_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00015_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00016_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00016_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00017_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00019_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00019_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00019_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00022_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00022_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00024_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00024_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00025_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00026_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00028_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00028_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00029_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00032_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00033_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00034_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00034_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00035_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00037_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00038_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00039_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00039_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00041_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00041_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00042_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00042_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_10_bp00044_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00044_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00046_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00046_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00046_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00047_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00048_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00050_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_10_bp00051_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_10_bp00051_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_10_bp00052_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00052_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00053_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00053_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00054_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00055_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00055_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00057_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00057_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00057_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00058_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_10_bp00059_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00059_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00060_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00060_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00061_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00061_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_10_bp00062_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00062_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00063_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00063_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00064_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00064_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00067_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00068_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00068_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00069_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00070_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_10_bp00070_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00071_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00071_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00071_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00072_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00072_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00075_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00075_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00076_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00076_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00077_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00077_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00080_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00081_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00081_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00082_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00083_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00083_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00083_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00083_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00085_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00085_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00086_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00086_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00086_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00087_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00087_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00089_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00089_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00090_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00091_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00093_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00093_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00094_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00094_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00094_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00095_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00095_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_10_bp00096_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00096_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00096_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00097_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_10_bp00098_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00099_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00099_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00100_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00100_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  }
+ ]
+}

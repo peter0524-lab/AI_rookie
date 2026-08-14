@@ -1,0 +1,20 @@
+{
+  "job_id": "eval__xlm_roberta_large__mix_syn050__synthetic__full19",
+  "model": "xlm_roberta_large",
+  "model_display": "XLM-R large",
+  "train_set": "mix_syn050",
+  "synthetic_ratio": "0.5",
+  "test_set": "synthetic",
+  "label_scope": "full19",
+  "log_path": "/data/team/hwan/real/logs/jobs/eval__xlm_roberta_large__mix_syn050__synthetic__full19.log",
+  "model_dirs": [
+    "/data/team/hwan/real/models/xlm_roberta_large/mix_syn050/seed42"
+  ],
+  "precision_micro": 0.9914,
+  "recall_micro": 0.9425,
+  "f1_micro": 0.9663,
+  "tp": 6131,
+  "fp": 53,
+  "fn": 374,
+  "result_path": "/data/team/hwan/results/ensemble_vote/eval_vote_test_real_xlm_roberta_large_mix_syn050_to_synthetic_full19_20260717_142551.md"
+}

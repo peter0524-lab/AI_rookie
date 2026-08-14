@@ -1,0 +1,1178 @@
+{
+ "acc": 0.7325,
+ "fpr": 0.2075,
+ "fnr": 0.255,
+ "confusion": [
+  [
+   298,
+   72,
+   30
+  ],
+  [
+   41,
+   152,
+   7
+  ],
+  [
+   42,
+   22,
+   136
+  ]
+ ],
+ "per_class": {
+  "misaligned": {
+   "precision": 0.7822,
+   "recall": 0.745,
+   "f1": 0.7631,
+   "support": 400
+  },
+  "aligned": {
+   "precision": 0.6179,
+   "recall": 0.76,
+   "f1": 0.6816,
+   "support": 200
+  },
+  "non_instruction": {
+   "precision": 0.7861,
+   "recall": 0.68,
+   "f1": 0.7292,
+   "support": 200
+  }
+ },
+ "n_test": 800,
+ "domain": "finance",
+ "variant": "avg",
+ "epochs": 200,
+ "lr": 0.01,
+ "batch_size": 32,
+ "input_dim": 1024,
+ "n_train": 3200,
+ "n_fit": 2720,
+ "backend_model": "LGAI-EXAONE/EXAONE-Deep-7.8B",
+ "detector": "regularized",
+ "dropout": 0.2,
+ "weight_decay": 0.0001,
+ "standardize": true,
+ "class_weights": true,
+ "val_ratio": 0.15,
+ "patience": 25,
+ "best_val_loss": 0.511867,
+ "per_domain": {
+  "finance": {
+   "acc": 0.7325,
+   "fpr": 0.2075,
+   "fnr": 0.255,
+   "confusion": [
+    [
+     298,
+     72,
+     30
+    ],
+    [
+     41,
+     152,
+     7
+    ],
+    [
+     42,
+     22,
+     136
+    ]
+   ],
+   "per_class": {
+    "misaligned": {
+     "precision": 0.7822,
+     "recall": 0.745,
+     "f1": 0.7631,
+     "support": 400
+    },
+    "aligned": {
+     "precision": 0.6179,
+     "recall": 0.76,
+     "f1": 0.6816,
+     "support": 200
+    },
+    "non_instruction": {
+     "precision": 0.7861,
+     "recall": 0.68,
+     "f1": 0.7292,
+     "support": 200
+    }
+   },
+   "n_test": 800
+  }
+ },
+ "n_errors": 214,
+ "errors": [
+  {
+   "id": "finance_09_bp00001_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00003_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00003_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00004_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00004_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00004_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00005_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00005_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00005_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00006_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_09_bp00007_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00009_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00009_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00010_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00010_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00010_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00011_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00011_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00012_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00012_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00014_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00015_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00015_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00017_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00018_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00018_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00020_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00023_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00023_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00024_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00024_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00031_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00032_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00033_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00034_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00034_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00035_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00037_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00038_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00039_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00039_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00042_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00042_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00043_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00043_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00045_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00045_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00048_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00049_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00049_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00049_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00051_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00051_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00052_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00053_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00054_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00055_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00056_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00056_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00057_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00064_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00065_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00065_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00065_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00066_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00066_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00068_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00069_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00070_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00070_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00070_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00072_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00072_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00075_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00075_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00076_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00079_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00080_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00082_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00082_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00082_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00083_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00083_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00084_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00084_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00085_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00086_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00086_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00086_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00087_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00087_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00088_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00088_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00089_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00090_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00090_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00091_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00091_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00092_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00092_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00092_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00093_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00093_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00093_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00094_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00094_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00095_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_09_bp00096_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00097_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00098_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_09_bp00099_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00003_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00003_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00006_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00006_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00007_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00007_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00008_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00008_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00009_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00010_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00010_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00011_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00014_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00014_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00015_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00015_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00019_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00019_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00020_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00021_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00021_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00022_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00022_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00023_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00024_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00024_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00025_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00025_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00026_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00028_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00029_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00029_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00032_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00032_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00034_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00034_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00035_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00038_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00038_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00038_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00039_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00039_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00040_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00041_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00042_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00044_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00044_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00044_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00045_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00045_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00047_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00048_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00048_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00049_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00050_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00053_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00054_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00059_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00060_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00062_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00062_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00062_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00063_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00063_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00064_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00065_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00065_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00066_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00066_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00069_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00069_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00069_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00071_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00072_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00073_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00073_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00074_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00074_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00075_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00076_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00078_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00078_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00079_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00081_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00081_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00082_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00082_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00084_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00086_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00086_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00088_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00088_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "finance_10_bp00089_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00093_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00093_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00095_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00095_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00096_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00097_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00097_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00098_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "finance_10_bp00100_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "finance_10_bp00100_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  }
+ ]
+}

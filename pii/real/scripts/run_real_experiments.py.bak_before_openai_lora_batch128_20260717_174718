@@ -1,0 +1,793 @@
+#!/usr/bin/env python3
+"""Sequential, resumable runner for the real KDPII/synthetic experiment grid."""
+
+from __future__ import annotations
+
+import argparse
+import csv
+import json
+import os
+import re
+import subprocess
+import sys
+from dataclasses import dataclass
+from datetime import datetime
+from pathlib import Path
+from typing import Iterable
+
+
+TRAIN_SET_ORDER = [
+    ("synthetic_only", "only"),
+    ("mix_syn025", "0.25"),
+    ("mix_syn050", "0.5"),
+    ("mix_syn100", "1.0"),
+    ("mix_syn_all", "all"),
+    ("kdpii_full", "0"),
+]
+
+TEST_SET_ORDER = ["synthetic", "combined", "kdpii"]
+LABEL_SCOPES = ["full19", "common18"]
+COMMON18_EXCLUDE = "QT_ALIEN_NUMBER"
+SKT_SEEDS = [42, 43, 44]
+SINGLE_SEED = 42
+SKT_SINGLE_SEED_TRAIN_SETS = {"mix_syn100", "mix_syn_all"}
+
+
+@dataclass(frozen=True)
+class ModelSpec:
+    key: str
+    display: str
+    trainable: bool
+    eval_batch_size: int
+    train_script: str = ""
+    min_votes: int = 1
+
+
+MODELS = {
+    "skt_crf_gaz_x3": ModelSpec(
+        key="skt_crf_gaz_x3",
+        display="SKT CRF+Gaz x3",
+        trainable=True,
+        eval_batch_size=64,
+        train_script="distill_train_crf_gaz.py",
+        min_votes=2,
+    ),
+    "klue_roberta_large": ModelSpec(
+        key="klue_roberta_large",
+        display="KLUE RoBERTa-large",
+        trainable=True,
+        eval_batch_size=32,
+        train_script="train_baseline.py",
+    ),
+    "xlm_roberta_large": ModelSpec(
+        key="xlm_roberta_large",
+        display="XLM-R large",
+        trainable=True,
+        eval_batch_size=32,
+        train_script="train_baseline.py",
+    ),
+    "openai_privacy_filter_lora": ModelSpec(
+        key="openai_privacy_filter_lora",
+        display="OpenAI privacy-filter LoRA",
+        trainable=True,
+        eval_batch_size=64,
+        train_script="open_ai_privacy_filter_lora_train.py",
+    ),
+    "microsoft_presidio_spacy_regex": ModelSpec(
+        key="microsoft_presidio_spacy_regex",
+        display="Microsoft Presidio+spaCy+regex",
+        trainable=False,
+        eval_batch_size=0,
+    ),
+}
+
+
+def now() -> str:
+    return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+
+def read_json(path: Path) -> dict:
+    with path.open(encoding="utf-8") as f:
+        return json.load(f)
+
+
+def write_json(path: Path, data: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+
+def append_jsonl(path: Path, record: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+
+def append_runner_log(root: Path, message: str) -> None:
+    log_path = root / "logs" / "runner.log"
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+    with log_path.open("a", encoding="utf-8") as f:
+        f.write(f"[{now()}] {message}\n")
+    print(f"[{now()}] {message}", flush=True)
+
+
+def has_hf_model(path: Path) -> bool:
+    return (path / "config.json").exists()
+
+
+def skt_seeds_for_train_set(train_set: str) -> list[int]:
+    if train_set in SKT_SINGLE_SEED_TRAIN_SETS:
+        return [SINGLE_SEED]
+    return SKT_SEEDS
+
+
+def model_dirs_for(model_key: str, train_set: str, root: Path, code_root: Path) -> list[Path]:
+    if train_set == "kdpii_full":
+        if model_key == "skt_crf_gaz_x3":
+            return [code_root / "models" / "skt_encoder_crf_gaz_kdpii_hard" / f"seed{s}" for s in SKT_SEEDS]
+        if model_key == "klue_roberta_large":
+            return [code_root / "models" / "klue_roberta_large" / f"seed{SINGLE_SEED}"]
+        if model_key == "xlm_roberta_large":
+            return [code_root / "models" / "xlm_roberta_large" / f"seed{SINGLE_SEED}"]
+        if model_key == "openai_privacy_filter_lora":
+            return [code_root / "models" / "privacy_filter_korean_Lora" / f"seed{SINGLE_SEED}" / "inference"]
+        raise ValueError(model_key)
+
+    if model_key == "skt_crf_gaz_x3":
+        return [root / "models" / "skt_crf_gaz_x3" / train_set / f"seed{s}" for s in skt_seeds_for_train_set(train_set)]
+    if model_key == "klue_roberta_large":
+        return [root / "models" / "klue_roberta_large" / train_set / f"seed{SINGLE_SEED}"]
+    if model_key == "xlm_roberta_large":
+        return [root / "models" / "xlm_roberta_large" / train_set / f"seed{SINGLE_SEED}"]
+    if model_key == "openai_privacy_filter_lora":
+        return [root / "models" / "openai_privacy_filter_lora" / train_set / f"seed{SINGLE_SEED}" / "inference"]
+    raise ValueError(model_key)
+
+
+def train_output_dirs_for(model_key: str, train_set: str, root: Path) -> list[Path]:
+    if model_key == "skt_crf_gaz_x3":
+        return [root / "models" / "skt_crf_gaz_x3" / train_set / f"seed{s}" for s in skt_seeds_for_train_set(train_set)]
+    if model_key == "klue_roberta_large":
+        return [root / "models" / "klue_roberta_large" / train_set / f"seed{SINGLE_SEED}"]
+    if model_key == "xlm_roberta_large":
+        return [root / "models" / "xlm_roberta_large" / train_set / f"seed{SINGLE_SEED}"]
+    if model_key == "openai_privacy_filter_lora":
+        return [root / "models" / "openai_privacy_filter_lora" / train_set / f"seed{SINGLE_SEED}"]
+    raise ValueError(model_key)
+
+
+def base_env() -> dict[str, str]:
+    env = os.environ.copy()
+    env.setdefault("PYTHONUNBUFFERED", "1")
+    env.setdefault("TOKENIZERS_PARALLELISM", "false")
+    return env
+
+
+def job_paths(root: Path, job_id: str) -> tuple[Path, Path, Path]:
+    done = root / "status" / f"{job_id}.done"
+    failed = root / "status" / f"{job_id}.failed"
+    log = root / "logs" / "jobs" / f"{job_id}.log"
+    return done, failed, log
+
+
+def run_job(
+    *,
+    root: Path,
+    code_root: Path,
+    job_id: str,
+    cmd: list[str],
+    env_updates: dict[str, str] | None = None,
+    dry_run: bool = False,
+    force: bool = False,
+) -> Path:
+    done, failed, log_path = job_paths(root, job_id)
+    if done.exists() and not force:
+        append_runner_log(root, f"[skip] {job_id}")
+        return log_path
+
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+    env = base_env()
+    if env_updates:
+        env.update({k: str(v) for k, v in env_updates.items()})
+
+    append_runner_log(root, f"[run] {job_id}")
+    append_jsonl(
+        root / "status" / "jobs_status.jsonl",
+        {"time": now(), "job_id": job_id, "status": "start", "cmd": cmd},
+    )
+    if dry_run:
+        with log_path.open("w", encoding="utf-8") as f:
+            f.write("DRY RUN\n")
+            f.write(" ".join(cmd) + "\n")
+            f.write(json.dumps(env_updates or {}, ensure_ascii=False, indent=2) + "\n")
+        return log_path
+
+    with log_path.open("w", encoding="utf-8") as log:
+        log.write(f"[job] {job_id}\n")
+        log.write(f"[cwd] {code_root}\n")
+        log.write(f"[cmd] {' '.join(cmd)}\n")
+        if env_updates:
+            log.write("[env]\n")
+            for key in sorted(env_updates):
+                log.write(f"{key}={env_updates[key]}\n")
+        log.write("\n")
+        log.flush()
+        proc = subprocess.run(
+            cmd,
+            cwd=str(code_root),
+            env=env,
+            stdout=log,
+            stderr=subprocess.STDOUT,
+            text=True,
+        )
+
+    if proc.returncode == 0:
+        done.parent.mkdir(parents=True, exist_ok=True)
+        done.write_text(now(), encoding="utf-8")
+        failed.unlink(missing_ok=True)
+        append_runner_log(root, f"[done] {job_id}")
+        append_jsonl(root / "status" / "jobs_status.jsonl", {"time": now(), "job_id": job_id, "status": "done"})
+        return log_path
+
+    failed.parent.mkdir(parents=True, exist_ok=True)
+    failed.write_text(now(), encoding="utf-8")
+    append_runner_log(root, f"[fail] {job_id} see {log_path}")
+    append_jsonl(
+        root / "status" / "jobs_status.jsonl",
+        {"time": now(), "job_id": job_id, "status": "failed", "returncode": proc.returncode},
+    )
+    raise RuntimeError(f"job failed: {job_id}")
+
+
+def train_env_for(
+    *,
+    model_key: str,
+    train_set: str,
+    train_dir: Path,
+    out_dir: Path,
+    seed: int,
+    code_root: Path,
+    root: Path,
+    privacy_base_model: Path,
+) -> tuple[list[str], dict[str, str]]:
+    if model_key == "skt_crf_gaz_x3":
+        return [sys.executable, "distill_train_crf_gaz.py"], {
+            "DATA_DIR": str(train_dir),
+            "TRAIN_FILE": "train.json",
+            "VALID_FILE": "valid.json",
+            "MODEL_ID": "skt/A.X-Encoder-base",
+            "USE_KD": "0",
+            "KD_ALPHA": "1.0",
+            "USE_CRF": "1",
+            "USE_GAZETTEER": "1",
+            "USE_RDROP": "1",
+            "USE_FGM": "1",
+            "RDROP_ALPHA": "4.0",
+            "FGM_EPSILON": "1.0",
+            "MICRO_BSZ": os.environ.get("REAL_SKT_TRAIN_BSZ", "64"),
+            "GRAD_ACCUM": "1",
+            "LR": "3e-5",
+            "SEED": str(seed),
+            "OUTPUT_DIR": str(out_dir),
+            "SKIP_EVAL": "1",
+            "RUN_TAG": f"real_skt_crf_gaz_{train_set}_seed{seed}",
+        }
+    if model_key == "klue_roberta_large":
+        return [sys.executable, "train_baseline.py"], {
+            "DATA_DIR": str(train_dir),
+            "TRAIN_FILE": "train.json",
+            "VALID_FILE": "valid.json",
+            "MODEL_ID": "klue/roberta-large",
+            "LR": "2e-5",
+            "SEED": str(seed),
+            "MICRO_BSZ": os.environ.get("REAL_KLUE_TRAIN_BSZ", "16"),
+            "GRAD_ACCUM": os.environ.get("REAL_KLUE_GRAD_ACCUM", "4"),
+            "OUTPUT_DIR": str(out_dir),
+            "SKIP_EVAL": "1",
+            "RUN_TAG": f"real_klue_{train_set}_seed{seed}",
+        }
+    if model_key == "xlm_roberta_large":
+        return [sys.executable, "train_baseline.py"], {
+            "DATA_DIR": str(train_dir),
+            "TRAIN_FILE": "train.json",
+            "VALID_FILE": "valid.json",
+            "MODEL_ID": "FacebookAI/xlm-roberta-large",
+            "LR": "1e-5",
+            "SEED": str(seed),
+            "MICRO_BSZ": os.environ.get("REAL_XLM_TRAIN_BSZ", "16"),
+            "GRAD_ACCUM": os.environ.get("REAL_XLM_GRAD_ACCUM", "4"),
+            "OUTPUT_DIR": str(out_dir),
+            "SKIP_EVAL": "1",
+            "RUN_TAG": f"real_xlm_{train_set}_seed{seed}",
+        }
+    if model_key == "openai_privacy_filter_lora":
+        inference_dir = out_dir / "inference"
+        return [sys.executable, "open_ai_privacy_filter_lora_train.py"], {
+            "DATA_DIR": str(train_dir),
+            "TRAIN_FILE": "train.json",
+            "VALID_FILE": "valid.json",
+            "BASE_MODEL_DIR": str(privacy_base_model),
+            "OUTPUT_DIR": str(out_dir),
+            "INFERENCE_DIR": str(inference_dir),
+            "SEED": str(seed),
+            "LR": "5e-4",
+            "MICRO_BSZ": os.environ.get("REAL_PRIVACY_TRAIN_BSZ", "512"),
+            "GRAD_ACCUM": os.environ.get("REAL_PRIVACY_GRAD_ACCUM", "1"),
+            "SKIP_EVAL": "1",
+            "RUN_TAG": f"real_privacy_lora_{train_set}_seed{seed}",
+        }
+    raise ValueError(model_key)
+
+
+def train_model(
+    *,
+    model_key: str,
+    train_set: str,
+    args: argparse.Namespace,
+) -> None:
+    root = Path(args.root)
+    code_root = Path(args.code_root)
+    train_dir = root / "data" / "train_sets" / train_set
+    out_dirs = train_output_dirs_for(model_key, train_set, root)
+
+    for out_dir in out_dirs:
+        eval_dir = out_dir / "inference" if model_key == "openai_privacy_filter_lora" else out_dir
+        if has_hf_model(eval_dir) and not args.force_train:
+            append_runner_log(root, f"[skip-model] {model_key}/{train_set} exists: {eval_dir}")
+            continue
+        seed_match = re.search(r"seed(\d+)$", out_dir.name)
+        seed = int(seed_match.group(1)) if seed_match else SINGLE_SEED
+        job_id = f"train__{model_key}__{train_set}__seed{seed}"
+        cmd, env = train_env_for(
+            model_key=model_key,
+            train_set=train_set,
+            train_dir=train_dir,
+            out_dir=out_dir,
+            seed=seed,
+            code_root=code_root,
+            root=root,
+            privacy_base_model=Path(args.privacy_base_model),
+        )
+        try:
+            run_job(
+                root=root,
+                code_root=code_root,
+                job_id=job_id,
+                cmd=cmd,
+                env_updates=env,
+                dry_run=args.dry_run,
+                force=args.force_train,
+            )
+        except Exception as exc:
+            handle_job_error(root, exc, args)
+
+
+def eval_cmd_for_vote(
+    *,
+    model_dirs: list[Path],
+    test_dir: Path,
+    tag: str,
+    scope: str,
+    batch_size: int,
+    min_votes: int,
+) -> list[str]:
+    cmd = [
+        sys.executable,
+        "eval_baseline_ensemble_vote.py",
+        "--data-dir",
+        str(test_dir),
+        "--split",
+        "test",
+        "--min_votes",
+        str(min_votes),
+        "--no_cache",
+        "--tag",
+        tag,
+        "--batch_size",
+        str(batch_size),
+        "--max_length",
+        "256",
+    ]
+    if scope == "common18":
+        cmd.extend(["--exclude-labels", COMMON18_EXCLUDE])
+    cmd.append("--model_dirs")
+    cmd.extend(str(path) for path in model_dirs)
+    return cmd
+
+
+def eval_cmd_for_microsoft(*, test_dir: Path, tag: str, scope: str, require_presidio: bool) -> list[str]:
+    cmd = [
+        sys.executable,
+        "eval_presidio_ko_spacy_regex.py",
+        "--data-dir",
+        str(test_dir),
+        "--split",
+        "test",
+        "--tag",
+        tag,
+    ]
+    if require_presidio:
+        cmd.append("--require-presidio")
+    if scope == "common18":
+        cmd.extend(["--exclude-labels", COMMON18_EXCLUDE])
+    return cmd
+
+
+def parse_metrics_from_log(log_path: Path) -> dict:
+    text = log_path.read_text(encoding="utf-8", errors="replace")
+    metric_matches = re.findall(
+        r"Micro F1=([0-9.]+)\s+P=([0-9.]+)\s+R=([0-9.]+)\s*"
+        r"\n\s*TP=\s*([0-9]+)\s+FP=\s*([0-9]+)\s+FN=\s*([0-9]+)",
+        text,
+    )
+    md_matches = re.findall(r"MD 저장:\s*(.+)", text)
+    json_matches = re.findall(r"JSON 저장:\s*(.+)", text)
+    if not metric_matches:
+        raise ValueError(f"could not parse metrics from {log_path}")
+    f1, precision, recall, tp, fp, fn = metric_matches[-1]
+    result_path = ""
+    if json_matches:
+        result_path = json_matches[-1].strip()
+    elif md_matches:
+        result_path = md_matches[-1].strip()
+    return {
+        "precision_micro": float(precision),
+        "recall_micro": float(recall),
+        "f1_micro": float(f1),
+        "tp": int(tp),
+        "fp": int(fp),
+        "fn": int(fn),
+        "result_path": result_path,
+    }
+
+
+def write_metric(root: Path, row: dict) -> None:
+    metric_path = root / "results" / "metrics" / f"{row['job_id']}.json"
+    write_json(metric_path, row)
+    write_summaries(root)
+
+
+def metric_rows(root: Path) -> list[dict]:
+    rows = []
+    for path in sorted((root / "results" / "metrics").glob("*.json")):
+        rows.append(read_json(path))
+    return rows
+
+
+def write_summaries(root: Path) -> None:
+    rows = metric_rows(root)
+    if not rows:
+        return
+    results_dir = root / "results"
+    results_dir.mkdir(parents=True, exist_ok=True)
+
+    long_fields = [
+        "model",
+        "model_display",
+        "train_set",
+        "synthetic_ratio",
+        "test_set",
+        "label_scope",
+        "precision_micro",
+        "recall_micro",
+        "f1_micro",
+        "tp",
+        "fp",
+        "fn",
+        "job_id",
+        "log_path",
+        "result_path",
+        "model_dirs",
+    ]
+    with (results_dir / "summary_real_long.csv").open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=long_fields)
+        writer.writeheader()
+        for row in rows:
+            out = dict(row)
+            out["model_dirs"] = ";".join(out.get("model_dirs", []))
+            writer.writerow({field: out.get(field, "") for field in long_fields})
+
+    pivot: dict[tuple[str, str, str], dict] = {}
+    for row in rows:
+        key = (row["model"], row["train_set"], row["synthetic_ratio"])
+        item = pivot.setdefault(
+            key,
+            {
+                "model": row["model"],
+                "model_display": row["model_display"],
+                "train_set": row["train_set"],
+                "synthetic_ratio": row["synthetic_ratio"],
+            },
+        )
+        col = f"{row['test_set']}_{row['label_scope']}_f1"
+        item[col] = row["f1_micro"]
+        prefix = f"{row['test_set']}_{row['label_scope']}"
+        item[f"{prefix}_p"] = row["precision_micro"]
+        item[f"{prefix}_r"] = row["recall_micro"]
+        item[f"{prefix}_tp"] = row["tp"]
+        item[f"{prefix}_fp"] = row["fp"]
+        item[f"{prefix}_fn"] = row["fn"]
+
+    pivot_fields = [
+        "model",
+        "model_display",
+        "train_set",
+        "synthetic_ratio",
+        "synthetic_full19_f1",
+        "synthetic_common18_f1",
+        "combined_full19_f1",
+        "combined_common18_f1",
+        "kdpii_full19_f1",
+        "kdpii_common18_f1",
+    ]
+    with (results_dir / "summary_real_f1_pivot.csv").open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=pivot_fields)
+        writer.writeheader()
+        for item in sorted(pivot.values(), key=lambda x: (x["model"], x["train_set"])):
+            writer.writerow({field: item.get(field, "") for field in pivot_fields})
+
+    prf_fields = ["model", "model_display", "train_set", "synthetic_ratio"]
+    for test_set in TEST_SET_ORDER:
+        for scope in LABEL_SCOPES:
+            prefix = f"{test_set}_{scope}"
+            prf_fields.extend(
+                [
+                    f"{prefix}_p",
+                    f"{prefix}_r",
+                    f"{prefix}_f1",
+                    f"{prefix}_tp",
+                    f"{prefix}_fp",
+                    f"{prefix}_fn",
+                ]
+            )
+    with (results_dir / "summary_real_prf_pivot.csv").open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=prf_fields)
+        writer.writeheader()
+        for item in sorted(pivot.values(), key=lambda x: (x["model"], x["train_set"])):
+            writer.writerow({field: item.get(field, "") for field in prf_fields})
+
+
+def write_failure_summary(root: Path) -> None:
+    results_dir = root / "results"
+    results_dir.mkdir(parents=True, exist_ok=True)
+    failed = sorted((root / "status").glob("*.failed"))
+    payload = {
+        "failed_count": len(failed),
+        "failed_jobs": [path.stem for path in failed],
+        "generated_at": now(),
+    }
+    write_json(results_dir / "failed_jobs.json", payload)
+    with (results_dir / "failed_jobs.txt").open("w", encoding="utf-8") as f:
+        if not failed:
+            f.write("No failed jobs.\n")
+            return
+        f.write(f"Failed jobs: {len(failed)}\n")
+        for path in failed:
+            log_path = root / "logs" / "jobs" / f"{path.stem}.log"
+            f.write(f"{path.stem}\t{log_path}\n")
+
+
+def handle_job_error(root: Path, exc: Exception, args: argparse.Namespace) -> None:
+    if args.continue_on_error:
+        append_runner_log(root, f"[continue-after-fail] {exc}")
+        return
+    raise exc
+
+
+def evaluate_model_train_set(
+    *,
+    model_key: str,
+    train_set: str,
+    synthetic_ratio: str,
+    args: argparse.Namespace,
+) -> None:
+    root = Path(args.root)
+    code_root = Path(args.code_root)
+    spec = MODELS[model_key]
+    model_dirs = model_dirs_for(model_key, train_set, root, code_root)
+    missing = [str(path) for path in model_dirs if not has_hf_model(path)]
+    if missing and not args.dry_run:
+        exc = FileNotFoundError(f"missing model dirs for {model_key}/{train_set}: {missing}")
+        append_jsonl(
+            root / "status" / "jobs_status.jsonl",
+            {
+                "time": now(),
+                "job_id": f"eval__{model_key}__{train_set}",
+                "status": "skipped_missing_model",
+                "missing": missing,
+            },
+        )
+        handle_job_error(root, exc, args)
+        return
+
+    for test_set in TEST_SET_ORDER:
+        test_dir = root / "data" / "test_sets" / test_set
+        for scope in LABEL_SCOPES:
+            job_id = f"eval__{model_key}__{train_set}__{test_set}__{scope}"
+            tag = f"real_{model_key}_{train_set}_to_{test_set}_{scope}"
+            cmd = eval_cmd_for_vote(
+                model_dirs=model_dirs,
+                test_dir=test_dir,
+                tag=tag,
+                scope=scope,
+                batch_size=spec.eval_batch_size,
+                min_votes=min(spec.min_votes, len(model_dirs)),
+            )
+            try:
+                log_path = run_job(
+                    root=root,
+                    code_root=code_root,
+                    job_id=job_id,
+                    cmd=cmd,
+                    dry_run=args.dry_run,
+                    force=args.force_eval,
+                )
+            except Exception as exc:
+                handle_job_error(root, exc, args)
+                continue
+            if args.dry_run:
+                continue
+            try:
+                metrics = parse_metrics_from_log(log_path)
+            except Exception as exc:
+                failed = root / "status" / f"{job_id}.failed"
+                failed.parent.mkdir(parents=True, exist_ok=True)
+                failed.write_text(f"metric parse failed: {exc}\n", encoding="utf-8")
+                handle_job_error(root, exc, args)
+                continue
+            row = {
+                "job_id": job_id,
+                "model": model_key,
+                "model_display": spec.display,
+                "train_set": train_set,
+                "synthetic_ratio": synthetic_ratio,
+                "test_set": test_set,
+                "label_scope": scope,
+                "log_path": str(log_path),
+                "model_dirs": [str(path) for path in model_dirs],
+                **metrics,
+            }
+            write_metric(root, row)
+
+
+def evaluate_microsoft(args: argparse.Namespace) -> None:
+    root = Path(args.root)
+    code_root = Path(args.code_root)
+    spec = MODELS["microsoft_presidio_spacy_regex"]
+    for test_set in TEST_SET_ORDER:
+        test_dir = root / "data" / "test_sets" / test_set
+        for scope in LABEL_SCOPES:
+            job_id = f"eval__microsoft_presidio_spacy_regex__none__{test_set}__{scope}"
+            tag = f"real_microsoft_none_to_{test_set}_{scope}"
+            cmd = eval_cmd_for_microsoft(
+                test_dir=test_dir,
+                tag=tag,
+                scope=scope,
+                require_presidio=args.require_presidio,
+            )
+            try:
+                log_path = run_job(
+                    root=root,
+                    code_root=code_root,
+                    job_id=job_id,
+                    cmd=cmd,
+                    dry_run=args.dry_run,
+                    force=args.force_eval,
+                )
+            except Exception as exc:
+                handle_job_error(root, exc, args)
+                continue
+            if args.dry_run:
+                continue
+            try:
+                metrics = parse_metrics_from_log(log_path)
+            except Exception as exc:
+                failed = root / "status" / f"{job_id}.failed"
+                failed.parent.mkdir(parents=True, exist_ok=True)
+                failed.write_text(f"metric parse failed: {exc}\n", encoding="utf-8")
+                handle_job_error(root, exc, args)
+                continue
+            row = {
+                "job_id": job_id,
+                "model": spec.key,
+                "model_display": spec.display,
+                "train_set": "none",
+                "synthetic_ratio": "N/A",
+                "test_set": test_set,
+                "label_scope": scope,
+                "log_path": str(log_path),
+                "model_dirs": [],
+                **metrics,
+            }
+            write_metric(root, row)
+
+
+def selected_models(raw: str) -> list[str]:
+    if raw == "all":
+        return [
+            "skt_crf_gaz_x3",
+            "klue_roberta_large",
+            "xlm_roberta_large",
+            "openai_privacy_filter_lora",
+            "microsoft_presidio_spacy_regex",
+        ]
+    models = [item.strip() for item in raw.split(",") if item.strip()]
+    unknown = sorted(set(models) - set(MODELS))
+    if unknown:
+        raise ValueError(f"unknown models: {unknown}")
+    return models
+
+
+def selected_train_sets(raw: str) -> list[tuple[str, str]]:
+    if raw == "all":
+        return TRAIN_SET_ORDER
+    requested = [item.strip() for item in raw.split(",") if item.strip()]
+    ratios = dict(TRAIN_SET_ORDER)
+    unknown = sorted(set(requested) - set(ratios))
+    if unknown:
+        raise ValueError(f"unknown train sets: {unknown}")
+    return [(name, ratios[name]) for name in requested]
+
+
+def run(args: argparse.Namespace) -> None:
+    root = Path(args.root)
+    code_root = Path(args.code_root)
+    for path in [
+        root / "logs" / "jobs",
+        root / "status",
+        root / "results" / "metrics",
+        root / "models",
+    ]:
+        path.mkdir(parents=True, exist_ok=True)
+
+    append_runner_log(root, f"real experiment runner start root={root} code_root={code_root}")
+    models = selected_models(args.models)
+    train_sets = selected_train_sets(args.train_sets)
+
+    trainable = [m for m in models if MODELS[m].trainable]
+    for model_key in trainable:
+        for train_set, ratio in train_sets:
+            try:
+                if train_set != "kdpii_full" and not args.skip_train:
+                    train_model(model_key=model_key, train_set=train_set, args=args)
+                evaluate_model_train_set(
+                    model_key=model_key,
+                    train_set=train_set,
+                    synthetic_ratio=ratio,
+                    args=args,
+                )
+            except Exception as exc:
+                handle_job_error(root, exc, args)
+
+    if "microsoft_presidio_spacy_regex" in models:
+        try:
+            evaluate_microsoft(args)
+        except Exception as exc:
+            handle_job_error(root, exc, args)
+
+    if not args.dry_run:
+        write_summaries(root)
+        write_failure_summary(root)
+    append_runner_log(root, "real experiment runner end")
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--root", default="/data/team/hwan/real")
+    parser.add_argument("--code-root", default="/data/team/hwan")
+    parser.add_argument("--models", default="all", help="all or comma-separated model keys")
+    parser.add_argument("--train-sets", default="all", help="all or comma-separated train set names")
+    parser.add_argument("--privacy-base-model", default="/data/team/hwan/models/privacy_filter_korean")
+    parser.add_argument("--require-presidio", action="store_true", default=True)
+    parser.add_argument("--no-require-presidio", action="store_false", dest="require_presidio")
+    parser.add_argument("--skip-train", action="store_true")
+    parser.add_argument("--force-train", action="store_true")
+    parser.add_argument("--force-eval", action="store_true")
+    parser.add_argument("--continue-on-error", action="store_true", default=True)
+    parser.add_argument("--stop-on-error", action="store_false", dest="continue_on_error")
+    parser.add_argument("--dry-run", action="store_true")
+    return parser.parse_args()
+
+
+if __name__ == "__main__":
+    run(parse_args())

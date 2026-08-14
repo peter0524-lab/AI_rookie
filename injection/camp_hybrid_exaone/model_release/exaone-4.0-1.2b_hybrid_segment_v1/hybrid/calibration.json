@@ -1,0 +1,7 @@
+{
+  "misaligned_bias": 0.0,
+  "misaligned_class_id": 0,
+  "note": "hybrid는 의도적으로 보정을 적용하지 않음(bias=0, 그냥 argmax). 이유: 체크포인트 선택 기준을 val-risk로 바꾼 것만으로 risk가 이미 0.0055까지 내려가서(목표 대비 3.4배 우수), 임계값 보정을 추가로 걸어도 FPR은 완전히 동일(0.0025)하고 FNR은 test 3,200건 중 약 1건 차이(0.0066→0.0063)에 불과했다 — 노이즈 수준의 이득 대비 '보정 적용을 빠뜨리면 성능이 달라진다'는 운영 리스크가 더 크다고 판단해 hybrid는 미적용으로 확정. attn은 보정 효과가 더 커서(risk 0.0088→0.0084) 그대로 적용 유지.",
+  "measured_with_bias_0": {"acc": 0.992, "fpr": 0.0025, "fnr": 0.0066, "risk": 0.0055},
+  "measured_with_bias_0.10_reference_only": {"acc": 0.992, "fpr": 0.0025, "fnr": 0.0063, "risk": 0.0053}
+}

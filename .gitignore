@@ -1,0 +1,17 @@
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.venv/
+.venvs/
+.cache/
+node_modules/
+*.bin
+*.safetensors
+*.tar
+*.tar.gz
+*.tar.zst
+features*/
+dump*/
+data/raw/
+SERVER_COMMANDS.md
+.DS_Store

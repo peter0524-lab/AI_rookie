@@ -1,0 +1,543 @@
+{
+ "acc": 0.8912,
+ "fpr": 0.0475,
+ "fnr": 0.125,
+ "confusion": [
+  [
+   350,
+   47,
+   3
+  ],
+  [
+   12,
+   183,
+   5
+  ],
+  [
+   7,
+   13,
+   180
+  ]
+ ],
+ "per_class": {
+  "misaligned": {
+   "precision": 0.9485,
+   "recall": 0.875,
+   "f1": 0.9103,
+   "support": 400
+  },
+  "aligned": {
+   "precision": 0.7531,
+   "recall": 0.915,
+   "f1": 0.8262,
+   "support": 200
+  },
+  "non_instruction": {
+   "precision": 0.9574,
+   "recall": 0.9,
+   "f1": 0.9278,
+   "support": 200
+  }
+ },
+ "n_test": 800,
+ "domain": "project",
+ "variant": "enc",
+ "epochs": 200,
+ "lr": 0.01,
+ "batch_size": 16,
+ "input_dim": 1536,
+ "n_train": 3200,
+ "n_fit": 2720,
+ "backend_model": "upstage/SOLAR-10.7B-Instruct-v1.0",
+ "detector": "regularized",
+ "dropout": 0.2,
+ "weight_decay": 0.0001,
+ "standardize": true,
+ "class_weights": true,
+ "val_ratio": 0.15,
+ "patience": 25,
+ "best_val_loss": 0.307675,
+ "per_domain": {
+  "project": {
+   "acc": 0.8912,
+   "fpr": 0.0475,
+   "fnr": 0.125,
+   "confusion": [
+    [
+     350,
+     47,
+     3
+    ],
+    [
+     12,
+     183,
+     5
+    ],
+    [
+     7,
+     13,
+     180
+    ]
+   ],
+   "per_class": {
+    "misaligned": {
+     "precision": 0.9485,
+     "recall": 0.875,
+     "f1": 0.9103,
+     "support": 400
+    },
+    "aligned": {
+     "precision": 0.7531,
+     "recall": 0.915,
+     "f1": 0.8262,
+     "support": 200
+    },
+    "non_instruction": {
+     "precision": 0.9574,
+     "recall": 0.9,
+     "f1": 0.9278,
+     "support": 200
+    }
+   },
+   "n_test": 800
+  }
+ },
+ "n_errors": 87,
+ "errors": [
+  {
+   "id": "project_09_bp00002_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00003_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00006_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00008_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "project_09_bp00009_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00010_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00013_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00015_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00015_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00016_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00018_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00019_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00020_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00020_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00021_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00023_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00023_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00024_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00025_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00026_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00026_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00029_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00029_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00030_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00030_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00032_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00033_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00034_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00041_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "project_09_bp00044_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00045_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00046_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00046_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00046_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00047_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00047_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00051_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00052_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00053_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "project_09_bp00057_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00058_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "project_09_bp00058_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00060_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00060_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00061_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00061_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00062_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00063_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00064_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00064_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00064_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00065_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00066_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00067_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00068_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00068_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00083_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00084_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_09_bp00087_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00088_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00093_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_09_bp00100_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_10_bp00023_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00024_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "project_10_bp00027_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00027_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_10_bp00029_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "project_10_bp00030_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00032_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_10_bp00034_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_10_bp00048_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00058_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00059_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_10_bp00061_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00065_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00068_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00070_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "project_10_bp00074_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_10_bp00076_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_10_bp00077_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "project_10_bp00078_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00079_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00079_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00084_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00086_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "project_10_bp00092_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "project_10_bp00095_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  }
+ ]
+}

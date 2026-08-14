@@ -1,0 +1,21 @@
+{
+  "A_hybrid_concat": {
+    "acc": 0.905,
+    "fpr": 0.1025,
+    "fnr": 0.0225,
+    "macro_f1": 0.891,
+    "n_test": 800
+  },
+  "B_attn_bigK": {
+    "acc": 0.9087,
+    "fpr": 0.095,
+    "fnr": 0.0225,
+    "macro_f1": 0.8945,
+    "n_test": 800
+  },
+  "error_overlap": {
+    "both": 24,
+    "only_a": 52,
+    "only_b": 49
+  }
+}

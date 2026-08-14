@@ -1,0 +1,64 @@
+{
+  "attn": {
+    "acc": 0.9912,
+    "fpr": 0.005,
+    "fnr": 0.0075,
+    "macro_f1": 0.9904,
+    "risk": 0.0069,
+    "n_test": 800,
+    "per_domain": {
+      "shopping": {
+        "acc": 0.9912,
+        "fpr": 0.005,
+        "fnr": 0.0075
+      }
+    },
+    "bias": 0.0,
+    "raw": {
+      "acc": 0.9912,
+      "fpr": 0.005,
+      "fnr": 0.0075,
+      "macro_f1": 0.9904,
+      "risk": 0.0069,
+      "n_test": 800,
+      "per_domain": {
+        "shopping": {
+          "acc": 0.9912,
+          "fpr": 0.005,
+          "fnr": 0.0075
+        }
+      }
+    }
+  },
+  "hybrid": {
+    "acc": 0.9975,
+    "fpr": 0.0,
+    "fnr": 0.0025,
+    "macro_f1": 0.9971,
+    "risk": 0.0019,
+    "n_test": 800,
+    "per_domain": {
+      "shopping": {
+        "acc": 0.9975,
+        "fpr": 0.0,
+        "fnr": 0.0025
+      }
+    },
+    "bias": -1.5,
+    "raw": {
+      "acc": 0.9962,
+      "fpr": 0.0025,
+      "fnr": 0.0025,
+      "macro_f1": 0.9958,
+      "risk": 0.0025,
+      "n_test": 800,
+      "per_domain": {
+        "shopping": {
+          "acc": 0.9962,
+          "fpr": 0.0025,
+          "fnr": 0.0025
+        }
+      }
+    }
+  }
+}

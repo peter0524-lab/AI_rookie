@@ -1,0 +1,22 @@
+{
+  "job_id": "eval__skt_crf_gaz_x3__mix_syn100__synthetic__common18",
+  "model": "skt_crf_gaz_x3",
+  "model_display": "SKT CRF+Gaz x3",
+  "train_set": "mix_syn100",
+  "synthetic_ratio": "1.0",
+  "test_set": "synthetic",
+  "label_scope": "common18",
+  "log_path": "/data/team/hwan/real/logs/jobs/eval__skt_crf_gaz_x3__mix_syn100__synthetic__common18.log",
+  "model_dirs": [
+    "/data/team/hwan/real/models/skt_crf_gaz_x3/mix_syn100/seed42",
+    "/data/team/hwan/real/models/skt_crf_gaz_x3/mix_syn100/seed43",
+    "/data/team/hwan/real/models/skt_crf_gaz_x3/mix_syn100/seed44"
+  ],
+  "precision_micro": 0.9957,
+  "recall_micro": 0.9579,
+  "f1_micro": 0.9764,
+  "tp": 6231,
+  "fp": 27,
+  "fn": 274,
+  "result_path": "/data/team/hwan/results/ensemble_vote/eval_vote_test_real_skt_crf_gaz_x3_mix_syn100_to_synthetic_common18_20260716_214903.md"
+}

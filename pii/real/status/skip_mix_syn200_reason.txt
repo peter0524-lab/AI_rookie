@@ -1,0 +1,2 @@
+2026-07-16 11:52:57
+Reason: mix_syn200 train/valid files are byte-identical to mix_syn_all, so this redundant setting is skipped. Existing running job was not interrupted.

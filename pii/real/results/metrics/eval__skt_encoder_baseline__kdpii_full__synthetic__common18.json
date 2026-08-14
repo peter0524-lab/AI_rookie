@@ -1,0 +1,20 @@
+{
+  "model": "skt_encoder_baseline",
+  "model_display": "SKT A.X Encoder",
+  "train_set": "kdpii_full",
+  "synthetic_ratio": "0",
+  "test_set": "synthetic",
+  "label_scope": "common18",
+  "precision_micro": 0.8174,
+  "recall_micro": 0.8887,
+  "f1_micro": 0.8516,
+  "tp": 5781,
+  "fp": 1291,
+  "fn": 724,
+  "result_path": "/data/team/hwan/results/ensemble_vote/eval_vote_test_real_skt_encoder_baseline_kdpii_full_to_synthetic_common18_20260731_121037.md",
+  "job_id": "eval__skt_encoder_baseline__kdpii_full__synthetic__common18",
+  "log_path": "/data/team/hwan/real/logs/jobs/eval__skt_encoder_baseline__kdpii_full__synthetic__common18.log",
+  "model_dirs": [
+    "/data/team/hwan/real/models/skt_encoder_baseline/kdpii_full/seed42"
+  ]
+}

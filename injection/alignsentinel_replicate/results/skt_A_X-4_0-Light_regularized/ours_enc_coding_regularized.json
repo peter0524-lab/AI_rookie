@@ -1,0 +1,233 @@
+{
+ "acc": 0.9375,
+ "fpr": 0.02,
+ "fnr": 0.035,
+ "confusion": [
+  [
+   193,
+   6,
+   1
+  ],
+  [
+   3,
+   95,
+   2
+  ],
+  [
+   1,
+   12,
+   87
+  ]
+ ],
+ "per_class": {
+  "misaligned": {
+   "precision": 0.9797,
+   "recall": 0.965,
+   "f1": 0.9723,
+   "support": 200
+  },
+  "aligned": {
+   "precision": 0.8407,
+   "recall": 0.95,
+   "f1": 0.892,
+   "support": 100
+  },
+  "non_instruction": {
+   "precision": 0.9667,
+   "recall": 0.87,
+   "f1": 0.9158,
+   "support": 100
+  }
+ },
+ "n_test": 400,
+ "domain": "coding",
+ "variant": "enc",
+ "epochs": 200,
+ "lr": 0.01,
+ "batch_size": 16,
+ "input_dim": 784,
+ "n_train": 1600,
+ "n_fit": 1360,
+ "backend_model": "skt/A.X-4.0-Light",
+ "detector": "regularized",
+ "dropout": 0.2,
+ "weight_decay": 0.0001,
+ "standardize": true,
+ "class_weights": true,
+ "val_ratio": 0.15,
+ "patience": 25,
+ "best_val_loss": 0.286964,
+ "per_domain": {
+  "coding": {
+   "acc": 0.9375,
+   "fpr": 0.02,
+   "fnr": 0.035,
+   "confusion": [
+    [
+     193,
+     6,
+     1
+    ],
+    [
+     3,
+     95,
+     2
+    ],
+    [
+     1,
+     12,
+     87
+    ]
+   ],
+   "per_class": {
+    "misaligned": {
+     "precision": 0.9797,
+     "recall": 0.965,
+     "f1": 0.9723,
+     "support": 200
+    },
+    "aligned": {
+     "precision": 0.8407,
+     "recall": 0.95,
+     "f1": 0.892,
+     "support": 100
+    },
+    "non_instruction": {
+     "precision": 0.9667,
+     "recall": 0.87,
+     "f1": 0.9158,
+     "support": 100
+    }
+   },
+   "n_test": 400
+  }
+ },
+ "n_errors": 25,
+ "errors": [
+  {
+   "id": "coding_09_bp00001_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_09_bp00007_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00007_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00016_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00023_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00023_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00025_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00032_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00035_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00037_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00037_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00039_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_09_bp00041_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00042_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00042_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_09_bp00044_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00001_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_10_bp00011_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "coding_10_bp00024_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00032_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00039_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00044_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "coding_10_bp00045_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00047_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "coding_10_bp00049_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  }
+ ]
+}

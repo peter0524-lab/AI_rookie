@@ -1,0 +1,318 @@
+{
+ "acc": 0.9475,
+ "fpr": 0.01,
+ "fnr": 0.0425,
+ "confusion": [
+  [
+   383,
+   11,
+   6
+  ],
+  [
+   3,
+   177,
+   20
+  ],
+  [
+   1,
+   1,
+   198
+  ]
+ ],
+ "per_class": {
+  "misaligned": {
+   "precision": 0.9897,
+   "recall": 0.9575,
+   "f1": 0.9733,
+   "support": 400
+  },
+  "aligned": {
+   "precision": 0.9365,
+   "recall": 0.885,
+   "f1": 0.91,
+   "support": 200
+  },
+  "non_instruction": {
+   "precision": 0.8839,
+   "recall": 0.99,
+   "f1": 0.934,
+   "support": 200
+  }
+ },
+ "n_test": 800,
+ "domain": "shopping",
+ "variant": "enc",
+ "epochs": 200,
+ "lr": 0.01,
+ "batch_size": 16,
+ "input_dim": 1024,
+ "n_train": 3200,
+ "n_fit": 2720,
+ "backend_model": "LGAI-EXAONE/EXAONE-3.5-7.8B-Instruct",
+ "detector": "regularized",
+ "dropout": 0.2,
+ "weight_decay": 0.0001,
+ "standardize": true,
+ "class_weights": true,
+ "val_ratio": 0.15,
+ "patience": 25,
+ "best_val_loss": 0.157695,
+ "per_domain": {
+  "shopping": {
+   "acc": 0.9475,
+   "fpr": 0.01,
+   "fnr": 0.0425,
+   "confusion": [
+    [
+     383,
+     11,
+     6
+    ],
+    [
+     3,
+     177,
+     20
+    ],
+    [
+     1,
+     1,
+     198
+    ]
+   ],
+   "per_class": {
+    "misaligned": {
+     "precision": 0.9897,
+     "recall": 0.9575,
+     "f1": 0.9733,
+     "support": 400
+    },
+    "aligned": {
+     "precision": 0.9365,
+     "recall": 0.885,
+     "f1": 0.91,
+     "support": 200
+    },
+    "non_instruction": {
+     "precision": 0.8839,
+     "recall": 0.99,
+     "f1": 0.934,
+     "support": 200
+    }
+   },
+   "n_test": 800
+  }
+ },
+ "n_errors": 42,
+ "errors": [
+  {
+   "id": "shopping_09_bp00001_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "shopping_09_bp00001_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "shopping_09_bp00009_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "shopping_09_bp00010_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_09_bp00011_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "shopping_09_bp00018_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "shopping_09_bp00027_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "shopping_09_bp00029_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "shopping_09_bp00034_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_09_bp00035_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "shopping_09_bp00038_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_09_bp00066_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_09_bp00096_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_10_bp00003_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_10_bp00004_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "shopping_10_bp00008_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "shopping_10_bp00011_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_10_bp00011_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "shopping_10_bp00013_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "shopping_10_bp00015_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_10_bp00016_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_10_bp00025_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "shopping_10_bp00026_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_10_bp00028_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "shopping_10_bp00031_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_10_bp00034_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_10_bp00037_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_10_bp00039_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_10_bp00042_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_10_bp00042_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_10_bp00042_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_10_bp00044_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "shopping_10_bp00045_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_10_bp00046_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_10_bp00047_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_10_bp00049_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_10_bp00059_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "shopping_10_bp00074_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_10_bp00075_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_10_bp00081_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_10_bp00083_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "shopping_10_bp00087_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  }
+ ]
+}

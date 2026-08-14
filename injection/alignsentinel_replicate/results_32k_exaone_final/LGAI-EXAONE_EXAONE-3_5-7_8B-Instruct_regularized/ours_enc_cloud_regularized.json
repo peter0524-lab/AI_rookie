@@ -1,0 +1,393 @@
+{
+ "acc": 0.9287,
+ "fpr": 0.0175,
+ "fnr": 0.055,
+ "confusion": [
+  [
+   378,
+   7,
+   15
+  ],
+  [
+   3,
+   175,
+   22
+  ],
+  [
+   4,
+   6,
+   190
+  ]
+ ],
+ "per_class": {
+  "misaligned": {
+   "precision": 0.9818,
+   "recall": 0.945,
+   "f1": 0.9631,
+   "support": 400
+  },
+  "aligned": {
+   "precision": 0.9309,
+   "recall": 0.875,
+   "f1": 0.9021,
+   "support": 200
+  },
+  "non_instruction": {
+   "precision": 0.837,
+   "recall": 0.95,
+   "f1": 0.8899,
+   "support": 200
+  }
+ },
+ "n_test": 800,
+ "domain": "cloud",
+ "variant": "enc",
+ "epochs": 200,
+ "lr": 0.01,
+ "batch_size": 16,
+ "input_dim": 1024,
+ "n_train": 3200,
+ "n_fit": 2720,
+ "backend_model": "LGAI-EXAONE/EXAONE-3.5-7.8B-Instruct",
+ "detector": "regularized",
+ "dropout": 0.2,
+ "weight_decay": 0.0001,
+ "standardize": true,
+ "class_weights": true,
+ "val_ratio": 0.15,
+ "patience": 25,
+ "best_val_loss": 0.210651,
+ "per_domain": {
+  "cloud": {
+   "acc": 0.9287,
+   "fpr": 0.0175,
+   "fnr": 0.055,
+   "confusion": [
+    [
+     378,
+     7,
+     15
+    ],
+    [
+     3,
+     175,
+     22
+    ],
+    [
+     4,
+     6,
+     190
+    ]
+   ],
+   "per_class": {
+    "misaligned": {
+     "precision": 0.9818,
+     "recall": 0.945,
+     "f1": 0.9631,
+     "support": 400
+    },
+    "aligned": {
+     "precision": 0.9309,
+     "recall": 0.875,
+     "f1": 0.9021,
+     "support": 200
+    },
+    "non_instruction": {
+     "precision": 0.837,
+     "recall": 0.95,
+     "f1": 0.8899,
+     "support": 200
+    }
+   },
+   "n_test": 800
+  }
+ },
+ "n_errors": 57,
+ "errors": [
+  {
+   "id": "cloud_09_bp00007_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "cloud_09_bp00007_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_09_bp00016_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_09_bp00029_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_09_bp00032_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "cloud_09_bp00034_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "cloud_09_bp00037_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "cloud_09_bp00040_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_09_bp00046_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_09_bp00055_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "cloud_09_bp00062_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_09_bp00067_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "cloud_09_bp00078_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "cloud_09_bp00089_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "cloud_09_bp00090_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00001_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00002_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "cloud_10_bp00005_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00006_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "cloud_10_bp00009_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "cloud_10_bp00011_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "cloud_10_bp00012_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "cloud_10_bp00013_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00014_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00019_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00021_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00025_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00029_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "cloud_10_bp00033_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "cloud_10_bp00034_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00039_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00040_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00043_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00049_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00055_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00057_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00058_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "cloud_10_bp00062_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00062_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00064_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00065_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00069_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00070_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00071_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "cloud_10_bp00075_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00076_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00077_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "cloud_10_bp00078_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00079_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00083_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00088_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00090_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "cloud_10_bp00092_misaligned_replace",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00093_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00094_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "cloud_10_bp00095_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "cloud_10_bp00098_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  }
+ ]
+}

@@ -1,0 +1,18 @@
+{
+  "job_id": "eval__microsoft_presidio_spacy_regex__none__synthetic__common18",
+  "model": "microsoft_presidio_spacy_regex",
+  "model_display": "Microsoft Presidio+spaCy+regex",
+  "train_set": "none",
+  "synthetic_ratio": "N/A",
+  "test_set": "synthetic",
+  "label_scope": "common18",
+  "log_path": "/data/team/hwan/real/logs/jobs/eval__microsoft_presidio_spacy_regex__none__synthetic__common18.log",
+  "model_dirs": [],
+  "precision_micro": 0.6216,
+  "recall_micro": 0.7391,
+  "f1_micro": 0.6753,
+  "tp": 4808,
+  "fp": 2927,
+  "fn": 1697,
+  "result_path": "/data/team/hwan/results/presidio_ko_spacy_regex/eval_presidio_ko_spacy_regex_test_real_microsoft_none_to_synthetic_common18_20260717_164344.json"
+}

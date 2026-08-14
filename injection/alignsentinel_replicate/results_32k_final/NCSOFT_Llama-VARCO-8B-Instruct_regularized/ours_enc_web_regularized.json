@@ -1,0 +1,313 @@
+{
+ "acc": 0.9487,
+ "fpr": 0.0175,
+ "fnr": 0.0425,
+ "confusion": [
+  [
+   383,
+   14,
+   3
+  ],
+  [
+   3,
+   193,
+   4
+  ],
+  [
+   4,
+   13,
+   183
+  ]
+ ],
+ "per_class": {
+  "misaligned": {
+   "precision": 0.9821,
+   "recall": 0.9575,
+   "f1": 0.9696,
+   "support": 400
+  },
+  "aligned": {
+   "precision": 0.8773,
+   "recall": 0.965,
+   "f1": 0.919,
+   "support": 200
+  },
+  "non_instruction": {
+   "precision": 0.9632,
+   "recall": 0.915,
+   "f1": 0.9385,
+   "support": 200
+  }
+ },
+ "n_test": 800,
+ "domain": "web",
+ "variant": "enc",
+ "epochs": 200,
+ "lr": 0.01,
+ "batch_size": 16,
+ "input_dim": 1024,
+ "n_train": 3200,
+ "n_fit": 2720,
+ "backend_model": "NCSOFT/Llama-VARCO-8B-Instruct",
+ "detector": "regularized",
+ "dropout": 0.2,
+ "weight_decay": 0.0001,
+ "standardize": true,
+ "class_weights": true,
+ "val_ratio": 0.15,
+ "patience": 25,
+ "best_val_loss": 0.229019,
+ "per_domain": {
+  "web": {
+   "acc": 0.9487,
+   "fpr": 0.0175,
+   "fnr": 0.0425,
+   "confusion": [
+    [
+     383,
+     14,
+     3
+    ],
+    [
+     3,
+     193,
+     4
+    ],
+    [
+     4,
+     13,
+     183
+    ]
+   ],
+   "per_class": {
+    "misaligned": {
+     "precision": 0.9821,
+     "recall": 0.9575,
+     "f1": 0.9696,
+     "support": 400
+    },
+    "aligned": {
+     "precision": 0.8773,
+     "recall": 0.965,
+     "f1": 0.919,
+     "support": 200
+    },
+    "non_instruction": {
+     "precision": 0.9632,
+     "recall": 0.915,
+     "f1": 0.9385,
+     "support": 200
+    }
+   },
+   "n_test": 800
+  }
+ },
+ "n_errors": 41,
+ "errors": [
+  {
+   "id": "web_09_bp00004_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "web_09_bp00004_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "web_09_bp00004_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_09_bp00012_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_09_bp00012_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "web_09_bp00019_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_09_bp00044_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "web_09_bp00048_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "web_09_bp00052_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "web_09_bp00066_aligned",
+   "true": "aligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "web_09_bp00069_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_09_bp00074_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_09_bp00089_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_10_bp00008_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "web_10_bp00011_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_10_bp00013_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_10_bp00014_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_10_bp00016_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_10_bp00023_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_10_bp00028_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_10_bp00029_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_10_bp00031_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_10_bp00037_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_10_bp00038_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_10_bp00039_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_10_bp00041_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_10_bp00049_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_10_bp00050_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "web_10_bp00052_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "web_10_bp00056_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_10_bp00059_misaligned_replace",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_10_bp00064_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_10_bp00065_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "web_10_bp00065_aligned",
+   "true": "aligned",
+   "pred": "misaligned"
+  },
+  {
+   "id": "web_10_bp00067_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_10_bp00074_misaligned_append",
+   "true": "misaligned",
+   "pred": "non_instruction"
+  },
+  {
+   "id": "web_10_bp00081_non_instruction",
+   "true": "non_instruction",
+   "pred": "misaligned"
+  },
+  {
+   "id": "web_10_bp00091_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_10_bp00092_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_10_bp00093_misaligned_append",
+   "true": "misaligned",
+   "pred": "aligned"
+  },
+  {
+   "id": "web_10_bp00097_non_instruction",
+   "true": "non_instruction",
+   "pred": "aligned"
+  }
+ ]
+}

@@ -1,0 +1,5 @@
+{
+  "misaligned_bias": -0.1999999999999975,
+  "misaligned_class_id": 0,
+  "note": "추론 시 classifier 출력 로짓 중 misaligned(class 0)에 이 값을 더한 뒤 argmax"
+}

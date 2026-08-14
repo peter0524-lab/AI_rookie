@@ -1,0 +1,64 @@
+{
+  "attn": {
+    "acc": 0.9862,
+    "fpr": 0.0125,
+    "fnr": 0.0075,
+    "macro_f1": 0.985,
+    "risk": 0.0088,
+    "n_test": 800,
+    "per_domain": {
+      "project": {
+        "acc": 0.9862,
+        "fpr": 0.0125,
+        "fnr": 0.0075
+      }
+    },
+    "bias": 0.0,
+    "raw": {
+      "acc": 0.9862,
+      "fpr": 0.0125,
+      "fnr": 0.0075,
+      "macro_f1": 0.985,
+      "risk": 0.0088,
+      "n_test": 800,
+      "per_domain": {
+        "project": {
+          "acc": 0.9862,
+          "fpr": 0.0125,
+          "fnr": 0.0075
+        }
+      }
+    }
+  },
+  "hybrid": {
+    "acc": 0.99,
+    "fpr": 0.015,
+    "fnr": 0.0,
+    "macro_f1": 0.9891,
+    "risk": 0.0037,
+    "n_test": 800,
+    "per_domain": {
+      "project": {
+        "acc": 0.99,
+        "fpr": 0.015,
+        "fnr": 0.0
+      }
+    },
+    "bias": 0.0,
+    "raw": {
+      "acc": 0.99,
+      "fpr": 0.015,
+      "fnr": 0.0,
+      "macro_f1": 0.9891,
+      "risk": 0.0037,
+      "n_test": 800,
+      "per_domain": {
+        "project": {
+          "acc": 0.99,
+          "fpr": 0.015,
+          "fnr": 0.0
+        }
+      }
+    }
+  }
+}

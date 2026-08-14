@@ -1,0 +1,32 @@
+model,model_display,train_set,synthetic_ratio,synthetic_full19_f1,synthetic_common18_f1,combined_full19_f1,combined_common18_f1,kdpii_full19_f1,kdpii_common18_f1
+klue_roberta_large,KLUE RoBERTa-large,kdpii_full,0,0.912,0.9121,0.9216,0.9217,0.9678,0.968
+klue_roberta_large,KLUE RoBERTa-large,mix_syn025,0.25,0.9706,0.9706,0.9699,0.9699,0.9664,0.9665
+klue_roberta_large,KLUE RoBERTa-large,mix_syn050,0.5,0.9719,0.9719,0.9699,0.9699,0.9603,0.9601
+klue_roberta_large,KLUE RoBERTa-large,mix_syn100,1.0,0.9751,0.9751,0.9721,0.9721,0.9584,0.9581
+klue_roberta_large,KLUE RoBERTa-large,mix_syn_all,all,0.9749,0.9749,0.9726,0.9726,0.9621,0.9619
+klue_roberta_large,KLUE RoBERTa-large,synthetic_only,only,0.9757,0.9757,0.9209,0.9208,0.6394,0.6367
+microsoft_presidio_spacy_regex,Microsoft Presidio+spaCy+regex,none,N/A,0.6753,0.6753,0.6477,0.6473,0.517,0.5141
+openai_privacy_filter_lora,OpenAI privacy-filter LoRA,kdpii_full,0,0.4362,0.4366,0.4627,0.4622,0.5756,0.5717
+openai_privacy_filter_lora,OpenAI privacy-filter LoRA,mix_syn025,0.25,0.5775,0.5775,0.5766,0.576,0.5758,0.572
+openai_privacy_filter_lora,OpenAI privacy-filter LoRA,mix_syn050,0.5,0.5796,0.5796,0.5793,0.5786,0.5803,0.5765
+openai_privacy_filter_lora,OpenAI privacy-filter LoRA,mix_syn100,1.0,0.592,0.592,0.5883,0.5876,0.571,0.5671
+openai_privacy_filter_lora,OpenAI privacy-filter LoRA,mix_syn_all,all,0.5864,0.5864,0.5832,0.5826,0.5679,0.5639
+openai_privacy_filter_lora,OpenAI privacy-filter LoRA,synthetic_only,only,0.5875,0.5875,0.5597,0.559,0.4245,0.419
+skt_crf_gaz_x3,SKT CRF+Gaz x3,kdpii_full,0,0.9073,0.9073,0.9179,0.9178,0.9686,0.9684
+skt_crf_gaz_x3,SKT CRF+Gaz x3,mix_syn025,0.25,0.9732,0.9732,0.972,0.972,0.9668,0.9665
+skt_crf_gaz_x3,SKT CRF+Gaz x3,mix_syn050,0.5,0.9753,0.9753,0.9737,0.9736,0.9658,0.9656
+skt_crf_gaz_x3,SKT CRF+Gaz x3,mix_syn100,1.0,0.9764,0.9764,0.9735,0.9735,0.9597,0.9594
+skt_crf_gaz_x3,SKT CRF+Gaz x3,mix_syn_all,all,0.9767,0.9767,0.9745,0.9744,0.9638,0.9635
+skt_crf_gaz_x3,SKT CRF+Gaz x3,synthetic_only,only,0.9783,0.9783,0.9305,0.9305,0.6646,0.662
+skt_encoder_baseline,SKT A.X Encoder,kdpii_full,0,0.851,0.8516,0.8651,0.8655,0.9362,0.9357
+skt_encoder_baseline,SKT A.X Encoder,mix_syn025,0.25,0.9606,0.9606,0.9561,0.956,0.9348,0.9343
+skt_encoder_baseline,SKT A.X Encoder,mix_syn050,0.50,0.9672,0.9672,0.96,0.96,0.9259,0.9254
+skt_encoder_baseline,SKT A.X Encoder,mix_syn100,1.00,0.9691,0.9691,0.9627,0.9626,0.9323,0.9319
+skt_encoder_baseline,SKT A.X Encoder,mix_syn_all,all,0.9674,0.9674,0.9598,0.9597,0.9231,0.9226
+skt_encoder_baseline,SKT A.X Encoder,synthetic_only,only,0.9706,0.9706,0.9032,0.9031,0.5594,0.5562
+xlm_roberta_large,XLM-R large,kdpii_full,0,0.8938,0.8938,0.9046,0.9045,0.9571,0.9568
+xlm_roberta_large,XLM-R large,mix_syn025,0.25,0.9639,0.9639,0.963,0.963,0.959,0.9587
+xlm_roberta_large,XLM-R large,mix_syn050,0.5,0.9663,0.9663,0.9651,0.9651,0.9593,0.959
+xlm_roberta_large,XLM-R large,mix_syn100,1.0,0.968,0.968,0.9665,0.9665,0.9596,0.9593
+xlm_roberta_large,XLM-R large,mix_syn_all,all,0.9662,0.9662,0.9635,0.9634,0.9506,0.9503
+xlm_roberta_large,XLM-R large,synthetic_only,only,0.9689,0.9689,0.9178,0.9177,0.6651,0.6627
